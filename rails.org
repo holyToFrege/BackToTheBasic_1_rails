@@ -9,5 +9,19 @@
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/setup/theme-readtheorg.setup
 #+LATEX_HEADER: \usepackage{kotex}
 #+latex_header: \hypersetup{colorlinks=true}
-* Rails 
-* 
+* [Chapter1] From Zero to Deploy
+* [Chapter2] A toy app
+
+* [Chapter3] Mostly static pages
+* [Chapter4] Rails-flavored Ruby
+* [Chapter5] Filling in the layout
+* [Chapter6] Modeling users
+* [Chapter7] Sign up
+* [Chapter8] Basic Login
+* [Chapter9] Advanced login
+* [Chapter10] Updating, showing, and deleting users
+* [Chapter11] Account Activation
+* [Chapter12] Password Reset
+* [Chatper13] User Microposts
+* [Chapter14] Following Users
+
