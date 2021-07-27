@@ -13,7 +13,7 @@
 rails s -e production, rails s는 develop mode로 동작한다. default값이라서..만일 rails s -e production이라고 한다면, production mode로 동작한다.
 cap production deploy에서 production은 production으로 동작하는가? Gemfiles나 database.yml에서 production으로 되는가?
 * rbenv-vars와 database.yml관계
-cap production deploy하면 db:migrate를 하는데, database.yml에서 정의한대로 database가 만들어 지지 않는다. 아예 참조를 하지 않는거 같다.
+cap production deploy하면 db:migrate를 하는데, database.yml에서 정의한대로 database가 만들어 지지 않는다. 아예 참조를 하지 않는거 같다. 즉 cap production deploy할때 db:migrate할 때, db위치에대한 정보가 있어야 한다. host라던가, id,pw,database...이런것들이 rbenv-vars에 정의되어 있다면, 그 정보로 db에 연결하는 듯하다. 만일 rbenv-vars가 없다면 database.yml에서 정보를 얻어서 db  connection을 맺을꺼 같다.
 * cap --task로 task를 실행할 수 있는데, task는 어디에 정의되어 있는가?
 * bundle exec는 왜 사용하는가?
 * local에서 rails s로 develop mode로 테스트하고 cap production deploy로 운영서버에 배포하는게 맞는가? 문제는 없는가?
@@ -21,3 +21,5 @@ cap production deploy하면 db:migrate를 하는데, database.yml에서 정의�
 * 운영서버에서 bootstrap이 동작하는지 확인이 필요하다.
 * 운영서버에서 asset처리 확인필요?
 * rest api를 위해서 rails new --api를 사용하는데 어떤 뜻인가?
+* 두개의 다른아이디로 github을 사용할때 push가 안되는 문제점
+회사의 github과 개인 github을 둘다 사용하는데 push할때 access denied error가 난다. credentials 문제라고 한다. keychain에 보면 github.com에 대한 credentials가 있는데, 사용하려고 하는 계정의 id와 pw를 넣어야만 push를 할 수 있다.
