@@ -1,0 +1,23 @@
+#+TITLE: questions
+#+AUTHOR: Holy Frege
+#+DESCRIPTION: Org-HTML export made simple.
+#+KEYWORDS:  org-mode, export, html, theme, style, css, js, bigblow
+#+LANGUAGE:  en
+#+OPTIONS:   H:4 toc:t num:2
+#+MACRO: color @@html:<font color=></font>@@
+#+PROPERTY:  header-args :padline no
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+#+LATEX_HEADER: \usepackage{kotex}
+#+latex_header: \hypersetup{colorlinks=true}
+* rails app은 언제 mode가 결정지어지는가?
+rails s -e production, rails s는 develop mode로 동작한다. default값이라서..만일 rails s -e production이라고 한다면, production mode로 동작한다.
+cap production deploy에서 production은 production으로 동작하는가? Gemfiles나 database.yml에서 production으로 되는가?
+* rbenv-vars와 database.yml관계
+cap production deploy하면 db:migrate를 하는데, database.yml에서 정의한대로 database가 만들어 지지 않는다. 아예 참조를 하지 않는거 같다.
+* cap --task로 task를 실행할 수 있는데, task는 어디에 정의되어 있는가?
+* bundle exec는 왜 사용하는가?
+* local에서 rails s로 develop mode로 테스트하고 cap production deploy로 운영서버에 배포하는게 맞는가? 문제는 없는가?
+* 운영 서버에서 db가 동작하는지 확인이 필요하다.
+* 운영서버에서 bootstrap이 동작하는지 확인이 필요하다.
+* 운영서버에서 asset처리 확인필요?
+* rest api를 위해서 rails new --api를 사용하는데 어떤 뜻인가?

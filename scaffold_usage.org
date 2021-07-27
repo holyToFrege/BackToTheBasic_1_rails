@@ -1,0 +1,17 @@
+#+TITLE: scaffold 사용법
+#+AUTHOR: Holy Frege
+#+DESCRIPTION: Org-HTML export made simple.
+#+KEYWORDS:  org-mode, export, html, theme, style, css, js, bigblow
+#+LANGUAGE:  en
+#+OPTIONS:   H:4 toc:t num:2
+#+MACRO: color @@html:<font color=></font>@@
+#+PROPERTY:  header-args :padline no
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+#+LATEX_HEADER: \usepackage{kotex}
+#+latex_header: \hypersetup{colorlinks=true}
+* Scaffold사용법
+#+begin_note
+- rails g scaffold Post title:string content:text
+- rake db:migrate (해줄 필요가 없다. capistrano가 해준다.)
+- db:migrate를 해주었기 때문에 posts라는 table과 title,content라는 필드가 만들어진다.
+#+end_note
