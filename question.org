@@ -14,12 +14,23 @@ rails s -e production, rails s는 develop mode로 동작한다. default값이라
 cap production deploy에서 production은 production으로 동작하는가? Gemfiles나 database.yml에서 production으로 되는가?
 * rbenv-vars와 database.yml관계
 cap production deploy하면 db:migrate를 하는데, database.yml에서 정의한대로 database가 만들어 지지 않는다. 아예 참조를 하지 않는거 같다. 즉 cap production deploy할때 db:migrate할 때, db위치에대한 정보가 있어야 한다. host라던가, id,pw,database...이런것들이 rbenv-vars에 정의되어 있다면, 그 정보로 db에 연결하는 듯하다. 만일 rbenv-vars가 없다면 database.yml에서 정보를 얻어서 db  connection을 맺을꺼 같다.
+* 운영 서버에서 db가 동작하는지 확인이 필요하다.
 * cap --task로 task를 실행할 수 있는데, task는 어디에 정의되어 있는가?
 * bundle exec는 왜 사용하는가?
+Gemfile에 기술된 gem들은 각각의 version이 있다. bundle이라는 명령어를
+통해서 Gemfile에 있는 각각의 gem들이 설치된다. gem이 가진
+executables과 system-wide하게 설치된 gem executables가 있을 수
+있다. 또한 둘의 version은 다를 수 있다. 이렇게 되면 예상치 못한 일이
+일어날 수 있다.  terminal에서 rails db:migrate라고 하면 현재 project의
+bundler에 의해서 설치된 rails(version 2.3)가 실행 될 수도 있고
+system-wide하게 설치된 rails(version 2.0)이 실행 될 수도
+있다. 실행자의 의도에 맞는건 bundler에 의해 설치된 rails이기 때문에,
+rails에서는 bundle exe를 사용하길 추천한다.
+
 * local에서 rails s로 develop mode로 테스트하고 cap production deploy로 운영서버에 배포하는게 맞는가? 문제는 없는가?
-* 운영 서버에서 db가 동작하는지 확인이 필요하다.
+
 * 운영서버에서 bootstrap이 동작하는지 확인이 필요하다.
 * 운영서버에서 asset처리 확인필요?
 * rest api를 위해서 rails new --api를 사용하는데 어떤 뜻인가?
-* 두개의 다른아이디로 github을 사용할때 push가 안되는 문제점
+* 두 개의 다른아이디로 github을 사용할때 push가 안되는 문제점
 회사의 github과 개인 github을 둘다 사용하는데 push할때 access denied error가 난다. credentials 문제라고 한다. keychain에 보면 github.com에 대한 credentials가 있는데, 사용하려고 하는 계정의 id와 pw를 넣어야만 push를 할 수 있다.

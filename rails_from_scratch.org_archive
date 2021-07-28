@@ -1,0 +1,19 @@
+#    -*- mode: org -*-
+
+
+Archived entries from file /Users/holy/Projects/BackToTheBasic_1_rails/rails_from_scratch.org
+
+
+* ruby 설치
+:PROPERTIES:
+:ARCHIVE_TIME: 2021-07-28 Wed 11:42
+:ARCHIVE_FILE: ~/Projects/BackToTheBasic_1_rails/rails_from_scratch.org
+:ARCHIVE_OLPATH: 0_맨처음 해야 하는것/local 개발환경
+:ARCHIVE_CATEGORY: rails_from_scratch
+:END:
+#+begin_note
+rails는 ruby version을 탄다. rails와 ruby version이 궁합이 맞아야 하고, gem들도 맞아야 한다. ruby설치는 rbenv를 사용한다.
+#+end_note
+#+begin_note
+rbenv는 여러버전의 ruby를 설치할 수 있는데, 이것이 가능한것은 ruby-build라는 plugin이 있기에 가능하다. rbenv install 3.14 이런식으로 ruby를 설치하는것은 rbenv-build에 있는 rbenv-install에 의해서 가능한 것이다.
+#+end_note
