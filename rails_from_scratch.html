@@ -1,0 +1,591 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-08-02 Mon 14:53 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>rails from scratch</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Hoyoul Park" />
+<meta name="description" content="Org-HTML export made simple."
+ />
+<meta name="keywords" content="org-mode, export, html, theme, style, css, js, bigblow" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">rails from scratch</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org2ab857b">1. 맨 처음 해야 하는것(1. Local 개발환경 만들기)</a>
+<ul>
+<li><a href="#orgb207a4c">1.1. local 개발환경</a>
+<ul>
+<li><a href="#org1174298">ruby 설치(with rbenv)</a></li>
+<li><a href="#org39cc4f6">git 설치와 설정</a></li>
+<li><a href="#org03d8424">rails 설치</a></li>
+<li><a href="#org9b2d5bf">Database 설치</a></li>
+<li><a href="#org189a420">nokogiri, pg를 위한 설치</a></li>
+<li><a href="#orgc8cd333">rails server</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org8f630e1">2. Production Server 설치</a></li>
+<li><a href="#org36af4c2">3. 새로운 webapp만들기(Local server와 production을 위한 capistrano가 설치된 상황에서)</a>
+<ul>
+<li><a href="#org187146d">3.1. github에 project를 만든다.</a></li>
+<li><a href="#orgf6f3e87">3.2. rails new webapp</a></li>
+<li><a href="#org9f32730">3.3. git push로 github에 반영</a></li>
+<li><a href="#org504429f">3.4. capistrano gem설치</a></li>
+<li><a href="#org3dd3b15">3.5. capistrano가 github과 aws와 db 접속할 수 있는 환경 설정</a>
+<ul>
+<li><a href="#org716ee4c">github check</a></li>
+<li><a href="#org028043e">github settings (capistrano는 config/deploy.rb를 참고한다.)</a></li>
+<li><a href="#org0a78042">aws와 db환경 설정(config/deploy/production.rb)</a></li>
+<li><a href="#orga5b990c">git과 aws의 password?</a></li>
+<li><a href="#org3995067">cd config, cap production deploy</a></li>
+<li><a href="#org3f80756">capfile</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org2ab857b" class="outline-2">
+<h2 id="org2ab857b"><span class="section-number-2">1</span> 맨 처음 해야 하는것(1. Local 개발환경 만들기)</h2>
+<div class="outline-text-2" id="text-1">
+<div class="note" id="orgd46f47a">
+<p>
+local에서 작업할수 있는 환경을  만든다. gorails에서 지시하는대로 한다. 그 다음 capistrano를 통해 운영서버에 적용하는 환경을 만들것이다. 두 환경은 하나의 rails project에서 동시에 운영된다. 아무 문제 없다. 즉 capistrano 설정을 하면 local에서 작업하지 못하고, local에서 별도로 rails new railsproject를 사용해서 local용을 만들 필요가 없다는 것이다. 하나의 rails 프로젝트에서 test하고 rails s로 local test하고 제대로 되면 운영서버로 배포하는 형태를 가지면 된다.
+</p>
+
+</div>
+</div>
+<div id="outline-container-orgb207a4c" class="outline-3">
+<h3 id="orgb207a4c"><span class="section-number-3">1.1</span> local 개발환경</h3>
+<div class="outline-text-3" id="text-1-1">
+</div>
+<div id="outline-container-org1174298" class="outline-4">
+<h4 id="org1174298">ruby 설치(with rbenv)</h4>
+<div class="outline-text-4" id="text-org1174298">
+<div class="note" id="org971e8cc">
+<p>
+rails는 ruby version을 탄다. rails와 ruby version이 궁합이 맞아야 하고, gem들도 맞아야 한다. ruby설치는 rbenv를 사용한다.
+</p>
+
+</div>
+<div class="note" id="org011a437">
+<p>
+rbenv는 여러버전의 ruby를 설치할 수 있는데, 이것이 가능한것은 ruby-build라는 plugin이 있기에 가능하다. rbenv install 3.14 이런식으로 ruby를 설치하는것은 rbenv-build에 있는 rbenv-install에 의해서 가능한 것이다. pyenv도 동일한 형식이다.
+</p>
+
+</div>
+
+<div class="tip" id="org1d62887">
+<p>
+brew install rbenv ruby-build
+</p>
+
+<p>
+echo 'if which rbenv &gt; <i>dev/null; then eval "$(rbenv init -)"; fi' &gt;&gt; ~</i>.zshrc
+source ~/.zshrc
+</p>
+
+<p>
+rbenv install 3.0.1
+rbenv global 3.0.1
+ruby -v
+</p>
+
+</div>
+</div>
+</div>
+<div id="outline-container-org39cc4f6" class="outline-4">
+<h4 id="org39cc4f6">git 설치와 설정</h4>
+<div class="outline-text-4" id="text-org39cc4f6">
+<div class="note" id="orgcb8407c">
+<p>
+rails는 기본적으로 git init의 과정으로 local git을 설정한다. 그래서 git이 이미 system에 설치되어 있어야 하고, git에 대한 설정을 해야 한다. 그리고 github에 저장해야 하기 때문에, ssh도 만들어야 한다.
+</p>
+
+</div>
+<div class="tip" id="org6a80290">
+<p>
+git config &#x2013;global color.ui true
+git config &#x2013;global user.name "holy"
+git config &#x2013;global user.email "holy@fastmail.com"
+ssh-keygen만 해도 된다.
+</p>
+
+</div>
+</div>
+</div>
+<div id="outline-container-org03d8424" class="outline-4">
+<h4 id="org03d8424">rails 설치</h4>
+<div class="outline-text-4" id="text-org03d8424">
+<div class="note" id="orgd97bcea">
+<p>
+gem은 ruby를 설치하면 자동으로 같이 설치된다. gem을 이용해서 rails를 설치한다.
+gem install rails -v 6.1.3.2 
+</p>
+
+</div>
+<div class="note" id="orgcf944cf">
+<p>
+한가지 특이한건, gem으로 설치한 rails를 사용하기 위해선 rbenv에게
+rails가 설치되었다는 것을 알려줘야 한다는 것이다.
+</p>
+
+</div>
+<div class="tip" id="org181ce11">
+<p>
+rbenv rehash를 해야만 rails를 사용할 수 있다.
+</p>
+
+</div>
+</div>
+</div>
+<div id="outline-container-org9b2d5bf" class="outline-4">
+<h4 id="org9b2d5bf">Database 설치</h4>
+<div class="outline-text-4" id="text-org9b2d5bf">
+<div class="note" id="orge20dbf9">
+<p>
+brew install mysql
+brew services start mysql
+</p>
+
+</div>
+</div>
+</div>
+<div id="outline-container-org189a420" class="outline-4">
+<h4 id="org189a420">nokogiri, pg를 위한 설치</h4>
+<div class="outline-text-4" id="text-org189a420">
+<div class="note" id="orgd3c03b3">
+<p>
+원래는 다음을 실행해야 하는데, 설치가 제대로 안된다.
+-&#x2014;다음-&#x2014;
+sudo installer -pkg /Library/Developer/CommandLineTools/Packages/macOS<sub>SDK</sub><sub>headers</sub><sub>for</sub><sub>macOS</sub><sub>10.14.pkg</sub> -target /
+</p>
+
+<p>
+아래를 설치한다.
+brew install libxml2 libxslt
+gem install nokogiri &#x2013;platform=ruby &#x2013; &#x2013;use-system-libraries
+</p>
+
+</div>
+</div>
+</div>
+<div id="outline-container-orgc8cd333" class="outline-4">
+<h4 id="orgc8cd333">rails server</h4>
+</div>
+</div>
+</div>
+<div id="outline-container-org8f630e1" class="outline-2">
+<h2 id="org8f630e1"><span class="section-number-2">2</span> Production Server 설치</h2>
+</div>
+<div id="outline-container-org36af4c2" class="outline-2">
+<h2 id="org36af4c2"><span class="section-number-2">3</span> 새로운 webapp만들기(Local server와 production을 위한 capistrano가 설치된 상황에서)</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org187146d" class="outline-3">
+<h3 id="org187146d"><span class="section-number-3">3.1</span> github에 project를 만든다.</h3>
+</div>
+<div id="outline-container-orgf6f3e87" class="outline-3">
+<h3 id="orgf6f3e87"><span class="section-number-3">3.2</span> rails new webapp</h3>
+</div>
+<div id="outline-container-org9f32730" class="outline-3">
+<h3 id="org9f32730"><span class="section-number-3">3.3</span> git push로 github에 반영</h3>
+</div>
+<div id="outline-container-org504429f" class="outline-3">
+<h3 id="org504429f"><span class="section-number-3">3.4</span> capistrano gem설치</h3>
+<div class="outline-text-3" id="text-3-4">
+<div class="note" id="org0c09169">
+<p>
+project를 새로 만들었기 때문에 capistrano gem이 설치가 안되어 있을 것이다. capistrano를 설치해야만 deploy.rb와 deploy폴더가 만들어지고, 거기에서 github과 server에 대한 설정을 할 수 있다.
+</p>
+
+</div>
+<p>
+아래의 gem을 Gemfile에 설정한다.
+</p>
+<div class="note" id="org03b30c1">
+<p>
+gem 'capistrano', '~&gt; 3.11'
+gem 'capistrano-rails', '~&gt; 1.4'
+gem 'capistrano-passenger', '~&gt; 0.2.0'
+gem 'capistrano-rbenv', '~&gt; 2.1', '&gt;= 2.1.4'
+</p>
+
+</div>
+<ul class="org-ul">
+<li>bundle
+bundle은 Gemfile의 gem을 <i>Users/holy</i>.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems에 설치한다.</li>
+<li>cap install 
+cap install을 하면 depoly.rb와 deploy폴더가 생성되고, STAGE를 production이라고 했기 때문에 deploy/production.rb가 만들어진다. STAGES라는 것은  server를 나타낸다. 운영서버는 3개가 될 수도 있고, 4개도 될 수 있다. 각각의 이름이 있고, 각각의 deploy설정이 가능하다. cap install로 만들어지는 것은 다음과 같다.
+
+<ol class="org-ol">
+<li>config/deploy.rb</li>
+<li>config/deploy/production.rb</li>
+<li>lib/capistrano/tasks</li>
+<li>Capfiles</li>
+</ol></li>
+</ul>
+<div class="note" id="orgdd30577">
+<p>
+bundle
+cap install STAGES=production
+</p>
+
+</div>
+</div>
+</div>
+<div id="outline-container-org3dd3b15" class="outline-3">
+<h3 id="org3dd3b15"><span class="section-number-3">3.5</span> capistrano가 github과 aws와 db 접속할 수 있는 환경 설정</h3>
+<div class="outline-text-3" id="text-3-5">
+</div>
+<div id="outline-container-org716ee4c" class="outline-4">
+<h4 id="org716ee4c">github check</h4>
+<div class="outline-text-4" id="text-org716ee4c">
+<div class="note" id="orgcaf2bb2">
+<p>
+keychain을 실행해서 github.com을 찾는다. id와 pw가 github의 id와 pw와 같은지 확인한다. 동일하지 않다면 동일하게 해준다.
+</p>
+
+</div>
+</div>
+</div>
+<div id="outline-container-org028043e" class="outline-4">
+<h4 id="org028043e">github settings (capistrano는 config/deploy.rb를 참고한다.)</h4>
+<div class="outline-text-4" id="text-org028043e">
+<div class="note" id="org03a6cc8">
+<p>
+capistrano는 github에 접속해서 branch에 있는 source를 운영서버에 배포한다.
+아래정보로 추정하면 다음과 같다.
+github에 있는 myapp의 main branch source를  /home/deploy/myapp에 배포하라.  /home/deploy라고 한 이유는 deploy사용자의 home이기 때문이다. 즉 aws에 접속하는 계정은 deploy임을 알수 있다. aws에 접속해야 한다는 것도 알 수 있다. aws 설정정보는 production.rb에 있다.
+</p>
+
+</div>
+<div class="note" id="org451aecb">
+<p>
+set :application, "myapp"  =&gt; project app이름
+set :repo<sub>url</sub>, "git@github.com:PnC-jeju/myapp.git"  =&gt; github위치
+set :branch, "main" =&gt; 배포할려는 branch
+set :deploy<sub>to</sub>, "/home/deploy/#{fetch :application}" =&gt; 배포 위치
+append :linked<sub>dirs</sub>, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', '.bundle', 'public/system', 'public/uploads'
+set :keep<sub>releases</sub>, 5
+</p>
+
+</div>
+</div>
+</div>
+<div id="outline-container-org0a78042" class="outline-4">
+<h4 id="org0a78042">aws와 db환경 설정(config/deploy/production.rb)</h4>
+<div class="outline-text-4" id="text-org0a78042">
+<div class="note" id="orgdd40dff">
+<p>
+production.rb의 설정은 단순하다. 아래처럼 server의 위치와 loginid만 기술한다.
+</p>
+
+</div>
+<div class="note" id="org5485c9b">
+<p>
+server "13.125.158.130", user: "deploy", roles: %w{app db web}
+</p>
+
+</div>
+</div>
+</div>
+<div id="outline-container-orga5b990c" class="outline-4">
+<h4 id="orga5b990c">git과 aws의 password?</h4>
+<div class="outline-text-4" id="text-orga5b990c">
+<div class="note" id="org631c361">
+<p>
+git과 aws에 접속하기 위해서 password가 필요하다. 이것을 하기 위해선 다음과 같은 작업이 필요하다.
+</p>
+
+</div>
+<div class="tip" id="org67c3ee2">
+<p>
+ssh-add ~/.ssh/company-ec2-keys.pem
+ssh-add ~/.ssh/id<sub>rsa</sub>
+</p>
+
+</div>
+</div>
+</div>
+<div id="outline-container-org3995067" class="outline-4">
+<h4 id="org3995067">cd config, cap production deploy</h4>
+<div class="outline-text-4" id="text-org3995067">
+<div class="note" id="org1f7e255">
+<p>
+이렇게 하고 cap production deploy하는 경우, 위에서 정의한 설정(production.rb,deploy.rb)을 읽고 capfile을 실행한다. capfile은 task들을 정의한 library가 있는데, 그 library를 실행한다.
+</p>
+
+</div>
+</div>
+</div>
+<div id="outline-container-org3f80756" class="outline-4">
+<h4 id="org3f80756">capfile</h4>
+<div class="outline-text-4" id="text-org3f80756">
+<div class="note" id="orgd833313">
+<p>
+cap은 capfile에 기술된 task를 실행한다.
+</p>
+
+</div>
+<div class="note" id="org2a8bf44">
+<p>
+require "capistrano/setup"
+require "capistrano/deploy"
+require "capistrano/scm/git"
+install<sub>plugin</sub> Capistrano::SCM::Git
+</p>
+
+<p>
+Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }
+</p>
+
+</div>
+<div class="note" id="org7c1d27f">
+<p>
+위에 기술된게 default task이다. 이것은 git과 deploy관련된 task만을 한다. 즉 git에 접속해서 git의 branch에 있는 source code를 가져와서 aws ec2에 접속한후 source가 위치할 release폴더를 만들고 복사하는 일까지 한다. 아래 그림은 default task이 setup,deploy,git만을 실행했을 때 처리과정이다.
+</p>
+
+</div>
+
+<div id="org1fb7982" class="figure">
+<p><img src="./img/capi1.png" alt="capi1.png" width="800px" />
+</p>
+<p><span class="figure-number">Figure 1: </span>capistrano1</p>
+</div>
+
+<div id="orgf736f5f" class="figure">
+<p><img src="./img/capi2.png" alt="capi2.png" width="800px" />
+</p>
+<p><span class="figure-number">Figure 2: </span>capistrano2</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Hoyoul Park</p>
+<p class="date">Created: 2021-08-02 Mon 14:53</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

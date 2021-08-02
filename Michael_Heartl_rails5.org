@@ -37,22 +37,142 @@ root는 특별한 uri다. 다른 것들은 get post와 URI가 쓰이지만, root
 #+begin_note
 web app을 만든다는 것은 web app을 사용하는 사용자가 있고, 사용자에게 제공하는 contents(service)가 있기 마련이다. 이것을 Resource로 보고 model화 할 수 있다. 여기서 하는 것은 user라는 model과 micropost라는 model이다. 
 #+end_note
-** rails new toy_app
-** bundle install --without production
-** user model
- #+begin_tip
- rails g scaffold User name:string email:string
- #+end_tip
+- 1단계 :hello world
+** [0_ 시작] rails new toy_app
+** bundle install --without production (rails s에서 bundle을 하기 때문에 안해도 될듯)
+** [1_route처리]
+** [2_controller처리]
+*** protect_from_forgery:
+*** render html: 'hello world'
+
+
+- 2단계: User model 만들기
+** [0_scaffold사용] user model( rails g scaffold User name:string email:string )
 #+begin_note
 scaffold는 많은 page를 만든다. page별로 수많은 URL을 만들고, page에 접근할 수 있는 action들을 만든다. url과 action은 정해져 있다. Users라는 resource는 
-
-
 scaffold로 만들때 model명과 model 속성이 들어가는데, model을 만들면서 migration file도 같이 만든다. migration file은 table을 만들거나, sql insert, select문을 만든다. database의 위치나 이름은 rails db:create로 만들고 database.yml에 기술되어 있다.
 #+end_note
-** micropost model
- #+begin_tip
- rails g scaffold Micropost
- #+end_tip
-#+begin_note
+** [1_db] rails db:migrate
+** [2_실행] rails server
 
+- 3단계: Micropost model 만들기
+** [0_scaffold사용] micropost model ( rails g scaffold Micropost content:text user_id:integer )
+#+begin_note
+user resource와 동일한 방식으로 만들어진다. 만들어진 action에서 실제 page를 만드는 action은 new,edit,show,index다. 줄여서 NESI(네시)라고 불려진다. url은 다음과 같다. resource/new, resource/1/edit, resource/1, resource 4개로 되어 있다. CUD로 불리는 Create,Update, Destroy는 page를 render하지 않고, db의 값을 바꿀 뿐이다.
 #+end_note
+** [1_db] rails db:migrate
+** [2_실행] rails server
+
+- 4단계 모델 검증
+** validates :content, length:  { maximum: 140 }
+#+begin_note
+micro 게시판의 글은 짧아야 한다. micro니까, micro 게시글의 contents를 140글자로 제한을 둘려면 rails에서는 아주 간단한 방식으로 해결한다. model 파일에서 validates를 사용하면 되는데, 그 형식이 조금 특이 하다. validates로 :content라는 항목이 유효한지를 살펴본다. 어떤게 유효한가? length가 어떠해야한다는 것을, 말한다. 다른 제약 사항을 기술 할 수 있다. 
+#+end_note
+** validates :content, presence: true
+#+begin_note
+model 파일에서 validates를 사용해서 특정 필드에 대한 140글자 제약도 했지만, blank가 있어서는 안된다는 제약을 할 수 있다. 이것이 좀 특이한데, blank에 대한 제약은 view영역인거 같은데, 구분없이 쓰이는거 같다. 이게 특이하다. 문맥으로 하기 때문이다. 
+#+end_note
+- 5단계 모델 연결
+** database table의 연결 (has_many : microposts, belongs_to :user)
+#+begin_note
+model을 만든다는 건 table을 만든다고 볼 수 있다. 각각의 table은 연결을 통해서 다른 table의 column을 접근할 수 있다.  그래서 연결하는 과정이 필요한데, model안에서 has_many, belongs_to를 사용하면 된다. 이렇게 할 수 있는 이유는 micropost에 user_id라는 foreign key가 있어서 가능하다. 그런데 이해가 가지 않는 것은 여기서, foreign key를 별도로 지정하지 않아도 혹은 micropost의 user_id가 User의 id와 연결되어 있다는 것을 명시하지 않아도 동작한다는 것이다.
+#+end_note
+
+- 6단계 모델 테스트
+** database table연결 test
+#+begin_note
+rails console
+>> first_user = User.first (user table에서 1st user를 가져온다.)
+>> first_user.microposts (1st user와 연결된 모든 micropost를 가져온다. 이렇게 할 수 있는 이유는, has many 관계이기 때문이다.)
+>> micropost = first_user.microposts.first (user가 가진 여러개의 micropost중에 첫번째 post만 가져온다.
+>> micropost.user ( micropost가 belongs to된 user를 가져온다.)
+>> exit
+#+end_note
+
+* Chapter3 (Mostly static Pages) - static page 처리
+ - [ 1 ] static page 만들기
+** rails g controller StaticPages home help
+#+begin_note
+website에는 수천개의 web page들이 있다. 각각의 web page들을 group화 할 수 있는데, 이것이 어떻게 보면 controller의 존재 이유로 볼 수도 있다. 예를 들어,  특정 db table을 사용하는 web page들이 있을 수 있고 어떤 목적을 위해서 web page들을 묶을 수도 있다. 여기서 만드는 StaticPages는 static한 web page들만 모은것으로 볼 수 있다. home, help, about과 같은 page들은 static한 페이지이기 때문이다.
+#+end_note
+- 참고 할것들(undoing)
+  1) controller경우
+#+begin_note
+rails generate controller StaticPages help about
+rails destroy controller StaticPages help about
+#+end_note
+1) model의 경우
+   #+begin_note
+   rails g model User name:string email:string
+   rails destroy model User
+   #+end_note
+2) db의 경우
+   #+begin_note
+   rails db:migrate
+   rails db:rollback
+   rails db:migrate VERSION=0
+
+   migrate file은 한개가 아닌 여러개가 있을 수 있다. rails db:rollback은 이전으로 가지만, 맨처음으로 가진 않는다. 맨 처음으로 가기 위해서 version 0을 붙인다.
+   #+end_note
+   - 참고해야할 것들(naming)
+     #+begin_note
+     controller의 이름을 camel case로 할 경우, snake case로 파일명이 만들어진다.
+     #+end_note
+
+   - 참고해야 할 것들(routing)
+     #+begin_note
+     routes.rb에 보면 rails g controller로 만들어지는 url이 있는데, http method와 uri가 기술된다.
+     그런데, uri가 controller#action의 형태를 갖는다. 차라리 uri, controller#action으로 나누어져 있다면 읽기가 훨씬 편할 듯 하다. 그렇게 할 수도 있겠지만, 어쨋든 이런 형식도 알 수 있어야 한다.
+     #+end_note
+
+   - 참고해야 할 것들(http methods)
+     #+begin_note
+     get, post, patch, delete
+     #+end_note
+** home.html.erb(html tag작성)
+#+begin_note
+<h1>Sample App</h1>
+<p>
+  This is the home page for the
+  <a href="https://www.railstutorial.org/">Ruby on Rails Tutorial</a>
+  sample application.
+</>p
+#+end_note
+** help.html.erb(html작성)
+#+begin_note
+<h1>Help</h1>
+<p>
+  Get help on the Ruby on Rails Tutorial at the
+  <a href="https://www.railstutorial.org/help">Rails Tutorial Help page</a>.
+  To get help on this sample app, see the
+  <a href="https://www.railstutorial.org/book"><em>Ruby on Rails Tutorial</em>
+  book</a>.
+</p>
+#+end_note
+** TDD (미리 만들어지는 test파일을 확인한다.)
+controller, model, integration test가 있다. 여기서는 contller를 테스트한다. controller폴더에 test 파일이 있다.
+*** Gemfiles (test: gem 'rexml' , gem 'minitest', gem 'minitest-reporters' )을 먼저 설치
+test할 때 rexml을 설치하지 않으면, rails test시 에러 발생, minitest, minitest-reporters는 rails test할 시에 fail이 있는 경우, red로 표시하고 성공할 경우 green으로 표시하는 gem이다.
+*** assert_response test 작성
+*** rails db:migrate
+*** rails test (controller에 있는 test파일에는 2개의 test가 있다. )
+*** 일부러 red를 만든다. (about이란 page를 만든다고 가정하고 test)
+*** route와 controller에 about에 관한 내용을 기술한다. (green을 위해서)
+*** rails test로 확인.
+*** assert_select 테스트 작성
+#+begin_note
+assert_select "title", "about | Ruby on Rails Tutorial Sample app" ;; title이란 tag가 옆에 string에 포함되는지 여부를 확인.
+#+end_note
+** 참고해야 할 것들
+* Chapter4(Rails-flavored Ruby)
+* Chapter5(Filling in the layout)
+* Chapter6(Modeling users)
+* Chapter7(Sign up)
+* Chapter8(Basic login)
+* Chapter9(Advanced login)
+* Chapter10(Updating, Showing, and deleting users)
+* Chapter11(Account activation)
+* Chapter12(Password reset)
+* Chapter13(User microposts)
+* Chapter14(Following users)
+* 
