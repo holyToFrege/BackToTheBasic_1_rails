@@ -1,0 +1,713 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-08-24 Tue 11:20 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Michael Heartl rails 5강의</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Holy Frege" />
+<meta name="description" content="Org-HTML export made simple."
+ />
+<meta name="keywords" content="org-mode, export, html, theme, style, css, js, bigblow" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Michael Heartl rails 5강의</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org5bb4bbe">1. Chapter1 (Hello World)</a>
+<ul>
+<li><a href="#orgdecee95">1.1. rails new hello</a></li>
+<li><a href="#org78d48cd">1.2. controller 수정(C-c r c)</a></li>
+<li><a href="#org3ab6b13">1.3. routes처리(C-c r g r)</a></li>
+</ul>
+</li>
+<li><a href="#org542c663">2. Chapter2(micro post)</a>
+<ul>
+<li><a href="#orgd21f053">2.1. web application</a></li>
+<li><a href="#orgce08b34">2.2. [0_ 시작] rails new toy<sub>app</sub></a></li>
+<li><a href="#org690ccac">2.3. bundle install &#x2013;without production (rails s에서 bundle을 하기 때문에 안해도 될듯)</a></li>
+<li><a href="#orgd5cb1aa">2.4. [1<sub>route처리</sub>]</a></li>
+<li><a href="#orgc44f692">2.5. [2<sub>controller처리</sub>]</a>
+<ul>
+<li><a href="#org7b1d852">protect<sub>from</sub><sub>forgery</sub>:</a></li>
+<li><a href="#org564d348">render html: 'hello world'</a></li>
+</ul>
+</li>
+<li><a href="#org9e99ccf">2.6. [0<sub>scaffold사용</sub>] user model( rails g scaffold User name:string email:string )</a></li>
+<li><a href="#orgad1e693">2.7. [1<sub>db</sub>] rails db:migrate</a></li>
+<li><a href="#org01ac3ce">2.8. [2<sub>실행</sub>] rails server</a></li>
+<li><a href="#org2ae4b6b">2.9. [0<sub>scaffold사용</sub>] micropost model ( rails g scaffold Micropost content:text user<sub>id</sub>:integer )</a></li>
+<li><a href="#org31b9d8b">2.10. [1<sub>db</sub>] rails db:migrate</a></li>
+<li><a href="#org80323bb">2.11. [2<sub>실행</sub>] rails server</a></li>
+<li><a href="#org7d50687">2.12. validates :content, length:  { maximum: 140 }</a></li>
+<li><a href="#orgb3bcd4b">2.13. validates :content, presence: true</a></li>
+<li><a href="#org321dc30">2.14. database table의 연결 (has<sub>many</sub> : microposts, belongs<sub>to</sub> :user)</a></li>
+<li><a href="#org68bbbf6">2.15. database table연결 test</a></li>
+</ul>
+</li>
+<li><a href="#org3912215">3. Chapter3 (Mostly static Pages) - static page 처리</a>
+<ul>
+<li><a href="#org8535d0a">3.1. rails g controller StaticPages home help</a></li>
+<li><a href="#org746b0d4">3.2. home.html.erb(html tag작성)</a></li>
+<li><a href="#orgda47f6f">3.3. help.html.erb(html작성)</a></li>
+<li><a href="#org0dae9fd">3.4. TDD (미리 만들어지는 test파일을 확인한다.)</a>
+<ul>
+<li><a href="#org884e4ba">Gemfiles (test: gem 'rexml' , gem 'minitest', gem 'minitest-reporters' )을 먼저 설치</a></li>
+<li><a href="#orgb64d65c">assert<sub>response</sub> test 작성</a></li>
+<li><a href="#orge7387e8">rails db:migrate</a></li>
+<li><a href="#org4cf5a03">rails test (controller에 있는 test파일에는 2개의 test가 있다. )</a></li>
+<li><a href="#orgacebd04">일부러 red를 만든다. (about이란 page를 만든다고 가정하고 test)</a></li>
+<li><a href="#orgf0eabd2">route와 controller에 about에 관한 내용을 기술한다. (green을 위해서)</a></li>
+<li><a href="#org13527cb">rails test로 확인.</a></li>
+<li><a href="#org027ae41">assert<sub>select</sub> 테스트 작성</a></li>
+</ul>
+</li>
+<li><a href="#org2257841">3.5. 참고해야 할 것들</a></li>
+</ul>
+</li>
+<li><a href="#orgc521f1b">4. Chapter4(Rails-flavored Ruby)</a></li>
+<li><a href="#org9466cbf">5. Chapter5(Filling in the layout)</a></li>
+<li><a href="#org9b903a5">6. Chapter6(Modeling users)</a></li>
+<li><a href="#org4414f61">7. Chapter7(Sign up)</a></li>
+<li><a href="#orgd3ced73">8. Chapter8(Basic login)</a></li>
+<li><a href="#org11b45d4">9. Chapter9(Advanced login)</a></li>
+<li><a href="#org7cf18ab">10. Chapter10(Updating, Showing, and deleting users)</a></li>
+<li><a href="#org40f5e2f">11. Chapter11(Account activation)</a></li>
+<li><a href="#org7248ebb">12. Chapter12(Password reset)</a></li>
+<li><a href="#org7911837">13. Chapter13(User microposts)</a></li>
+<li><a href="#orge0064fd">14. Chapter14(Following users)</a></li>
+<li><a href="#org39f45e1">15. </a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5bb4bbe" class="outline-2">
+<h2 id="org5bb4bbe"><span class="section-number-2">1</span> Chapter1 (Hello World)</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orgdecee95" class="outline-3">
+<h3 id="orgdecee95"><span class="section-number-3">1.1</span> rails new hello</h3>
+<div class="outline-text-3" id="text-1-1">
+<div class="note" id="org4d01840">
+<p>
+bundle install을 내부적으로 수행한다. Gemfiles를 볼 줄 알아야 한다.
+ex) ~&gt;2.03 (&gt;= 2.03, &lt; 2.10)
+      ~&gt;2.1 (&gt;=2.1 , &lt; 3.0)
+      ~&gt;0 (&gt;=0.0 , &lt; 1.0)
+</p>
+
+</div>
+</div>
+</div>
+<div id="outline-container-org78d48cd" class="outline-3">
+<h3 id="org78d48cd"><span class="section-number-3">1.2</span> controller 수정(C-c r c)</h3>
+<div class="outline-text-3" id="text-1-2">
+<div class="note" id="org2b54e1d">
+<p>
+protect<sub>from</sub><sub>forery</sub> with: :exception
+def hello
+    render html: "hello world!"
+end
+</p>
+
+</div>
+</div>
+</div>
+<div id="outline-container-org3ab6b13" class="outline-3">
+<h3 id="org3ab6b13"><span class="section-number-3">1.3</span> routes처리(C-c r g r)</h3>
+<div class="outline-text-3" id="text-1-3">
+<div class="tip" id="org59d54c5">
+<p>
+root 'application#hello' 
+</p>
+
+</div>
+<div class="note" id="org654b2d1">
+<p>
+root는 특별한 uri다. 다른 것들은 get post와 URI가 쓰이지만, root는 그런거 없다. 
+</p>
+
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org542c663" class="outline-2">
+<h2 id="org542c663"><span class="section-number-2">2</span> Chapter2(micro post)</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgd21f053" class="outline-3">
+<h3 id="orgd21f053"><span class="section-number-3">2.1</span> web application</h3>
+<div class="outline-text-3" id="text-2-1">
+<div class="note" id="orgf7388a7">
+<p>
+web app을 만든다는 것은 web app을 사용하는 사용자가 있고, 사용자에게 제공하는 contents(service)가 있기 마련이다. 이것을 Resource로 보고 model화 할 수 있다. 여기서 하는 것은 user라는 model과 micropost라는 model이다. 
+</p>
+
+</div>
+<ul class="org-ul">
+<li>1단계 :hello world</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgce08b34" class="outline-3">
+<h3 id="orgce08b34"><span class="section-number-3">2.2</span> [0_ 시작] rails new toy<sub>app</sub></h3>
+</div>
+<div id="outline-container-org690ccac" class="outline-3">
+<h3 id="org690ccac"><span class="section-number-3">2.3</span> bundle install &#x2013;without production (rails s에서 bundle을 하기 때문에 안해도 될듯)</h3>
+</div>
+<div id="outline-container-orgd5cb1aa" class="outline-3">
+<h3 id="orgd5cb1aa"><span class="section-number-3">2.4</span> [1<sub>route처리</sub>]</h3>
+</div>
+<div id="outline-container-orgc44f692" class="outline-3">
+<h3 id="orgc44f692"><span class="section-number-3">2.5</span> [2<sub>controller처리</sub>]</h3>
+<div class="outline-text-3" id="text-2-5">
+</div>
+<div id="outline-container-org7b1d852" class="outline-4">
+<h4 id="org7b1d852">protect<sub>from</sub><sub>forgery</sub>:</h4>
+</div>
+<div id="outline-container-org564d348" class="outline-4">
+<h4 id="org564d348">render html: 'hello world'</h4>
+<div class="outline-text-4" id="text-org564d348">
+<ul class="org-ul">
+<li>2단계: User model 만들기</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org9e99ccf" class="outline-3">
+<h3 id="org9e99ccf"><span class="section-number-3">2.6</span> [0<sub>scaffold사용</sub>] user model( rails g scaffold User name:string email:string )</h3>
+<div class="outline-text-3" id="text-2-6">
+<div class="note" id="org92121d6">
+<p>
+scaffold는 많은 page를 만든다. page별로 수많은 URL을 만들고, page에 접근할 수 있는 action들을 만든다. url과 action은 정해져 있다. Users라는 resource는 
+scaffold로 만들때 model명과 model 속성이 들어가는데, model을 만들면서 migration file도 같이 만든다. migration file은 table을 만들거나, sql insert, select문을 만든다. database의 위치나 이름은 rails db:create로 만들고 database.yml에 기술되어 있다.
+</p>
+
+</div>
+</div>
+</div>
+<div id="outline-container-orgad1e693" class="outline-3">
+<h3 id="orgad1e693"><span class="section-number-3">2.7</span> [1<sub>db</sub>] rails db:migrate</h3>
+</div>
+<div id="outline-container-org01ac3ce" class="outline-3">
+<h3 id="org01ac3ce"><span class="section-number-3">2.8</span> [2<sub>실행</sub>] rails server</h3>
+<div class="outline-text-3" id="text-2-8">
+<ul class="org-ul">
+<li>3단계: Micropost model 만들기</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2ae4b6b" class="outline-3">
+<h3 id="org2ae4b6b"><span class="section-number-3">2.9</span> [0<sub>scaffold사용</sub>] micropost model ( rails g scaffold Micropost content:text user<sub>id</sub>:integer )</h3>
+<div class="outline-text-3" id="text-2-9">
+<div class="note" id="orgfbf3889">
+<p>
+user resource와 동일한 방식으로 만들어진다. 만들어진 action에서 실제 page를 만드는 action은 new,edit,show,index다. 줄여서 NESI(네시)라고 불려진다. url은 다음과 같다. resource/new, resource/1/edit, resource/1, resource 4개로 되어 있다. CUD로 불리는 Create,Update, Destroy는 page를 render하지 않고, db의 값을 바꿀 뿐이다.
+</p>
+
+</div>
+</div>
+</div>
+<div id="outline-container-org31b9d8b" class="outline-3">
+<h3 id="org31b9d8b"><span class="section-number-3">2.10</span> [1<sub>db</sub>] rails db:migrate</h3>
+</div>
+<div id="outline-container-org80323bb" class="outline-3">
+<h3 id="org80323bb"><span class="section-number-3">2.11</span> [2<sub>실행</sub>] rails server</h3>
+<div class="outline-text-3" id="text-2-11">
+<ul class="org-ul">
+<li>4단계 모델 검증</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7d50687" class="outline-3">
+<h3 id="org7d50687"><span class="section-number-3">2.12</span> validates :content, length:  { maximum: 140 }</h3>
+<div class="outline-text-3" id="text-2-12">
+<div class="note" id="org733e2a4">
+<p>
+micro 게시판의 글은 짧아야 한다. micro니까, micro 게시글의 contents를 140글자로 제한을 둘려면 rails에서는 아주 간단한 방식으로 해결한다. model 파일에서 validates를 사용하면 되는데, 그 형식이 조금 특이 하다. validates로 :content라는 항목이 유효한지를 살펴본다. 어떤게 유효한가? length가 어떠해야한다는 것을, 말한다. 다른 제약 사항을 기술 할 수 있다. 
+</p>
+
+</div>
+</div>
+</div>
+<div id="outline-container-orgb3bcd4b" class="outline-3">
+<h3 id="orgb3bcd4b"><span class="section-number-3">2.13</span> validates :content, presence: true</h3>
+<div class="outline-text-3" id="text-2-13">
+<div class="note" id="orgdd64842">
+<p>
+model 파일에서 validates를 사용해서 특정 필드에 대한 140글자 제약도 했지만, blank가 있어서는 안된다는 제약을 할 수 있다. 이것이 좀 특이한데, blank에 대한 제약은 view영역인거 같은데, 구분없이 쓰이는거 같다. 이게 특이하다. 문맥으로 하기 때문이다. 
+</p>
+
+</div>
+<ul class="org-ul">
+<li>5단계 모델 연결</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org321dc30" class="outline-3">
+<h3 id="org321dc30"><span class="section-number-3">2.14</span> database table의 연결 (has<sub>many</sub> : microposts, belongs<sub>to</sub> :user)</h3>
+<div class="outline-text-3" id="text-2-14">
+<div class="note" id="org3954548">
+<p>
+model을 만든다는 건 table을 만든다고 볼 수 있다. 각각의 table은 연결을 통해서 다른 table의 column을 접근할 수 있다.  그래서 연결하는 과정이 필요한데, model안에서 has<sub>many</sub>, belongs<sub>to를</sub> 사용하면 된다. 이렇게 할 수 있는 이유는 micropost에 user<sub>id라는</sub> foreign key가 있어서 가능하다. 그런데 이해가 가지 않는 것은 여기서, foreign key를 별도로 지정하지 않아도 혹은 micropost의 user<sub>id가</sub> User의 id와 연결되어 있다는 것을 명시하지 않아도 동작한다는 것이다.
+</p>
+
+</div>
+
+<ul class="org-ul">
+<li>6단계 모델 테스트</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org68bbbf6" class="outline-3">
+<h3 id="org68bbbf6"><span class="section-number-3">2.15</span> database table연결 test</h3>
+<div class="outline-text-3" id="text-2-15">
+<div class="note" id="org90a5e28">
+<p>
+rails console
+&gt;&gt; first<sub>user</sub> = User.first (user table에서 1st user를 가져온다.)
+&gt;&gt; first<sub>user.microposts</sub> (1st user와 연결된 모든 micropost를 가져온다. 이렇게 할 수 있는 이유는, has many 관계이기 때문이다.)
+&gt;&gt; micropost = first<sub>user.microposts.first</sub> (user가 가진 여러개의 micropost중에 첫번째 post만 가져온다.
+&gt;&gt; micropost.user ( micropost가 belongs to된 user를 가져온다.)
+&gt;&gt; exit
+</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3912215" class="outline-2">
+<h2 id="org3912215"><span class="section-number-2">3</span> Chapter3 (Mostly static Pages) - static page 처리</h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li>[ 1 ] static page 만들기</li>
+</ul>
+</div>
+<div id="outline-container-org8535d0a" class="outline-3">
+<h3 id="org8535d0a"><span class="section-number-3">3.1</span> rails g controller StaticPages home help</h3>
+<div class="outline-text-3" id="text-3-1">
+<div class="note" id="orgbd873df">
+<p>
+website에는 수천개의 web page들이 있다. 각각의 web page들을 group화 할 수 있는데, 이것이 어떻게 보면 controller의 존재 이유로 볼 수도 있다. 예를 들어,  특정 db table을 사용하는 web page들이 있을 수 있고 어떤 목적을 위해서 web page들을 묶을 수도 있다. 여기서 만드는 StaticPages는 static한 web page들만 모은것으로 볼 수 있다. home, help, about과 같은 page들은 static한 페이지이기 때문이다.
+</p>
+
+</div>
+<ul class="org-ul">
+<li>참고 할것들(undoing)
+<ol class="org-ol">
+<li>controller경우</li>
+</ol></li>
+</ul>
+<div class="note" id="org4a2bca3">
+<p>
+rails generate controller StaticPages help about
+rails destroy controller StaticPages help about
+</p>
+
+</div>
+<ol class="org-ol">
+<li><p>
+model의 경우
+</p>
+<div class="note" id="org63dbf80">
+<p>
+rails g model User name:string email:string
+rails destroy model User
+</p>
+
+</div></li>
+<li><p>
+db의 경우
+</p>
+<div class="note" id="org472ae97">
+<p>
+rails db:migrate
+rails db:rollback
+rails db:migrate VERSION=0
+</p>
+
+<p>
+migrate file은 한개가 아닌 여러개가 있을 수 있다. rails db:rollback은 이전으로 가지만, 맨처음으로 가진 않는다. 맨 처음으로 가기 위해서 version 0을 붙인다.
+</p>
+
+</div>
+<ul class="org-ul">
+<li><p>
+참고해야할 것들(naming)
+</p>
+<div class="note" id="orgfb190c5">
+<p>
+controller의 이름을 camel case로 할 경우, snake case로 파일명이 만들어진다.
+</p>
+
+</div></li>
+
+<li><p>
+참고해야 할 것들(routing)
+</p>
+<div class="note" id="org6615aa4">
+<p>
+routes.rb에 보면 rails g controller로 만들어지는 url이 있는데, http method와 uri가 기술된다.
+그런데, uri가 controller#action의 형태를 갖는다. 차라리 uri, controller#action으로 나누어져 있다면 읽기가 훨씬 편할 듯 하다. 그렇게 할 수도 있겠지만, 어쨋든 이런 형식도 알 수 있어야 한다.
+</p>
+
+</div></li>
+
+<li><p>
+참고해야 할 것들(http methods)
+</p>
+<div class="note" id="org1304127">
+<p>
+get, post, patch, delete
+</p>
+
+</div></li>
+</ul></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org746b0d4" class="outline-3">
+<h3 id="org746b0d4"><span class="section-number-3">3.2</span> home.html.erb(html tag작성)</h3>
+<div class="outline-text-3" id="text-3-2">
+<div class="note" id="orgbe779d0">
+<p>
+&lt;h1&gt;Sample App&lt;/h1&gt;
+&lt;p&gt;
+  This is the home page for the
+  &lt;a href="<a href="https://www.railstutorial.org/">https://www.railstutorial.org/</a>"&gt;Ruby on Rails Tutorial&lt;/a&gt;
+  sample application.
+&lt;/&gt;p
+</p>
+
+</div>
+</div>
+</div>
+<div id="outline-container-orgda47f6f" class="outline-3">
+<h3 id="orgda47f6f"><span class="section-number-3">3.3</span> help.html.erb(html작성)</h3>
+<div class="outline-text-3" id="text-3-3">
+<div class="note" id="orgdf60425">
+<p>
+&lt;h1&gt;Help&lt;/h1&gt;
+&lt;p&gt;
+  Get help on the Ruby on Rails Tutorial at the
+  &lt;a href="<a href="https://www.railstutorial.org/help">https://www.railstutorial.org/help</a>"&gt;Rails Tutorial Help page&lt;/a&gt;.
+  To get help on this sample app, see the
+  &lt;a href="<a href="https://www.railstutorial.org/book">https://www.railstutorial.org/book</a>"&gt;&lt;em&gt;Ruby on Rails Tutorial&lt;/em&gt;
+  book&lt;/a&gt;.
+&lt;/p&gt;
+</p>
+
+</div>
+</div>
+</div>
+<div id="outline-container-org0dae9fd" class="outline-3">
+<h3 id="org0dae9fd"><span class="section-number-3">3.4</span> TDD (미리 만들어지는 test파일을 확인한다.)</h3>
+<div class="outline-text-3" id="text-3-4">
+<p>
+controller, model, integration test가 있다. 여기서는 contller를 테스트한다. controller폴더에 test 파일이 있다.
+</p>
+</div>
+<div id="outline-container-org884e4ba" class="outline-4">
+<h4 id="org884e4ba">Gemfiles (test: gem 'rexml' , gem 'minitest', gem 'minitest-reporters' )을 먼저 설치</h4>
+<div class="outline-text-4" id="text-org884e4ba">
+<p>
+test할 때 rexml을 설치하지 않으면, rails test시 에러 발생, minitest, minitest-reporters는 rails test할 시에 fail이 있는 경우, red로 표시하고 성공할 경우 green으로 표시하는 gem이다.
+</p>
+</div>
+</div>
+<div id="outline-container-orgb64d65c" class="outline-4">
+<h4 id="orgb64d65c">assert<sub>response</sub> test 작성</h4>
+</div>
+<div id="outline-container-orge7387e8" class="outline-4">
+<h4 id="orge7387e8">rails db:migrate</h4>
+</div>
+<div id="outline-container-org4cf5a03" class="outline-4">
+<h4 id="org4cf5a03">rails test (controller에 있는 test파일에는 2개의 test가 있다. )</h4>
+</div>
+<div id="outline-container-orgacebd04" class="outline-4">
+<h4 id="orgacebd04">일부러 red를 만든다. (about이란 page를 만든다고 가정하고 test)</h4>
+</div>
+<div id="outline-container-orgf0eabd2" class="outline-4">
+<h4 id="orgf0eabd2">route와 controller에 about에 관한 내용을 기술한다. (green을 위해서)</h4>
+</div>
+<div id="outline-container-org13527cb" class="outline-4">
+<h4 id="org13527cb">rails test로 확인.</h4>
+</div>
+<div id="outline-container-org027ae41" class="outline-4">
+<h4 id="org027ae41">assert<sub>select</sub> 테스트 작성</h4>
+<div class="outline-text-4" id="text-org027ae41">
+<div class="note" id="orgc1bb565">
+<p>
+assert<sub>select</sub> "title", "about | Ruby on Rails Tutorial Sample app" ;; title이란 tag가 옆에 string에 포함되는지 여부를 확인.
+</p>
+
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org2257841" class="outline-3">
+<h3 id="org2257841"><span class="section-number-3">3.5</span> 참고해야 할 것들</h3>
+</div>
+</div>
+<div id="outline-container-orgc521f1b" class="outline-2">
+<h2 id="orgc521f1b"><span class="section-number-2">4</span> Chapter4(Rails-flavored Ruby)</h2>
+</div>
+<div id="outline-container-org9466cbf" class="outline-2">
+<h2 id="org9466cbf"><span class="section-number-2">5</span> Chapter5(Filling in the layout)</h2>
+</div>
+<div id="outline-container-org9b903a5" class="outline-2">
+<h2 id="org9b903a5"><span class="section-number-2">6</span> Chapter6(Modeling users)</h2>
+</div>
+<div id="outline-container-org4414f61" class="outline-2">
+<h2 id="org4414f61"><span class="section-number-2">7</span> Chapter7(Sign up)</h2>
+</div>
+<div id="outline-container-orgd3ced73" class="outline-2">
+<h2 id="orgd3ced73"><span class="section-number-2">8</span> Chapter8(Basic login)</h2>
+</div>
+<div id="outline-container-org11b45d4" class="outline-2">
+<h2 id="org11b45d4"><span class="section-number-2">9</span> Chapter9(Advanced login)</h2>
+</div>
+<div id="outline-container-org7cf18ab" class="outline-2">
+<h2 id="org7cf18ab"><span class="section-number-2">10</span> Chapter10(Updating, Showing, and deleting users)</h2>
+</div>
+<div id="outline-container-org40f5e2f" class="outline-2">
+<h2 id="org40f5e2f"><span class="section-number-2">11</span> Chapter11(Account activation)</h2>
+</div>
+<div id="outline-container-org7248ebb" class="outline-2">
+<h2 id="org7248ebb"><span class="section-number-2">12</span> Chapter12(Password reset)</h2>
+</div>
+<div id="outline-container-org7911837" class="outline-2">
+<h2 id="org7911837"><span class="section-number-2">13</span> Chapter13(User microposts)</h2>
+</div>
+<div id="outline-container-orge0064fd" class="outline-2">
+<h2 id="orge0064fd"><span class="section-number-2">14</span> Chapter14(Following users)</h2>
+</div>
+<div id="outline-container-org39f45e1" class="outline-2">
+<h2 id="org39f45e1"><span class="section-number-2">15</span> </h2>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Holy Frege</p>
+<p class="date">Created: 2021-08-24 Tue 11:20</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

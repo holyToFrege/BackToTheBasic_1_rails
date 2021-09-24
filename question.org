@@ -28,7 +28,7 @@ system-wide하게 설치된 rails(version 2.0)이 실행 될 수도
 rails에서는 bundle exe를 사용하길 추천한다.
 
 * local에서 rails s로 develop mode로 테스트하고 cap production deploy로 운영서버에 배포하는게 맞는가? 문제는 없는가?
-
+문제 없다.
 * 운영서버에서 bootstrap이 동작하는지 확인이 필요하다.
 * 운영서버에서 asset처리 확인필요?
 * rest api를 위해서 rails new --api를 사용하는데 어떤 뜻인가?
