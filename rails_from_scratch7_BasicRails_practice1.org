@@ -43,11 +43,11 @@ server는 cap production deploy로 release를 발행한다.
 #+end_note
 * css,js,image사용법 (bootstrap의 적용, jquery의 적용: ajax) 
 #+begin_note
-어떤 page작업을 하더라도 css와 js가 사용된다. 둘의 사용이 능수 능란해야 한다. webpacker에 대한 설명은 맨아래에 따로 두었다. 여기서는 css와 js 사용법만을 얘기한다. css와 js를 사용하는 이론적인 것을 설명한후, 실제 test과정을 기술하겠다.
+어떤 page작업을 하더라도 css와 js가 사용된다. 둘의 사용이 능수 능란해야 한다. webpacker에 대한 설명은 맨 아래에 따로 두었다. 여기서는 css와 js 사용법만을 얘기한다. css와 js를 사용하는 이론적인 것을 설명한 후, 실제 test과정을 기술하겠다.
 #+end_note
 ** [ 이론 ] css,js 사용법과 나의 기준
  #+begin_important
- css와 js를 만들 때의 기준은 첫번째 사용범위, 두번째 어떤 것을 사용할 것인가의 문제다. 어떤것을 사용하느냐에 따라 pack파일 기술이 달라진다. 이 두가지를 간략히 설명하겠다.
+ css와 js를 만들 때 고려해야 할 것이 있다.  만든 css와 js가 어떤 적용 범위(scope)를 갖는가? 두번째 어떤 형태. 어떤것을 사용하느냐에 따라 pack파일 기술이 달라진다. 이 두가지를 간략히 설명하겠다.
  #+end_important
 *** 사용 범위에 따른 기준 (packfile의 naming)
  - 전체 vs 부분

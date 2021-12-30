@@ -11,7 +11,6 @@
 #+latex_header: \hypersetup{colorlinks=true}
 * [Chapter1] From Zero to Deploy
 * [Chapter2] A toy app
-
 * [Chapter3] Mostly static pages
 * [Chapter4] Rails-flavored Ruby
 * [Chapter5] Filling in the layout

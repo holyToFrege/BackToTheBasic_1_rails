@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-14 Tue 02:20 -->
+<!-- 2021-12-09 Thu 10:05 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Basic Rails Practice#1</title>
@@ -232,128 +232,132 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org372e76b">1. 제일 먼저 할것은 hello world page</a>
+<li><a href="#org1d8b33b">1. 제일 먼저 할것은 hello world page</a>
 <ul>
-<li><a href="#org8dfdcf8">1.1. route 설정</a></li>
-<li><a href="#orgc8282c7">1.2. controller의 설정</a></li>
-<li><a href="#orgc3ba88d">1.3. 실행</a></li>
+<li><a href="#org0c05cb6">1.1. route 설정</a></li>
+<li><a href="#orgf1811d9">1.2. controller의 설정</a></li>
+<li><a href="#org8a61b16">1.3. 실행</a></li>
 </ul>
 </li>
-<li><a href="#org1258fda">2. css,js,image사용법 (bootstrap의 적용, jquery의 적용: ajax)</a>
+<li><a href="#org8d5613b">2. css,js,image사용법 (bootstrap의 적용, jquery의 적용: ajax)</a>
 <ul>
-<li><a href="#orgb503c0d">2.1. [ 이론 ] css,js 사용법과 나의 기준</a>
+<li><a href="#orgaa29684">2.1. [ 이론 ] css,js 사용법과 나의 기준</a>
 <ul>
-<li><a href="#orgadb1e83">사용 범위에 따른 기준 (packfile의 naming)</a></li>
-<li><a href="#orgaf1cb90">만들어진것 vs 만들어서 (packfile의 구조)</a></li>
-<li><a href="#orge8469bd">case 시나리오</a></li>
+<li><a href="#org02dbf3c">사용 범위에 따른 기준 (packfile의 naming)</a></li>
+<li><a href="#org2eaa806">만들어진것 vs 만들어서 (packfile의 구조)</a></li>
+<li><a href="#org772781d">case 시나리오</a></li>
 </ul>
 </li>
-<li><a href="#org2a68a45">2.2. [ 실전 case1: bootstrap.scss, jquery 전체 page사용하기 ]</a></li>
-<li><a href="#org7b39079">2.3. [ 실전 case2:  d3.js and d3.scss를 특정 page에 사용하기 ]</a></li>
-<li><a href="#org021bfaa">2.4. [ 실전 case3: 전체 page에 적용되고 내가만든 file을 사용하는 경우 ]</a></li>
-<li><a href="#org5968e27">2.5. [ 실전  case4:  font awesome(아이콘) 전체 page 적용</a>
+<li><a href="#org3dd649c">2.2. [ 실전 case1: bootstrap.scss, jquery 전체 page사용하기 ]</a></li>
+<li><a href="#org906b67e">2.3. [ 실전 case2:  d3.js and d3.scss를 특정 page에 사용하기 ]</a></li>
+<li><a href="#orgc04bc04">2.4. [ 실전 case3: 전체 page에 적용되고 내가만든 file을 사용하는 경우 ]</a></li>
+<li><a href="#org2857e81">2.5. [ 실전  case4:  font awesome(아이콘) 전체 page 적용</a>
 <ul>
-<li><a href="#org9a2d890">적용1</a></li>
-<li><a href="#orgb7f20d8">문제점</a></li>
-<li><a href="#orgbec8667">다른 방식</a></li>
+<li><a href="#org2537105">적용1</a></li>
+<li><a href="#orgc66b923">문제점</a></li>
+<li><a href="#orgb2a14e1">다른 방식</a></li>
 </ul>
 </li>
-<li><a href="#orgb2d591b">2.6. [ 실전 case5: bootstrap-icons 전체 page적용</a></li>
-<li><a href="#org694406e">2.7. 최종 정리</a></li>
-<li><a href="#orge29f1a4">2.8. 최종 정리2</a></li>
-<li><a href="#orge893867">2.9. 최종정리3</a></li>
+<li><a href="#orga5064fb">2.6. [ 실전 case5: bootstrap-icons 전체 page적용</a></li>
+<li><a href="#org6afb622">2.7. 최종 정리</a></li>
+<li><a href="#orgad06bb3">2.8. 최종 정리2</a></li>
+<li><a href="#orgc706be2">2.9. 최종정리3</a></li>
 </ul>
 </li>
-<li><a href="#orgc0f22da">3. application layout 만들기</a>
+<li><a href="#orgd3865a0">3. application layout 만들기</a>
 <ul>
-<li><a href="#orga13f656">3.1. 실제 구현</a>
+<li><a href="#orge56180f">3.1. 실제 구현</a>
 <ul>
-<li><a href="#org6c5c2c9">partial page의 사용</a></li>
-<li><a href="#org753f8a7">결론</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#org115a47d">4. static pages  만들기 - navigation menu</a>
-<ul>
-<li><a href="#org0f5b088">4.1. static pages 개요</a></li>
-<li><a href="#orgc8f4949">4.2. [1] static pages 만들기</a>
-<ul>
-<li><a href="#orgc399f8a">home page 작성</a></li>
-<li><a href="#orgc8ec4a1">about page 작성</a></li>
+<li><a href="#orge8bf63b">partial page의 사용</a></li>
+<li><a href="#orge51fd3b">결론</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org4ed910e">5. [devise gem]으로 로그인 만들기</a>
+<li><a href="#org8151be0">4. static pages  만들기 - navigation menu</a>
 <ul>
-<li><a href="#org90c7561">5.1. devise란?</a></li>
-<li><a href="#org953ff2b">5.2. devise 설치 과정</a></li>
-</ul>
-</li>
-<li><a href="#org56a492c">6. rails_admin  관리자 페이지 만들기</a></li>
-<li><a href="#org79c4aa7">7. table 만들기와 pagenation 구현하기</a>
+<li><a href="#orga241d8d">4.1. static pages 개요</a></li>
+<li><a href="#org3dfda1e">4.2. [1] static pages 만들기</a>
 <ul>
-<li><a href="#orge394f42">7.1. pagy 설정</a></li>
-<li><a href="#orgf097c0a">7.2. pagy 적용</a></li>
-<li><a href="#org4611df8">7.3. pagy의 table rows 정하기</a></li>
-<li><a href="#org67a984a">7.4. table의 모양 꾸미기</a></li>
-</ul>
-</li>
-<li><a href="#org8cdaa2f">8. table 갱신하기</a>
-<ul>
-<li><a href="#org510983d">8.1. button refresh</a></li>
-<li><a href="#orge2541d6">8.2. check box refresh (주기적 refresh)</a></li>
-<li><a href="#org50b00c0">8.3. Ajax를 사용한 처리</a>
-<ul>
-<li><a href="#org42022ea">webpacker js처리</a></li>
+<li><a href="#orgb58145f">home page 작성</a></li>
+<li><a href="#orgf1687cc">about page 작성</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orga7aa34f">9. d3 or c3 chart or chart.js 구현하기</a></li>
-<li><a href="#org27adf3c">10. sidekiq, whenever gem 사용법</a></li>
-<li><a href="#org1954ada">11. [부록] webpacker-bootstrap settings</a>
+<li><a href="#org48cf66c">5. [devise gem]으로 로그인 만들기</a>
 <ul>
-<li><a href="#orga4d264d">11.1. css나 js, image가 저장될 폴더 정하기</a></li>
-<li><a href="#orgf922d28">11.2. pack 폴더에 있는 packing할 항목 설정하기 - pack설정</a></li>
-<li><a href="#org574a23a">11.3. bootstrap을 application.js란 pack에  packing하기 [ js pack하기 ]</a></li>
-<li><a href="#orgf6aff5c">11.4. css pack하기</a></li>
-<li><a href="#org01a7423">11.5. pack 적용하기 [ css &amp; js ]</a></li>
-<li><a href="#org2452088">11.6. test하기</a></li>
-<li><a href="#orgaef68e4">11.7. server에 적용 확인</a></li>
+<li><a href="#org5528f42">5.1. devise란?</a></li>
+<li><a href="#orgbcc6a7d">5.2. devise 설치 과정</a></li>
 </ul>
 </li>
-<li><a href="#orga60bc4e">12. [부록] turbolink와 jquery</a></li>
-<li><a href="#orgf43ecae">13. [부록] ajax 사용법 1</a></li>
-<li><a href="#org4bef798">14. [부록] ajax 사용법 2</a>
+<li><a href="#orgc785c4b">6. rails_admin  관리자 페이지 만들기</a></li>
+<li><a href="#org349ed77">7. table 만들기와 pagenation 구현하기</a>
 <ul>
-<li><a href="#orgc287946">14.1. 실제 구현</a>
-<ul>
-<li><a href="#org5617297">개요</a></li>
+<li><a href="#orgbb7a698">7.1. pagy 설정</a></li>
+<li><a href="#org9ed4f18">7.2. pagy 적용</a></li>
+<li><a href="#org0dc1b20">7.3. pagy의 table rows 정하기</a></li>
+<li><a href="#orgc3eed80">7.4. table의 모양 꾸미기</a></li>
 </ul>
 </li>
-<li><a href="#org0303baf">14.2. login을 고려하지 않은 방식</a>
+<li><a href="#org73cb5e4">8. table 갱신하기</a>
 <ul>
-<li><a href="#org5607648">(1) ajax를 사용하기 위해서 jquery를 설치 한 후 application.js에 import하자. 그런후, application.html.erb에 적용</a></li>
-<li><a href="#org5c618fb">(2) ajax를 이용하는 js pack을 만든다. (뼈대만)</a></li>
-<li><a href="#orgdccce04">(3) 전체 동작에 대한 이해 (stateful)</a></li>
+<li><a href="#org52087d5">8.1. button refresh</a></li>
+<li><a href="#orgd7803d3">8.2. check box refresh (주기적 refresh)</a></li>
+<li><a href="#org3c0d068">8.3. Ajax를 사용한 처리</a>
+<ul>
+<li><a href="#org900163f">webpacker js처리</a></li>
 </ul>
 </li>
-<li><a href="#org44ad1c8">14.3. login을 고려한 방식</a></li>
 </ul>
 </li>
-<li><a href="#org72d9ba8">15. [부록] link_to helper 사용법</a></li>
-<li><a href="#org86fda3a">16. [부록] form_for helper사용법</a></li>
-<li><a href="#org29e592a">17. [부록] 지도 관련 사용법</a></li>
-<li><a href="#org35ed393">18. [부록] I18n 사용법</a></li>
+<li><a href="#org0799683">9. table refresh switch를 session에 저장[별도]</a></li>
+<li><a href="#org6e0be04">10. d3 or c3 chart or chart.js 구현하기</a></li>
+<li><a href="#org9055b04">11. sidekiq, whenever gem 사용법</a></li>
+<li><a href="#org44b9af4">12. [부록] webpacker-bootstrap settings</a>
+<ul>
+<li><a href="#org3bda54e">12.1. css나 js, image가 저장될 폴더 정하기</a></li>
+<li><a href="#org5bb3bfe">12.2. pack 폴더에 있는 packing할 항목 설정하기 - pack설정</a></li>
+<li><a href="#org7a4681d">12.3. bootstrap을 application.js란 pack에  packing하기 [ js pack하기 ]</a></li>
+<li><a href="#org7060acc">12.4. css pack하기</a></li>
+<li><a href="#orgdcd8c1b">12.5. pack 적용하기 [ css &amp; js ]</a></li>
+<li><a href="#orgf252c6c">12.6. test하기</a></li>
+<li><a href="#orgf5fb61b">12.7. server에 적용 확인</a></li>
+</ul>
+</li>
+<li><a href="#org0591b60">13. [부록] turbolink와 jquery</a></li>
+<li><a href="#org9f33c1c">14. [부록] ajax 사용법 1</a></li>
+<li><a href="#orgb245054">15. [부록] ajax 사용법 2</a>
+<ul>
+<li><a href="#org4b98496">15.1. 실제 구현</a>
+<ul>
+<li><a href="#org69fe340">개요</a></li>
+</ul>
+</li>
+<li><a href="#org9b07f88">15.2. login을 고려하지 않은 방식</a>
+<ul>
+<li><a href="#org6cbfadf">(1) ajax를 사용하기 위해서 jquery를 설치 한 후 application.js에 import하자. 그런후, application.html.erb에 적용</a></li>
+<li><a href="#orgd70b544">(2) ajax를 이용하는 js pack을 만든다. (뼈대만)</a></li>
+<li><a href="#orgfb62621">(3) 전체 동작에 대한 이해 (stateful)</a></li>
+</ul>
+</li>
+<li><a href="#org9c80ba2">15.3. login을 고려한 방식</a></li>
+</ul>
+</li>
+<li><a href="#org2e44b5f">16. [부록] link_to helper 사용법</a></li>
+<li><a href="#orga7645e8">17. [부록] form_for helper사용법</a></li>
+<li><a href="#orgedb1810">18. [부록] 지도 관련 사용법</a></li>
+<li><a href="#org816584b">19. [부록] I18n 사용법</a></li>
+<li><a href="#org43b6b88">20. [부록] byebug 사용법</a></li>
+<li><a href="#orgfbeceb9">21. [부록] debugger (javascript) 사용법</a></li>
+<li><a href="#org09b2d16">22. [Error처리] - warning처리 (The loose option must be..)</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org372e76b" class="outline-2">
-<h2 id="org372e76b"><span class="section-number-2">1</span> 제일 먼저 할것은 hello world page</h2>
+<div id="outline-container-org1d8b33b" class="outline-2">
+<h2 id="org1d8b33b"><span class="section-number-2">1</span> 제일 먼저 할것은 hello world page</h2>
 <div class="outline-text-2" id="text-1">
-<div class="note" id="orgad2967f">
+<div class="note" id="orgf030637">
 <p>
 rails를 설치하고,  CI/CD를 위한 환경이 조성되었다면,  hello world를 출력하는 것이다. 이것은 간단하게 routes와 controller만 사용해서 출력하기로 한다. route에서는 root 경로만 설정해준다.
 </p>
@@ -366,27 +370,27 @@ rails new hellodemo &#x2013;database=mysql 로 project를 만든다. (database.y
 </blockquote>
 </div>
 
-<div id="outline-container-org8dfdcf8" class="outline-3">
-<h3 id="org8dfdcf8"><span class="section-number-3">1.1</span> route 설정</h3>
+<div id="outline-container-org0c05cb6" class="outline-3">
+<h3 id="org0c05cb6"><span class="section-number-3">1.1</span> route 설정</h3>
 <div class="outline-text-3" id="text-1-1">
-<div class="note" id="org4a4e955">
+<div class="note" id="org16fd5ee">
 <p>
 route를 설정하기 위해서 route file을 연다.  root를 사용해서 아래와 같이 application controller의 hello라는 action으로 mapping한다.
 </p>
 
 </div>
 
-<div id="orgb9b34d4" class="figure">
+<div id="org7eed787" class="figure">
 <p><img src="./img/rt1.png" alt="rt1.png" width="800px" />
 </p>
 <p><span class="figure-number">Figure 1: </span>rt1</p>
 </div>
 </div>
 </div>
-<div id="outline-container-orgc8282c7" class="outline-3">
-<h3 id="orgc8282c7"><span class="section-number-3">1.2</span> controller의 설정</h3>
+<div id="outline-container-orgf1811d9" class="outline-3">
+<h3 id="orgf1811d9"><span class="section-number-3">1.2</span> controller의 설정</h3>
 <div class="outline-text-3" id="text-1-2">
-<div class="note" id="org082e0e6">
+<div class="note" id="org02a7e4c">
 <p>
 application controller에서는 action에 해당하는 hello method를 작성하지만, 실제 view와 연결짓지는 않는다.
 render함수의 정확한 용법은 모르겠다. 하지만, 이렇게 관습적으로 사용한다.
@@ -394,17 +398,17 @@ render함수의 정확한 용법은 모르겠다. 하지만, 이렇게 관습적
 
 </div>
 
-<div id="orge7a4e73" class="figure">
+<div id="org6a8bab7" class="figure">
 <p><img src="./img/render.png" alt="render.png" width="800px" />
 </p>
 <p><span class="figure-number">Figure 2: </span>render1</p>
 </div>
 </div>
 </div>
-<div id="outline-container-orgc3ba88d" class="outline-3">
-<h3 id="orgc3ba88d"><span class="section-number-3">1.3</span> 실행</h3>
+<div id="outline-container-org8a61b16" class="outline-3">
+<h3 id="org8a61b16"><span class="section-number-3">1.3</span> 실행</h3>
 <div class="outline-text-3" id="text-1-3">
-<div class="note" id="org5fa892a">
+<div class="note" id="org46e283d">
 <p>
 local에선  별도의 rails db:migration이나 rails assets:precompile을 하지 않아도 된다. 왜냐면, db와 css,js를 사용하지 않기 때문이다. 그냥 rails s만 하면 된다.
 server는 cap production deploy로 release를 발행한다.
@@ -414,34 +418,34 @@ server는 cap production deploy로 release를 발행한다.
 </div>
 </div>
 </div>
-<div id="outline-container-org1258fda" class="outline-2">
-<h2 id="org1258fda"><span class="section-number-2">2</span> css,js,image사용법 (bootstrap의 적용, jquery의 적용: ajax)</h2>
+<div id="outline-container-org8d5613b" class="outline-2">
+<h2 id="org8d5613b"><span class="section-number-2">2</span> css,js,image사용법 (bootstrap의 적용, jquery의 적용: ajax)</h2>
 <div class="outline-text-2" id="text-2">
-<div class="note" id="orgf84d778">
+<div class="note" id="orgbd1bf03">
 <p>
-어떤 page작업을 하더라도 css와 js가 사용된다. 둘의 사용이 능수 능란해야 한다. webpacker에 대한 설명은 맨아래에 따로 두었다. 여기서는 css와 js 사용법만을 얘기한다. css와 js를 사용하는 이론적인 것을 설명한후, 실제 test과정을 기술하겠다.
+어떤 page작업을 하더라도 css와 js가 사용된다. 둘의 사용이 능수 능란해야 한다. webpacker에 대한 설명은 맨 아래에 따로 두었다. 여기서는 css와 js 사용법만을 얘기한다. css와 js를 사용하는 이론적인 것을 설명한 후, 실제 test과정을 기술하겠다.
 </p>
 
 </div>
 </div>
-<div id="outline-container-orgb503c0d" class="outline-3">
-<h3 id="orgb503c0d"><span class="section-number-3">2.1</span> [ 이론 ] css,js 사용법과 나의 기준</h3>
+<div id="outline-container-orgaa29684" class="outline-3">
+<h3 id="orgaa29684"><span class="section-number-3">2.1</span> [ 이론 ] css,js 사용법과 나의 기준</h3>
 <div class="outline-text-3" id="text-2-1">
-<div class="important" id="org57ed439">
+<div class="important" id="orgf423d1b">
 <p>
-css와 js를 만들 때의 기준은 첫번째 사용범위, 두번째 어떤 것을 사용할 것인가의 문제다. 어떤것을 사용하느냐에 따라 pack파일 기술이 달라진다. 이 두가지를 간략히 설명하겠다.
+css와 js를 만들 때 고려해야 할 것이 있다.  만든 css와 js가 어떤 적용 범위(scope)를 갖는가? 두번째 어떤 형태. 어떤것을 사용하느냐에 따라 pack파일 기술이 달라진다. 이 두가지를 간략히 설명하겠다.
 </p>
 
 </div>
 </div>
-<div id="outline-container-orgadb1e83" class="outline-4">
-<h4 id="orgadb1e83">사용 범위에 따른 기준 (packfile의 naming)</h4>
-<div class="outline-text-4" id="text-orgadb1e83">
+<div id="outline-container-org02dbf3c" class="outline-4">
+<h4 id="org02dbf3c">사용 범위에 따른 기준 (packfile의 naming)</h4>
+<div class="outline-text-4" id="text-org02dbf3c">
 <ul class="org-ul">
 <li><p>
 전체 vs 부분
 </p>
-<div class="note" id="orga9189c8">
+<div class="note" id="org55aaa72">
 <p>
 전체 page에 공통적으로 적용되는가? 아니면 controller가 다루는 page들에만 한정해서 적용 되는가? 특정 page에만 적용 되는가? default로 전체 page에 공통적으로 적용되는 것은 이미 적용되어 있다. application.html.erb파일에 보면 application.js라는 pack과 application.scss라는 pack은 공통적으로 모든 page에 적용된다. 그래서  전체 page에 적용되는 것은 application.js와 application.scss에 포함시켜야 한다.  
 </p>
@@ -452,7 +456,7 @@ css와 js를 만들 때의 기준은 첫번째 사용범위, 두번째 어떤 �
 <li><p>
 controller과 관리하는 pages 혹은 특정 page에만 적용 되는 경우
 </p>
-<div class="note" id="orgdb612eb">
+<div class="note" id="orgcefb212">
 <p>
 controller가 다루는 page들에만 적용된다면, Controller명.scss나 Controller.js로 파일을 pack안에 만든다. 특정 page에만 적용되는 js나 scss의 경우 Controller명Action명.scss, Controller명Action명.js를 /pack안에 만든다.
 </p>
@@ -461,10 +465,10 @@ controller가 다루는 page들에만 적용된다면, Controller명.scss나 Con
 </ul>
 </div>
 </div>
-<div id="outline-container-orgaf1cb90" class="outline-4">
-<h4 id="orgaf1cb90">만들어진것 vs 만들어서 (packfile의 구조)</h4>
-<div class="outline-text-4" id="text-orgaf1cb90">
-<div class="note" id="org9f6416d">
+<div id="outline-container-org2eaa806" class="outline-4">
+<h4 id="org2eaa806">만들어진것 vs 만들어서 (packfile의 구조)</h4>
+<div class="outline-text-4" id="text-org2eaa806">
+<div class="note" id="orgc6be49f">
 <p>
 만들어진것을 사용(package)하느냐, 만들어서 사용하는냐에 따라 pack파일의 기술 방법이 다르다.
 </p>
@@ -474,7 +478,7 @@ controller가 다루는 page들에만 적용된다면, Controller명.scss나 Con
 <li><p>
 만들어진것(package)를 사용
 </p>
-<div class="important" id="orgeaf0d76">
+<div class="important" id="org879643a">
 <p>
 yarn으로 package를 설치하고 사용해야 한다. 설치하는 방식은 "yarn add package명" 을 webapp의 home에서 실행 해준다. 그러면 yarn은  webapphome/ node_modules라는 곳에 package를 설치한다. yarn이란것은 아래 [부록]에서 별도로 설명하겠다. 이렇게 설치된 package를 pack에 기술하기 위해선, import라는 지시어를 사용한다. import package명/js의 위치로 기술해서 사용한다. 실제 예제에 보면, js를 import한 후 start() 를 사용하는 경우를 볼 수 있는데, 그것은 초기화 과정이다. 보통은 필요없다.
 </p>
@@ -483,7 +487,7 @@ yarn으로 package를 설치하고 사용해야 한다. 설치하는 방식은 "
 <li><p>
 만들어서 사용
 </p>
-<div class="important" id="org8c1f1c4">
+<div class="important" id="org63eb11e">
 <p>
 만일 우리가 만든 css나 js가 다른 page에서 사용되는 일종의 library같다면, js라는 폴더, stylesheet라는 폴더에 넣은 후  pack파일에 import해서 사용하면 된다. 마치 위에서 만들어진 package를 사용하는 것과 동일하다. 그런데 내가 만든 css나 js가 재사용이 안되고 그 page에만 적용된다면, pack파일에 직접 기술한다.
 </p>
@@ -493,9 +497,9 @@ yarn으로 package를 설치하고 사용해야 한다. 설치하는 방식은 "
 </div>
 </div>
 
-<div id="outline-container-orge8469bd" class="outline-4">
-<h4 id="orge8469bd">case 시나리오</h4>
-<div class="outline-text-4" id="text-orge8469bd">
+<div id="outline-container-org772781d" class="outline-4">
+<h4 id="org772781d">case 시나리오</h4>
+<div class="outline-text-4" id="text-org772781d">
 <ul class="org-ul">
 <li>(1) 전체 page에 적용되고 이미 만들어진 package를 사용하는 경우 (bootstrap scss와 jquery js처리)</li>
 <li>(2) 특정 page에 적용되고 이미 만들어진 package를 사용하는 경우 (bootstrap scss와 jquery js처리)</li>
@@ -506,10 +510,10 @@ yarn으로 package를 설치하고 사용해야 한다. 설치하는 방식은 "
 </div>
 </div>
 
-<div id="outline-container-org2a68a45" class="outline-3">
-<h3 id="org2a68a45"><span class="section-number-3">2.2</span> [ 실전 case1: bootstrap.scss, jquery 전체 page사용하기 ]</h3>
+<div id="outline-container-org3dd649c" class="outline-3">
+<h3 id="org3dd649c"><span class="section-number-3">2.2</span> [ 실전 case1: bootstrap.scss, jquery 전체 page사용하기 ]</h3>
 <div class="outline-text-3" id="text-2-2">
-<div class="important" id="org9ae471a">
+<div class="important" id="org609f09f">
 <ul class="org-ul">
 <li>(1) 전체 page에 적용되고 이미 만들어진 package를 사용하는 경우 (bootstrap cs와 jquery js처리)
 이미 만들어진 package를 사용한다. 그러면 우선 package를 설치한다. bootstrap을  yarn으로 설치해본다. jquery도 yarn으로 설치한다.  bootstrap5부터는 javascript는 바닐라 js이기 때문에 package를 가져다 사용하는 것에 큰 의미가 없어 보여서 jquery.js를 사용한다.</li>
@@ -517,20 +521,20 @@ yarn으로 package를 설치하고 사용해야 한다. 설치하는 방식은 "
 
 </div>
 
-<div id="org35082a0" class="figure">
+<div id="org720e80a" class="figure">
 <p><img src="./img/case1_1.png" alt="case1_1.png" width="800px" />
 </p>
 <p><span class="figure-number">Figure 3: </span>case1_1</p>
 </div>
 
 
-<div id="orgec187d7" class="figure">
+<div id="orge20e416" class="figure">
 <p><img src="./img/case1_js.png" alt="case1_js.png" width="800px" />
 </p>
 <p><span class="figure-number">Figure 4: </span>jquery</p>
 </div>
 
-<div class="important" id="org3e5e53e">
+<div class="important" id="orgf375be6">
 <p>
 전체 page에 적용된다. 따라서 application.js, application.scss라는 pack파일에 jquery의 js와 bootstrap.scss파일을 import하면 된다. node_modules folder에서 jquery, bootstrap이 있는지 확인하고, 있다면 지원하는 bootstrap.scss와 jquery.js의 위치를 파악한다. 위치를 파악하는 이유는 import에 경로를 기술하기 위함이다.
 </p>
@@ -538,21 +542,21 @@ yarn으로 package를 설치하고 사용해야 한다. 설치하는 방식은 "
 </div>
 
 
-<div id="orga9f7729" class="figure">
+<div id="org18f3c38" class="figure">
 <p><img src="./img/case1_js2.png" alt="case1_js2.png" width="800px" />
 </p>
 <p><span class="figure-number">Figure 5: </span>case</p>
 </div>
 
 
-<div id="org231abb0" class="figure">
+<div id="org6ce276c" class="figure">
 <p><img src="./img/case1_2.png" alt="case1_2.png" width="800px" />
 </p>
 <p><span class="figure-number">Figure 6: </span>case1_2</p>
 </div>
 
 
-<div id="orgf4b237e" class="figure">
+<div id="org2f7e44b" class="figure">
 <p><img src="./img/case1_3.png" alt="case1_3.png" width="800px" />
 </p>
 <p><span class="figure-number">Figure 7: </span>case1_3</p>
@@ -572,7 +576,7 @@ scss의 위치: bootstrap/scss/bootstrap.scss
 <ul class="org-ul">
 <li>pack파일에 적용</li>
 </ul>
-<div class="note" id="org9e0c030">
+<div class="note" id="orge865cf6">
 <p>
 이것을 pack파일에 적용 시켜보자. 전체 page에 적용되기 때문에, application.scss와 application.js에 import하면 된다. javascript_pack_tag나 stylesheet_pack_tag를 layouts/application.html.erb에 적용해야 한다. rails 6에서는 default이긴 하지만, 좀 다르다. scss는 asset을 이용하고 javascript만 webpack을 이용하기 때문이다. 난 webpack에서 모든것을 관리하기 때문에 변경을 해줬다.
 </p>
@@ -580,21 +584,21 @@ scss의 위치: bootstrap/scss/bootstrap.scss
 </div>
 
 
-<div id="orgce213f8" class="figure">
+<div id="org14fbbef" class="figure">
 <p><img src="./img/case1_js3.png" alt="case1_js3.png" width="800px" />
 </p>
 <p><span class="figure-number">Figure 8: </span>case1_2js2</p>
 </div>
 
 
-<div id="org61b1d35" class="figure">
+<div id="org471d27f" class="figure">
 <p><img src="./img/case1_4.png" alt="case1_4.png" width="800px" />
 </p>
 <p><span class="figure-number">Figure 9: </span>case1_4</p>
 </div>
 
 
-<div id="org2efbf32" class="figure">
+<div id="orgcd424b3" class="figure">
 <p><img src="./img/case1_6.png" alt="case1_6.png" width="800px" />
 </p>
 <p><span class="figure-number">Figure 10: </span>case1_6</p>
@@ -605,7 +609,7 @@ scss의 위치: bootstrap/scss/bootstrap.scss
 <li><p>
 Test1 [scss test]
 </p>
-<div class="note" id="org8361843">
+<div class="note" id="orgbf6423e">
 <ol class="org-ol">
 <li>button을 만들어보자(scss테스트)</li>
 <li>동작확인 (아래 2번째와 같이 제대로 된 동작을 하지 않는다.)</li>
@@ -615,34 +619,34 @@ Test1 [scss test]
 </div></li>
 </ul>
 
-<div id="org75808ed" class="figure">
+<div id="org815fd6a" class="figure">
 <p><img src="./img/case1_7.png" alt="case1_7.png" width="800px" />
 </p>
 <p><span class="figure-number">Figure 11: </span>case1_7</p>
 </div>
 
 
-<div id="orgbb414b7" class="figure">
+<div id="org841ea3e" class="figure">
 <p><img src="./img/case1_8.png" alt="case1_8.png" width="800px" />
 </p>
 <p><span class="figure-number">Figure 12: </span>case1_8</p>
 </div>
 
-<div class="attention" id="orgefd355d">
+<div class="attention" id="orgd0d985d">
 <p>
 [문제 해결] scss에서 import는 @import를 사용해야 한다.
 </p>
 
 </div>
 
-<div id="org0f998f0" class="figure">
+<div id="org1d1c286" class="figure">
 <p><img src="./img/case1_9.png" alt="case1_9.png" width="800px" />
 </p>
 <p><span class="figure-number">Figure 13: </span>case1_9</p>
 </div>
 
 
-<div id="orgc7b936a" class="figure">
+<div id="org226d7ac" class="figure">
 <p><img src="./img/case1_10.png" alt="case1_10.png" width="800px" />
 </p>
 <p><span class="figure-number">Figure 14: </span>case1_10</p>
@@ -652,7 +656,7 @@ Test1 [scss test]
 <li><p>
 Test2 [js test]
 </p>
-<div class="note" id="orga473499">
+<div class="note" id="orgd9d411f">
 <p>
 jquery를 테스트 해보자. jquery에서 ajax를 load했기 때문에  ajax를 테스트 해볼려고 한다. ajax는 테스트가 힘들어 위에서 import를 jquery.js로 바꿔서 모든 jquery를 사용할 수 있게 바꾸고 테스트한다.  예제코드는 다음을 참조했다. 
 <a href="https://www.w3schools.com/jquery/jquery_animate.asp">https://www.w3schools.com/jquery/jquery_animate.asp</a>
@@ -661,20 +665,20 @@ jquery를 테스트 해보자. jquery에서 ajax를 load했기 때문에  ajax�
 </div></li>
 </ul>
 
-<div id="org29504dc" class="figure">
+<div id="orgeb909a7" class="figure">
 <p><img src="./img/case2_2_jquery.png" alt="case2_2_jquery.png" width="800px" />
 </p>
 <p><span class="figure-number">Figure 15: </span>case2_jquery</p>
 </div>
 
 
-<div id="org9caaca8" class="figure">
+<div id="orgd3c4461" class="figure">
 <p><img src="./img/case1_js4.png" alt="case1_js4.png" width="800px" />
 </p>
 <p><span class="figure-number">Figure 16: </span>case1_js4</p>
 </div>
 
-<div class="attention" id="orge03a6a3">
+<div class="attention" id="org0be4fb2">
 <p>
 [정상동작] 아무 문제 없이 동작하는 것을 확인했다.
 </p>
@@ -682,10 +686,10 @@ jquery를 테스트 해보자. jquery에서 ajax를 load했기 때문에  ajax�
 </div>
 </div>
 </div>
-<div id="outline-container-org7b39079" class="outline-3">
-<h3 id="org7b39079"><span class="section-number-3">2.3</span> [ 실전 case2:  d3.js and d3.scss를 특정 page에 사용하기 ]</h3>
+<div id="outline-container-org906b67e" class="outline-3">
+<h3 id="org906b67e"><span class="section-number-3">2.3</span> [ 실전 case2:  d3.js and d3.scss를 특정 page에 사용하기 ]</h3>
 <div class="outline-text-3" id="text-2-3">
-<div class="note" id="orgd525903">
+<div class="note" id="orgb3739fc">
 <ul class="org-ul">
 <li>d3를 yarn으로 설치하자. (yarn add d3)</li>
 <li>d3의 설치 경로를 살펴보자. dist와 src에 js가 있다. 난 dist/d3.js를 import하기로 했다.</li>
@@ -699,7 +703,7 @@ jquery를 테스트 해보자. jquery에서 ajax를 load했기 때문에  ajax�
 <li>pack을 만든다.</li>
 </ul>
 
-<div id="orgb2a9b42" class="figure">
+<div id="org81c6f37" class="figure">
 <p><img src="./img/case2_d3_1.png" alt="case2_d3_1.png" width="800px" />
 </p>
 <p><span class="figure-number">Figure 17: </span>pack을 만든다.</p>
@@ -711,7 +715,7 @@ view에 pack을 추가시킨다.
 </p></li>
 </ul>
 
-<div id="org9630026" class="figure">
+<div id="orgefd0aa7" class="figure">
 <p><img src="./img/case2_d3_3.png" alt="case2_d3_3.png" width="800px" />
 </p>
 </div>
@@ -722,22 +726,22 @@ test 결과 [ js가 적용된것을 볼 수 있다.]
 </p></li>
 </ul>
 
-<div id="orgeb9ba2b" class="figure">
+<div id="orga33d281" class="figure">
 <p><img src="./img/case2_d3_2.png" alt="case2_d3_2.png" width="800px" />
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-org021bfaa" class="outline-3">
-<h3 id="org021bfaa"><span class="section-number-3">2.4</span> [ 실전 case3: 전체 page에 적용되고 내가만든 file을 사용하는 경우 ]</h3>
+<div id="outline-container-orgc04bc04" class="outline-3">
+<h3 id="orgc04bc04"><span class="section-number-3">2.4</span> [ 실전 case3: 전체 page에 적용되고 내가만든 file을 사용하는 경우 ]</h3>
 <div class="outline-text-3" id="text-2-4">
-<div class="note" id="org337661a">
+<div class="note" id="org8e9755c">
 <p>
 내가 만든 css와 js가  전체 page에 적용한다는 것은, 라이브러리 모듈이라고 생각하면 된다. 그래서 js나 stylesheet폴더에 파일이 있고 그것을 application.scss와 application.js에서 import해서 사용하는 것을 의미한다.
 </p>
 
 </div>
-<div class="important" id="org5bf2008">
+<div class="important" id="orgfc6e598">
 <ul class="org-ul">
 <li></li>
 </ul>
@@ -745,14 +749,14 @@ test 결과 [ js가 적용된것을 볼 수 있다.]
 </div>
 </div>
 </div>
-<div id="outline-container-org5968e27" class="outline-3">
-<h3 id="org5968e27"><span class="section-number-3">2.5</span> [ 실전  case4:  font awesome(아이콘) 전체 page 적용</h3>
+<div id="outline-container-org2857e81" class="outline-3">
+<h3 id="org2857e81"><span class="section-number-3">2.5</span> [ 실전  case4:  font awesome(아이콘) 전체 page 적용</h3>
 <div class="outline-text-3" id="text-2-5">
 </div>
-<div id="outline-container-org9a2d890" class="outline-4">
-<h4 id="org9a2d890">적용1</h4>
-<div class="outline-text-4" id="text-org9a2d890">
-<div class="note" id="org7531356">
+<div id="outline-container-org2537105" class="outline-4">
+<h4 id="org2537105">적용1</h4>
+<div class="outline-text-4" id="text-org2537105">
+<div class="note" id="org25e4aa5">
 <ul class="org-ul">
 <li>(1) yarn add font-awesome 으로 설치한다.</li>
 <li>(2) import location을 찾는다.</li>
@@ -760,29 +764,29 @@ test 결과 [ js가 적용된것을 볼 수 있다.]
 
 </div>
 
-<div id="org1498c98" class="figure">
+<div id="orge540f48" class="figure">
 <p><img src="./img/case4_font1.png" alt="case4_font1.png" width="800px" />
 </p>
 <p><span class="figure-number">Figure 20: </span>case4</p>
 </div>
-<div class="important" id="org3c5dcea">
+<div class="important" id="orgf9c8119">
 <p>
 scss란 폴더가 따로 있어서, import위치를 예측할 수 있다. /font-awesome/scss/font-awesome.scss가 import할 대상이다. 이것은 application.scss pack에 import한다.
 </p>
 
 </div>
 
-<div id="orgc18b3fb" class="figure">
+<div id="org0d05dd8" class="figure">
 <p><img src="./img/case4_font2.png" alt="case4_font2.png" width="800px" />
 </p>
 <p><span class="figure-number">Figure 21: </span>case4</p>
 </div>
 </div>
 </div>
-<div id="outline-container-orgb7f20d8" class="outline-4">
-<h4 id="orgb7f20d8">문제점</h4>
-<div class="outline-text-4" id="text-orgb7f20d8">
-<div class="note" id="orgcaf5aaf">
+<div id="outline-container-orgc66b923" class="outline-4">
+<h4 id="orgc66b923">문제점</h4>
+<div class="outline-text-4" id="text-orgc66b923">
+<div class="note" id="org31681d2">
 <p>
 이렇게 하면 제대로 동작하지 않는다.  에러가 난다. 인터넷에서 찾은 방식을 사용해 보자.
 </p>
@@ -790,10 +794,10 @@ scss란 폴더가 따로 있어서, import위치를 예측할 수 있다. /font-
 </div>
 </div>
 </div>
-<div id="outline-container-orgbec8667" class="outline-4">
-<h4 id="orgbec8667">다른 방식</h4>
-<div class="outline-text-4" id="text-orgbec8667">
-<div class="note" id="org1a742b1">
+<div id="outline-container-orgb2a14e1" class="outline-4">
+<h4 id="orgb2a14e1">다른 방식</h4>
+<div class="outline-text-4" id="text-orgb2a14e1">
+<div class="note" id="orgc2f0da8">
 <ul class="org-ul">
 <li>yarn add @fortawesome/fontawesome-free</li>
 <li>import "@fortawesome/fontawesome-free/css/all" 을 application.js에 설치한다.
@@ -804,10 +808,10 @@ scss란 폴더가 따로 있어서, import위치를 예측할 수 있다. /font-
 </div>
 </div>
 </div>
-<div id="outline-container-orgb2d591b" class="outline-3">
-<h3 id="orgb2d591b"><span class="section-number-3">2.6</span> [ 실전 case5: bootstrap-icons 전체 page적용</h3>
+<div id="outline-container-orga5064fb" class="outline-3">
+<h3 id="orga5064fb"><span class="section-number-3">2.6</span> [ 실전 case5: bootstrap-icons 전체 page적용</h3>
 <div class="outline-text-3" id="text-2-6">
-<div class="note" id="org1c16942">
+<div class="note" id="org864ac9e">
 <ul class="org-ul">
 <li>yarn add bootstrap-icons</li>
 <li>import 'bootstrap-icons/font/bootstrap-icons.css' in application.js pack</li>
@@ -816,10 +820,10 @@ scss란 폴더가 따로 있어서, import위치를 예측할 수 있다. /font-
 </div>
 </div>
 </div>
-<div id="outline-container-org694406e" class="outline-3">
-<h3 id="org694406e"><span class="section-number-3">2.7</span> 최종 정리</h3>
+<div id="outline-container-org6afb622" class="outline-3">
+<h3 id="org6afb622"><span class="section-number-3">2.7</span> 최종 정리</h3>
 <div class="outline-text-3" id="text-2-7">
-<div class="important" id="orgb0c82f3">
+<div class="important" id="org2fa968d">
 <p>
 내가 생각한 방식은 "간단하게 하자"라는 모토에서 벗어나지 않는다. 간단하게 하기 위해서 생각한건 다음과 같다.
 </p>
@@ -851,14 +855,14 @@ scss란 폴더가 따로 있어서, import위치를 예측할 수 있다. /font-
 </div>
 </div>
 </div>
-<div id="outline-container-orge29f1a4" class="outline-3">
-<h3 id="orge29f1a4"><span class="section-number-3">2.8</span> 최종 정리2</h3>
+<div id="outline-container-orgad06bb3" class="outline-3">
+<h3 id="orgad06bb3"><span class="section-number-3">2.8</span> 최종 정리2</h3>
 <div class="outline-text-3" id="text-2-8">
 <ul class="org-ul">
 <li><p>
 import의 사용법
 </p>
-<div class="important" id="org9ef6baf">
+<div class="important" id="org1e2acf5">
 <ul class="org-ul">
 <li>yarn을 사용한 경우
 node_modules에서 설치된 package의 js와 scss의 위치를 파악한다.
@@ -872,10 +876,10 @@ pack폴더를 기준으로 한다. import '../js/mylibrary.js'와 같이 한다.
 </ul>
 </div>
 </div>
-<div id="outline-container-orge893867" class="outline-3">
-<h3 id="orge893867"><span class="section-number-3">2.9</span> 최종정리3</h3>
+<div id="outline-container-orgc706be2" class="outline-3">
+<h3 id="orgc706be2"><span class="section-number-3">2.9</span> 최종정리3</h3>
 <div class="outline-text-3" id="text-2-9">
-<div class="important" id="org700e4d3">
+<div class="important" id="org6c4fcb3">
 <p>
 최종적으로 bootstrap과 jquery는 application.js와 application.scss에 있어서 bootstrap과 jquery, awesome font, bootstrap-icons를 사용할 수 있게 해야 한다.
 </p>
@@ -884,13 +888,13 @@ pack폴더를 기준으로 한다. import '../js/mylibrary.js'와 같이 한다.
 </div>
 </div>
 </div>
-<div id="outline-container-orgc0f22da" class="outline-2">
-<h2 id="orgc0f22da"><span class="section-number-2">3</span> application layout 만들기</h2>
+<div id="outline-container-orgd3865a0" class="outline-2">
+<h2 id="orgd3865a0"><span class="section-number-2">3</span> application layout 만들기</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>application layout에 대해서</li>
 </ul>
-<div class="note" id="orgb0659c3">
+<div class="note" id="org044c88f">
 <p>
 모든 page의 layout(와꾸, 기본틀)를 잡아주는 page다. app/views/layouts/application.html.erb파일이다.
 여기서 해야 할 것은 모든 page의 공통적인 것을 기술한다. 공통적인것은 header와 footer를 의미한다.
@@ -898,27 +902,27 @@ header에는 navigation menu bar가 들어가고 footer에도 menubar가 들어�
 </p>
 
 </div>
-<div class="important" id="org5b1f3e1">
+<div class="important" id="org895e2d5">
 <p>
 application.js에서 bootstrap과 jquery를  사용하게 setting했기 때문에 bootstrap의  header와 footer를 사용하기로 한다.
 </p>
 
 </div>
 </div>
-<div id="outline-container-orga13f656" class="outline-3">
-<h3 id="orga13f656"><span class="section-number-3">3.1</span> 실제 구현</h3>
+<div id="outline-container-orge56180f" class="outline-3">
+<h3 id="orge56180f"><span class="section-number-3">3.1</span> 실제 구현</h3>
 <div class="outline-text-3" id="text-3-1">
-<div class="note" id="org0a4b754">
+<div class="note" id="org4c0dc40">
 <ul class="org-ul">
 <li>bootstrap5 homepage에서 examples를 본다. 마땅한것이 있다면 source를 보고 copy해서 application.html.erb에 yield사이로 붙인다. 이게 전부다.</li>
 </ul>
 
 </div>
 </div>
-<div id="outline-container-org6c5c2c9" class="outline-4">
-<h4 id="org6c5c2c9">partial page의 사용</h4>
-<div class="outline-text-4" id="text-org6c5c2c9">
-<div class="important" id="orgcce4bdc">
+<div id="outline-container-orge8bf63b" class="outline-4">
+<h4 id="orge8bf63b">partial page의 사용</h4>
+<div class="outline-text-4" id="text-orge8bf63b">
+<div class="important" id="org7222fac">
 <p>
 page는 보통 html tag로 되어 있는데, 보기에 복잡하다. 이것은 관리가 힘들다는 것이다.  그리고 보통 다른곳에서  source를 가져와 사용하기 때문에 따로 분리할 필요가 있다. 그래서 온전히 하나의 page를 작성하는 경우는 드물고, partial page로 나눠서 작성하고 관리한다. application layout도 다르지 않다.
 </p>
@@ -927,7 +931,7 @@ page는 보통 html tag로 되어 있는데, 보기에 복잡하다. 이것은 �
 <ul class="org-ul">
 <li>partial page만드는 법</li>
 </ul>
-<div class="note" id="orgfd95b52">
+<div class="note" id="org8393794">
 <p>
 header와 footer를 partial page로 만들 것이다. layouts폴더에 _header.html.erb와 _footer.html.erb라는 2개의 파일을 만든다. 만든 파일에 긁어온 html을 붙여넣거나 직접 작성한다.
 </p>
@@ -937,7 +941,7 @@ header와 footer를 partial page로 만들 것이다. layouts폴더에 _header.h
 <li><p>
 partial page 적용
 </p>
-<div class="note" id="org200baa8">
+<div class="note" id="org42a1801">
 <p>
 만든 partial page를 application.html.erb에 적용한다. 적용 방법은 다음과 같다.
    &lt;%= render 'layouts/header' %&gt;
@@ -948,10 +952,10 @@ partial page 적용
 </ul>
 </div>
 </div>
-<div id="outline-container-org753f8a7" class="outline-4">
-<h4 id="org753f8a7">결론</h4>
-<div class="outline-text-4" id="text-org753f8a7">
-<div class="note" id="org98dcd04">
+<div id="outline-container-orge51fd3b" class="outline-4">
+<h4 id="orge51fd3b">결론</h4>
+<div class="outline-text-4" id="text-orge51fd3b">
+<div class="note" id="org7f06313">
 <p>
 navigation bar를 만드는 방법은 좀 복잡하다. 단순히 bootstrap을 copy &amp; paste하더라도, class의 의미를 이해해야 한다. 지금 작성하는 시점에서는 대충 알지만, 나중에는 까먹을것이 분명하기 때문이다.
 </p>
@@ -961,17 +965,17 @@ navigation bar를 만드는 방법은 좀 복잡하다. 단순히 bootstrap을 c
 </div>
 </div>
 </div>
-<div id="outline-container-org115a47d" class="outline-2">
-<h2 id="org115a47d"><span class="section-number-2">4</span> static pages  만들기 - navigation menu</h2>
+<div id="outline-container-org8151be0" class="outline-2">
+<h2 id="org8151be0"><span class="section-number-2">4</span> static pages  만들기 - navigation menu</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-org0f5b088" class="outline-3">
-<h3 id="org0f5b088"><span class="section-number-3">4.1</span> static pages 개요</h3>
+<div id="outline-container-orga241d8d" class="outline-3">
+<h3 id="orga241d8d"><span class="section-number-3">4.1</span> static pages 개요</h3>
 <div class="outline-text-3" id="text-4-1">
 <ul class="org-ul">
 <li>static page란?</li>
 </ul>
-<div class="note" id="org00837df">
+<div class="note" id="orgfaa3328">
 <p>
 web page를 만들 환경이 다 되었다면 기본적으로 해야할 것이, static pages들을 만들어야 한다.
 static page란 건, db를 사용하지 않고 동적으로 만들어지지 않는 page를 말한다. static page에는 대략적으로 다음과 같은 것이 있다.
@@ -982,7 +986,7 @@ static page란 건, db를 사용하지 않고 동적으로 만들어지지 않�
 <li><p>
 static page종류
 </p>
-<div class="important" id="orgd1133a2">
+<div class="important" id="org9b139df">
 <ul class="org-ul">
 <li>(1) home</li>
 <li>(2) help</li>
@@ -997,10 +1001,10 @@ static page종류
 </div>
 </div>
 
-<div id="outline-container-orgc8f4949" class="outline-3">
-<h3 id="orgc8f4949"><span class="section-number-3">4.2</span> [1] static pages 만들기</h3>
+<div id="outline-container-org3dfda1e" class="outline-3">
+<h3 id="org3dfda1e"><span class="section-number-3">4.2</span> [1] static pages 만들기</h3>
 <div class="outline-text-3" id="text-4-2">
-<div class="note" id="org45c9749">
+<div class="note" id="orge9a7596">
 <p>
 <b>1. rails g controller StaticPages home help about contact로 만든다.</b>
    [ 참고로 Controller, Model 모두 camel case로 표기한다. 다만 Controller는 복수를, Model은 단수를 사용한다.] 
@@ -1009,13 +1013,13 @@ static page종류
 </div>
 </div>
 
-<div id="outline-container-orgc399f8a" class="outline-4">
-<h4 id="orgc399f8a">home page 작성</h4>
-<div class="outline-text-4" id="text-orgc399f8a">
+<div id="outline-container-orgb58145f" class="outline-4">
+<h4 id="orgb58145f">home page 작성</h4>
+<div class="outline-text-4" id="text-orgb58145f">
 <ul class="org-ul">
 <li>view 작업</li>
 </ul>
-<div class="note" id="orgc19771c">
+<div class="note" id="org7e2b3c7">
 <p>
 home  page를 작성한다. 만일 작성할 page가 많다면 partial page를 사용한다. 
 </p>
@@ -1025,7 +1029,7 @@ home  page를 작성한다. 만일 작성할 page가 많다면 partial page를 �
 <li><p>
 routing작업
 </p>
-<div class="note" id="org99d20ab">
+<div class="note" id="org9681eae">
 <p>
 root to: 'static_pages#home' 추가
 </p>
@@ -1034,7 +1038,7 @@ root to: 'static_pages#home' 추가
 <li><p>
 연결작업
 </p>
-<div class="note" id="orge5f7176">
+<div class="note" id="orgd0f1d59">
 <p>
 layouts/application.html.erb에서 navigation을 만든 경우, home을 연결해야 한다.
 </p>
@@ -1043,20 +1047,20 @@ layouts/application.html.erb에서 navigation을 만든 경우, home을 연결�
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc8ec4a1" class="outline-4">
-<h4 id="orgc8ec4a1">about page 작성</h4>
+<div id="outline-container-orgf1687cc" class="outline-4">
+<h4 id="orgf1687cc">about page 작성</h4>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org4ed910e" class="outline-2">
-<h2 id="org4ed910e"><span class="section-number-2">5</span> [devise gem]으로 로그인 만들기</h2>
+<div id="outline-container-org48cf66c" class="outline-2">
+<h2 id="org48cf66c"><span class="section-number-2">5</span> [devise gem]으로 로그인 만들기</h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-org90c7561" class="outline-3">
-<h3 id="org90c7561"><span class="section-number-3">5.1</span> devise란?</h3>
+<div id="outline-container-org5528f42" class="outline-3">
+<h3 id="org5528f42"><span class="section-number-3">5.1</span> devise란?</h3>
 <div class="outline-text-3" id="text-5-1">
-<div class="note" id="org95c1352">
+<div class="note" id="org6aa366f">
 <p>
 회원가입, login, password관련 처리를 gem으로 할 수 있다.  session관련 처리뿐만 아니라, url도 만들어주고, db도 만들어 주며, view도 만들어 준다. session이 뭔지를 알아야 한다. session은 공식적으론 cookie의 일종이다. client가 server에 연결할 때 server가 key value값을 만든다. 이것을 session이라고 부른다. server는 만든 session을  client에 전달하고  client는 해당 browser 쿠키 보관소에 그 값을 가지고 있다가, 다시 동일 서버에 접근할때 저장된 cookie값을 동봉해서 보낸다. 그러면 server는 cookie로 사용자를 판단할 수 있게 된다. 이 과정을 구체적으로 사용자 인증과 결부하여 살펴보면 다음과 같다.  client가 회원가입 시, server에 session이 만들어지고 저장된다. 그리고 client가  login시 ,server는 session을 가져와서 client에게 보낸다. client가 탈퇴를 하게 되면 저장된 session은 삭제된다. devise는 이런 session처리를 알아서 자동화 한다. session은 user_signed_in?, current_user,user_session이란 심볼로 대신한다. devise 설치는 이 모든 것을 다 만들어준다. 만들어준 이 모든 것을 논리적 의미에 따라 session 심볼들을 적절히 사용하는 것이 devise gem을 사용하는 방식이다.
 </p>
@@ -1064,10 +1068,10 @@ layouts/application.html.erb에서 navigation을 만든 경우, home을 연결�
 </div>
 </div>
 </div>
-<div id="outline-container-org953ff2b" class="outline-3">
-<h3 id="org953ff2b"><span class="section-number-3">5.2</span> devise 설치 과정</h3>
+<div id="outline-container-orgbcc6a7d" class="outline-3">
+<h3 id="orgbcc6a7d"><span class="section-number-3">5.2</span> devise 설치 과정</h3>
 <div class="outline-text-3" id="text-5-2">
-<div class="note" id="org761a48d">
+<div class="note" id="org064a130">
 <p>
 devise를 설치하면,  routing, model,view, controller 관련된 모든것을 설치해야 한다.  나누어서 설명하겠다.
 </p>
@@ -1079,11 +1083,11 @@ devise를 설치하면,  routing, model,view, controller 관련된 모든것을 
 </p></li>
 </ul>
 
-<div id="org8fa43df" class="figure">
+<div id="orgca76bda" class="figure">
 <p><img src="./img/gem1.png" alt="gem1.png" width="800px" />
 </p>
 </div>
-<div class="note" id="orgc05e263">
+<div class="note" id="orgbdc0527">
 <p>
 Gemfiles에서 gem 'devise'만 할 경우, rails 4나 5에 맞춰서 설치된다는 얘기가 있다. rails 6에 맞춰야 하기 때문에 다음과 같이 입력해도 된다.
 </p>
@@ -1100,7 +1104,7 @@ gem 'devise' git: 'https://github.com/heartcombo/devise.git'
 </p></li>
 </ul>
 
-<div id="org93cc881" class="figure">
+<div id="org58f3d26" class="figure">
 <p><img src="./img/gem2.png" alt="gem2.png" width="800px" />
 </p>
 </div>
@@ -1110,7 +1114,7 @@ gem 'devise' git: 'https://github.com/heartcombo/devise.git'
 <li><p>
 6) <b>layout/application.html.erb에는 notice와 alert tag를 삽입하면, session이 만들어질때나 유지될때 메시지가 출력된다. 하자</b>
 </p>
-<div class="tip" id="orge8ac0cd">
+<div class="tip" id="org4bbd4b9">
 <p>
 &lt;p class="notice"&gt;&lt;%= notice %&gt;&lt;/p&gt;
 &lt;p class="alert"&gt;&lt;%= alert %&gt;&lt;/p&gt;
@@ -1124,7 +1128,7 @@ gem 'devise' git: 'https://github.com/heartcombo/devise.git'
 </p></li>
 </ul>
 
-<div id="orgfabbd5c" class="figure">
+<div id="org4e64dda" class="figure">
 <p><img src="./img/devise1_1.png" alt="devise1_1.png" width="800px" />
 </p>
 </div>
@@ -1135,7 +1139,7 @@ gem 'devise' git: 'https://github.com/heartcombo/devise.git'
 </p></li>
 </ul>
 
-<div id="orgd676c4b" class="figure">
+<div id="org082c717" class="figure">
 <p><img src="./img/devise1_2.png" alt="devise1_2.png" width="800px" />
 </p>
 </div>
@@ -1143,7 +1147,7 @@ gem 'devise' git: 'https://github.com/heartcombo/devise.git'
 <li>12) rake routes | grep users</li>
 <li>13) 위에서 확인해야할 것은 다음과 같다.</li>
 </ul>
-<div class="note" id="org109a397">
+<div class="note" id="org1321f24">
 <ul class="org-ul">
 <li>users/sign_up :회원가입 url</li>
 </ul>
@@ -1158,7 +1162,7 @@ f- users/sign_in : 로그인 page
 <li><p>
 navigation에 있는 sign in, sign up의 경로를 맞춰줘야 한다.  application layout에 있는 navi menu에 sign-in과 sign_up이 있는지 확인한다. 없다면 만든다.  아래는 login 아이콘과 signed up 아이콘이 있는 button이다. 자주 사용되서 가져왔다. font awesome icon을 사용했다.
 </p>
-<div class="tip" id="org946c8fb">
+<div class="tip" id="org9f3d580">
 <p>
 &lt;ul class="nav navbar-nav ml-auto"&gt;
 	 &lt;li class="nav-item"&gt;
@@ -1175,7 +1179,7 @@ navigation에 있는 sign in, sign up의 경로를 맞춰줘야 한다.  applica
 <li><p>
 15) [ <b>login 상태에 따른 처리도 해야한다.</b> ]
 </p>
-<div class="note" id="org2776a4d">
+<div class="note" id="org772861d">
 <p>
 login 상태에 대한 처리라는 것은 다음과 같다.
 만일 login이 되었다면, log out버튼만이 보여야 한다.
@@ -1183,7 +1187,7 @@ login이 안 되었다면 log in과 sign up 버튼이 보여야 한다. 이것�
 </p>
 
 </div>
-<div class="tip" id="org0d90b47">
+<div class="tip" id="org86ac9ab">
 <p>
 &lt;% if user_signed_in? %&gt;
   &lt;li class="nav-item"&gt;
@@ -1214,7 +1218,7 @@ PS: 위에서 link to는 a태그와 같이 link를 걸지만, 그안에 class속
 </p></li>
 </ol>
 
-<div id="org3ad4874" class="figure">
+<div id="org21ab7a6" class="figure">
 <p><img src="./img/devise_error.png" alt="devise_error.png" width="800px" />
 </p>
 </div>
@@ -1223,7 +1227,7 @@ PS: 위에서 link to는 a태그와 같이 link를 걸지만, 그안에 class속
 <li><p>
 17) [ <b>logout 문제 해결 방법</b> ]
 </p>
-<div class="note" id="org56939a4">
+<div class="note" id="orgfc191b7">
 <ul class="org-ul">
 <li>(1) &lt;%= link_to "logout" , destroy_user_session_path %&gt; 로 한다.</li>
 <li>(2) (1)을 수정해서   &lt;%= link_to destroy_user_session_path, data:{method: "delete"}, class: "nav-link" do %&gt;로 한다. 그런데 method: "delete"가 먹지 않는것같다. 즉 계속 :get으로 연결한다.
@@ -1235,7 +1239,7 @@ PS: 위에서 link to는 a태그와 같이 link를 걸지만, 그안에 class속
 <li><p>
 18) <b>username항목 추가</b>
 </p>
-<div class="note" id="orgc33de25">
+<div class="note" id="org3dc0d5b">
 <p>
 db:migrate하기 전에 migrate파일에서 username을 추가했었다. 이 부분이 회원가입과 login시에 포함되어 있지 않다. 
 </p>
@@ -1245,7 +1249,7 @@ db:migrate하기 전에 migrate파일에서 username을 추가했었다. 이 부
 <li><p>
 회원 가입 화면  처리
 </p>
-<div class="note" id="orgbcbc668">
+<div class="note" id="orgf61fca8">
 <p>
 우선 회원가입 page에서 username을 추가 시키자. 회원 가입 page는 devise/registration/new.html.erb에서 다음과 같이 추가한다.
 </p>
@@ -1254,17 +1258,17 @@ db:migrate하기 전에 migrate파일에서 username을 추가했었다. 이 부
 </ul></li>
 </ul>
 
-<div id="orga1181bd" class="figure">
+<div id="orgcc57944" class="figure">
 <p><img src="./img/devise_registration.png" alt="devise_registration.png" width="800px" />
 </p>
 </div>
 
-<div id="orgc3ad36b" class="figure">
+<div id="orge9d2ec5" class="figure">
 <p><img src="./img/signup.png" alt="signup.png" width="800px" />
 </p>
 <p><span class="figure-number">Figure 28: </span>sign up</p>
 </div>
-<div class="note" id="orgef01029">
+<div class="note" id="org6a3debb">
 <p>
 이렇게 page를 만든후에 test해본다. signup을 눌러서 회원가입 form에 username이 입력 가능한지 알아보고, 가입을 해본다.  가입이 되었다는 말은 form의 정보가 server에 전송되어서 db에 저장된것으로 생각한다. 그러나 값은 저장되지 않았다. 확인하기 위해선, rails c를 사용해서  console로 진입한다. rails c를 사용하는 이유는 한가지! Active Record(db table을 객체화하는 framework)를 사용해서 db의 내용을 확인할 수 있기 때문이다.
 rails c로 console로 들어간후 User.last로 회원가입시 내가 입력한 username이 db에 저장되었는지 확인해 보자. 저장이 되지 않았음을 알 수 있다.
@@ -1272,7 +1276,7 @@ rails c로 console로 들어간후 User.last로 회원가입시 내가 입력한
 
 </div>
 
-<div id="orgd551d9e" class="figure">
+<div id="org61ee0ba" class="figure">
 <p><img src="./img/devise_username.png" alt="devise_username.png" width="800px" />
 </p>
 <p><span class="figure-number">Figure 29: </span>devise_username</p>
@@ -1281,14 +1285,14 @@ rails c로 console로 들어간후 User.last로 회원가입시 내가 입력한
 <ul class="org-ul">
 <li>username [controller처리]</li>
 </ul>
-<div class="note" id="orgb3f81ce">
+<div class="note" id="org9322b46">
 <p>
 page에서 username항목은 있지만, 실제 입력된 data가 db에는 저장되지 않는다. 이것은 우리가 처리해 줘야 한다. db table을 만들 때, username이라는 항목을 만들었고, page에서도 항목을 만들었지만, controller에서는 새로만든것을 처리하지 않고 있다. 이것을 devise에서는 strong parameter라는 항목으로 소개를 했다. devise의 코드를 가져와서 application controller에 붙인다.
 </p>
 
 </div>
 
-<div class="tip" id="orgd6a10b7">
+<div class="tip" id="org54f48fa">
 <p>
 before_action :configure_permitted_parameters, if: :devise_controller?
 </p>
@@ -1306,14 +1310,14 @@ end
 </div>
 
 
-<div id="org39d1b46" class="figure">
+<div id="orgac33edf" class="figure">
 <p><img src="./img/devise_controller1.png" alt="devise_controller1.png" width="800px" />
 </p>
 <p><span class="figure-number">Figure 30: </span>devise controller</p>
 </div>
 
 
-<div id="org44649a1" class="figure">
+<div id="org2147510" class="figure">
 <p><img src="./img/devise_controller2.png" alt="devise_controller2.png" width="800px" />
 </p>
 <p><span class="figure-number">Figure 31: </span>devise_controller</p>
@@ -1321,7 +1325,7 @@ end
 <ul class="org-ul">
 <li>update에관한 처리(view)</li>
 </ul>
-<div class="note" id="orgc858ae0">
+<div class="note" id="orgd22447a">
 <p>
 회원가입시 username항목에 대한  controller의 처리를 했다. 그런데 update시에 추가한 username도 처리해야 한다. view에서 update하는 곳에 username항목을 넣워야 한다.
 /devise/registration/edit.html.erb에 추가한다. 이렇게 하면 나중에 사용자 정보 수정시 username도 수정 가능하다.
@@ -1329,7 +1333,7 @@ end
 
 </div>
 
-<div id="org251858e" class="figure">
+<div id="orga641db7" class="figure">
 <p><img src="./img/devise_registration2.png" alt="devise_registration2.png" width="800px" />
 </p>
 <p><span class="figure-number">Figure 32: </span>devise_registration</p>
@@ -1339,7 +1343,7 @@ end
 <li>수정 화면</li>
 </ul>
 
-<div id="org9df24b6" class="figure">
+<div id="orgac1ac3b" class="figure">
 <p><img src="./img/devise_useredit.png" alt="devise_useredit.png" width="800px" />
 </p>
 <p><span class="figure-number">Figure 33: </span>devise_user edit</p>
@@ -1350,7 +1354,7 @@ end
 </p></li>
 </ul>
 
-<div id="org4e80edb" class="figure">
+<div id="org2105a62" class="figure">
 <p><img src="./img/devise_db.png" alt="devise_db.png" width="800px" />
 </p>
 </div>
@@ -1359,7 +1363,7 @@ end
 <li><p>
 navigation에 사용자 이름 출력
 </p>
-<div class="note" id="org156c448">
+<div class="note" id="org91c4632">
 <p>
 username이라는 항목을 devise에 추가하면서, 회원가입시, 회원정보 수정시 view,controller에 알맞는 처리를 해주었다. 마지막으로 사용자가 login시에, navigation bar에 사용자 이름과 logout 아이콘이 나오게 해야 한다. 지금은 logout 아이콘만 나온다. 이것을 추가하기 위해서는 navigation code가 있는 _header.html.erb를 수정한다.
 </p>
@@ -1369,14 +1373,14 @@ username이라는 항목을 devise에 추가하면서, 회원가입시, 회원�
 <li><p>
 19) <b>page 접근권한</b>
 </p>
-<div class="note" id="org7101009">
+<div class="note" id="orge49ff9c">
 <p>
 devise에서 제공하는 것 중 유용한게 있다. 특정 page에 접근하려고 할때 login이 되어 있지 않다면 접근할 수 없게 할 수 있다.
 이걸 하려면, controller에 before_action을 거는 것이다. before action으로, authentication_user!를 사용하면 해당 controller가 관할하는 pages들에 대해서 login하지 않았다면 접근 할 수 없다. only와 except라는 option으로 세부 조정도 가능하다.
 </p>
 
 </div>
-<div class="important" id="orgc266eb5">
+<div class="important" id="orga36fe92">
 <p>
 before_action :authenticate_user! : 모든 page에 접근할 수 없다.
 before_action :authenticate_user!, except: :index # index빼고 실행
@@ -1398,7 +1402,7 @@ before_action :authenticate_user!, only: %w[index show]
 <li><p>
 20) <b>devise page 꾸미기</b> (bootstrap) &#x2013;delay: 나중에 bootstrap css를 다시 공부하고 난 후에 한다.
 </p>
-<div class="note" id="org07dfd61">
+<div class="note" id="org136c2c7">
 <p>
 devise에서 제공하는 page는 별로 이쁘지 않다. 수정이 필요하다. 완벽한 수정전에 우선 중앙 정렬부터 하자. 중앙 정렬은 &lt;div class=container&gt;로 묶어주면 된다.
 </p>
@@ -1417,7 +1421,7 @@ devise에서 제공하는 page는 별로 이쁘지 않다. 수정이 필요하�
 <p>
 (1) <b>로그인 page수정</b>
 </p>
-<div class="note" id="org78c00ff">
+<div class="note" id="org4eea7f4">
 <p>
 
 &lt;h2&gt;Panels with Contextual Classes&lt;/h2&gt;
@@ -1432,8 +1436,8 @@ devise에서 제공하는 page는 별로 이쁘지 않다. 수정이 필요하�
 </div>
 </div>
 </div>
-<div id="outline-container-org56a492c" class="outline-2">
-<h2 id="org56a492c"><span class="section-number-2">6</span> rails_admin  관리자 페이지 만들기</h2>
+<div id="outline-container-orgc785c4b" class="outline-2">
+<h2 id="orgc785c4b"><span class="section-number-2">6</span> rails_admin  관리자 페이지 만들기</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li>(1) <b>gem 'rails_admin', '~&gt; 2.0''</b> in gemfiles</li>
@@ -1443,7 +1447,7 @@ devise에서 제공하는 page는 별로 이쁘지 않다. 수정이 필요하�
 </p></li>
 </ul>
 
-<div id="org389a823" class="figure">
+<div id="orgd6152a7" class="figure">
 <p><img src="./img/admin.png" alt="admin.png" width="800px" />
 </p>
 </div>
@@ -1456,7 +1460,7 @@ url/admin으로 들어가면 접속된다.</li>
 </p></li>
 </ul>
 
-<div id="org54a065f" class="figure">
+<div id="org20d55b1" class="figure">
 <p><img src="./img/rails_admin1.png" alt="rails_admin1.png" width="800px" />
 </p>
 </div>
@@ -1464,7 +1468,7 @@ url/admin으로 들어가면 접속된다.</li>
 <li><p>
 (6) 계정에 admin column추가
 </p>
-<div class="note" id="orgfb90774">
+<div class="note" id="orgf8a5e1f">
 <p>
 devise gem에선 User라는 model을 만들고 table도 만들었다. 이 users table에는 사용자의 기본 정보들을 column으로 갖는다. rails-admin페이지는 현재 아무나 접근할 수 있기 때문에, devise gem에서 만든 user table에 admin이라는 column을 추가해서, 이 값이 true인  admin 사용자만 접근할 수 있게 처리해야 한다.
 </p>
@@ -1474,7 +1478,7 @@ devise gem에선 User라는 model을 만들고 table도 만들었다. 이 users 
 <li><p>
 <b>admin column을 갖는 migration을 만든다.</b>
 </p>
-<div class="note" id="orgdcefec1">
+<div class="note" id="org7500785">
 <p>
 rails generate migration add_admin_to_users admin:boolean을 실행하면 admin:boolean이라는 column을 추가하라는 migration이 만들어진다. 이 migration을 좀 수정할 필요가 있다. add_admin_to_users라는 migration에서 default:false로 처리한다.
 </p>
@@ -1486,7 +1490,7 @@ rails generate migration add_admin_to_users admin:boolean을 실행하면 admin:
 <li><p>
 (7) 특정 계정에 admin설정하기
 </p>
-<div class="note" id="org5b9b9dc">
+<div class="note" id="org7f9ac5e">
 <p>
 rails c 로 들어가서 특정 user를 찾거나, user를 만든다. 나는 user를 만들고 만든 user에게 admin권한을 주겠다.
 User.create(username: "admin", email: "admin@pnc.co.kr", password:"1234567", password_confirmation:"1234567") 로 실행한다. 만들때 admin을 true를 해줘야 하는데 못해준 경우, 다음과 같이 User.find_by로 찾는다.
@@ -1501,12 +1505,12 @@ t.update_attribute :admin,true
 </div></li>
 </ul>
 
-<div id="orga59c4e4" class="figure">
+<div id="org50c6dd4" class="figure">
 <p><img src="./img/rails_admin2.png" alt="rails_admin2.png" width="800px" />
 </p>
 </div>
 
-<div id="orgde3aade" class="figure">
+<div id="orgbea04f7" class="figure">
 <p><img src="./img/admin3.png" alt="admin3.png" width="800px" />
 </p>
 <p><span class="figure-number">Figure 38: </span>admin3</p>
@@ -1516,7 +1520,7 @@ t.update_attribute :admin,true
 <li><p>
 (8) routing table 수정
 </p>
-<div class="note" id="orgbd099f5">
+<div class="note" id="orgab9e8d6">
 <p>
 아래와 같이 routing table을 수정한다. 이렇게 하면 /admin에 접근할 수 있다.
 </p>
@@ -1524,13 +1528,13 @@ t.update_attribute :admin,true
 </div></li>
 </ul>
 
-<div id="orga4174ee" class="figure">
+<div id="org7811105" class="figure">
 <p><img src="./img/admin4.png" alt="admin4.png" width="800px" />
 </p>
 <p><span class="figure-number">Figure 39: </span>admin4</p>
 </div>
 
-<div class="note" id="org9c8b5bd">
+<div class="note" id="org30a01f5">
 <p>
 /admin에는 url로 접근할 수 있지만, navigation에는 링크가 없기 때문에 접근할 수 없다. link를 추가한다.
 user_signed_in중에서 admin인 경우만, 접속할 수 있는 link를 하나 만든다.
@@ -1538,18 +1542,49 @@ user_signed_in중에서 admin인 경우만, 접속할 수 있는 link를 하나 
 
 </div>
 
-<div id="orgfdb4a79" class="figure">
+<div id="orgdce69e7" class="figure">
 <p><img src="./img/admin5.png" alt="admin5.png" width="800px" />
 </p>
 <p><span class="figure-number">Figure 40: </span>admin5</p>
 </div>
+
+
+<div id="org5f44cce" class="figure">
+<p><img src="./img/admin6.png" alt="admin6.png" width="800px" />
+</p>
+<p><span class="figure-number">Figure 41: </span>admin6</p>
+</div>
+
+<ul class="org-ul">
+<li><p>
+(9) <b>css깨지는 문제점</b>
+</p>
+<div class="note" id="orgea27355">
+<p>
+production에서 css가 적용되지 않는 문제가 있다. assets:precompile을 production mode로 하고 아래를 추가하라고 한다. 나는 /confing/environments/production.rb에서 아래와 같이 수정만 했다. 그랬더니, 적용이 된다.
+</p>
+
+</div></li>
+</ul>
+
+<div id="org132113f" class="figure">
+<p><img src="./img/admin7.png" alt="admin7.png" width="800px" />
+</p>
+</div>
+
+
+<div id="org9525840" class="figure">
+<p><img src="./img/admin8.png" alt="admin8.png" width="800px" />
+</p>
+<p><span class="figure-number">Figure 43: </span>admin8</p>
+</div>
 </div>
 </div>
 
-<div id="outline-container-org79c4aa7" class="outline-2">
-<h2 id="org79c4aa7"><span class="section-number-2">7</span> table 만들기와 pagenation 구현하기</h2>
+<div id="outline-container-org349ed77" class="outline-2">
+<h2 id="org349ed77"><span class="section-number-2">7</span> table 만들기와 pagenation 구현하기</h2>
 <div class="outline-text-2" id="text-7">
-<div class="note" id="org69769c2">
+<div class="note" id="orgf4f274e">
 <ul class="org-ul">
 <li>pagination을 만들기 위해서는 pagy라는 gem을 사용한다. <a href="https://kbs4674.tistory.com/72">https://kbs4674.tistory.com/72</a> 참조.</li>
 <li>우선 db에 table이 있다고 가정한다.</li>
@@ -1558,10 +1593,10 @@ user_signed_in중에서 admin인 경우만, 접속할 수 있는 link를 하나 
 
 </div>
 </div>
-<div id="outline-container-orge394f42" class="outline-3">
-<h3 id="orge394f42"><span class="section-number-3">7.1</span> pagy 설정</h3>
+<div id="outline-container-orgbb7a698" class="outline-3">
+<h3 id="orgbb7a698"><span class="section-number-3">7.1</span> pagy 설정</h3>
 <div class="outline-text-3" id="text-7-1">
-<div class="note" id="org61a0485">
+<div class="note" id="orgefa652c">
 <ul class="org-ul">
 <li>gem pagy를 추가한다.</li>
 <li>bundle을 한다.</li>
@@ -1571,41 +1606,41 @@ user_signed_in중에서 admin인 경우만, 접속할 수 있는 link를 하나 
 </div>
 
 
-<div id="org6f7d8fb" class="figure">
+<div id="org10c49d2" class="figure">
 <p><img src="./img/pagy1.png" alt="pagy1.png" width="800px" />
 </p>
-<p><span class="figure-number">Figure 41: </span>pagy1</p>
+<p><span class="figure-number">Figure 44: </span>pagy1</p>
 </div>
-<div class="note" id="org96b6073">
+<div class="note" id="org472f60c">
 <ul class="org-ul">
 <li>app/helpers/application_helpers.rb에 pagy::frontend를 추가한다.</li>
 </ul>
 
 </div>
 
-<div id="orgbfee0b4" class="figure">
+<div id="orgfd46e6c" class="figure">
 <p><img src="./img/pagy2.png" alt="pagy2.png" width="800px" />
 </p>
-<p><span class="figure-number">Figure 42: </span>pagy2</p>
+<p><span class="figure-number">Figure 45: </span>pagy2</p>
 </div>
 </div>
 </div>
-<div id="outline-container-orgf097c0a" class="outline-3">
-<h3 id="orgf097c0a"><span class="section-number-3">7.2</span> pagy 적용</h3>
+<div id="outline-container-org9ed4f18" class="outline-3">
+<h3 id="org9ed4f18"><span class="section-number-3">7.2</span> pagy 적용</h3>
 <div class="outline-text-3" id="text-7-2">
-<div class="note" id="org4c85fff">
+<div class="note" id="org46b6954">
 <p>
 적용하고자하는 controller/action 에 다음과 같이 설정한다. applicationController에서 pagy::backend를 설정했기 때문에 pagy()를 실행할 수 있다.
 </p>
 
 </div>
 
-<div id="orge2aa46a" class="figure">
+<div id="org4687913" class="figure">
 <p><img src="./img/pagy3.png" alt="pagy3.png" width="800px" />
 </p>
-<p><span class="figure-number">Figure 43: </span>pagy3</p>
+<p><span class="figure-number">Figure 46: </span>pagy3</p>
 </div>
-<div class="note" id="orgf3225e4">
+<div class="note" id="org087682d">
 <p>
 view에 pagy_nav()를 적용시켜 본다. 이걸 적용할 때 주의할 사항이 있다. pagination은 table 아래에 위치해야 하고,
 &lt;%== pagy_nav(@pagy) %&gt; 과 같이 입력하던가, &lt;%= pagy_nav(@pagy).html_safe %&gt;를 입력해야 한다. 그런데, 이렇게 입력하면
@@ -1619,24 +1654,24 @@ view에 pagy_nav()를 적용시켜 본다. 이걸 적용할 때 주의할 사항
  require 'pagy/extras/bootstrap'
 </p>
 </blockquote>
-<div class="note" id="orgdc8a9ca">
+<div class="note" id="org520b4fc">
 <p>
 그리고 view에서 &lt;%= pagy_nav(@pagy).html_safe %&gt;대신 bootstrap이 적용된 page navigation을 사용한다.
 </p>
 
 </div>
 
-<div id="org6c57081" class="figure">
+<div id="org4277bc9" class="figure">
 <p><img src="./img/pagy4.png" alt="pagy4.png" width="800px" />
 </p>
-<p><span class="figure-number">Figure 44: </span>pagy4</p>
+<p><span class="figure-number">Figure 47: </span>pagy4</p>
 </div>
 </div>
 </div>
-<div id="outline-container-org4611df8" class="outline-3">
-<h3 id="org4611df8"><span class="section-number-3">7.3</span> pagy의 table rows 정하기</h3>
+<div id="outline-container-org0dc1b20" class="outline-3">
+<h3 id="org0dc1b20"><span class="section-number-3">7.3</span> pagy의 table rows 정하기</h3>
 <div class="outline-text-3" id="text-7-3">
-<div class="note" id="orgbac5466">
+<div class="note" id="org42680c5">
 <p>
 pagy에서 보여줄 table의 rows를 정할 수 있다. initializer에서 pagy.rb라는 파일이 있는데, 여기서 설정정보를 입력한다.
 Pagy::VARS[:items] = 10 =&gt; 10개의 row만 보여진다.
@@ -1645,17 +1680,17 @@ Pagy::VARS[:items] = 10 =&gt; 10개의 row만 보여진다.
 </div>
 
 
-<div id="org4d60ac4" class="figure">
+<div id="orgaff0aa5" class="figure">
 <p><img src="./img/pegy5.png" alt="pegy5.png" width="800px" />
 </p>
-<p><span class="figure-number">Figure 45: </span>pagy5</p>
+<p><span class="figure-number">Figure 48: </span>pagy5</p>
 </div>
 </div>
 </div>
-<div id="outline-container-org67a984a" class="outline-3">
-<h3 id="org67a984a"><span class="section-number-3">7.4</span> table의 모양 꾸미기</h3>
+<div id="outline-container-orgc3eed80" class="outline-3">
+<h3 id="orgc3eed80"><span class="section-number-3">7.4</span> table의 모양 꾸미기</h3>
 <div class="outline-text-3" id="text-7-4">
-<div class="note" id="org414142f">
+<div class="note" id="org6e726ac">
 <p>
 pagy는 bootstrap을 추가한 버전은 이쁘지만, table자체는 이쁘지 않을 수 있다. 보통은 table을 bootstrap의 card에 넣어서 보여준다.
 card는 예전에는 panel이라고 했는데, bootstrap5로 오면서 card로 바꼈다. 다음을 참조한다. <a href="https://getbootstrap.com/docs/5.0/components/card/">https://getbootstrap.com/docs/5.0/components/card/</a>
@@ -1665,18 +1700,18 @@ card는 예전에는 panel이라고 했는데, bootstrap5로 오면서 card로 �
 </div>
 </div>
 </div>
-<div id="outline-container-org8cdaa2f" class="outline-2">
-<h2 id="org8cdaa2f"><span class="section-number-2">8</span> table 갱신하기</h2>
+<div id="outline-container-org73cb5e4" class="outline-2">
+<h2 id="org73cb5e4"><span class="section-number-2">8</span> table 갱신하기</h2>
 <div class="outline-text-2" id="text-8">
-<div class="note" id="org40da672">
+<div class="note" id="org3057a43">
 <p>
 table에 있는 값을 주기적으로 갱신 시키는 가장 간단한 방법은 refresh button을 만들고 table을 갱신하거나, 혹은 settimeout으로 주기적으로 refresh를 할 수 있다. 아래는 js로 구현한것이고, 그냥 난 rails에서 link_to에 추가했다. bootstrap의 property를 link_to에 추가하는 법도 나와 있다. 유용한 tip이다. 
 </p>
 
 </div>
 </div>
-<div id="outline-container-org510983d" class="outline-3">
-<h3 id="org510983d"><span class="section-number-3">8.1</span> button refresh</h3>
+<div id="outline-container-org52087d5" class="outline-3">
+<h3 id="org52087d5"><span class="section-number-3">8.1</span> button refresh</h3>
 <div class="outline-text-3" id="text-8-1">
 <blockquote>
 <p>
@@ -1701,7 +1736,7 @@ table에 있는 값을 주기적으로 갱신 시키는 가장 간단한 방법�
 <li><p>
 rails
 </p>
-<div class="note" id="org21ba286">
+<div class="note" id="org1d2617a">
 <p>
 &lt;%= link_to 'refresh', pressure_path, { :class =&gt; 'btn btn-secondary my-2', 'data-toggle' =&gt; 'tooltip', 'data-placement' =&gt; 'bottom', :title =&gt; 'button or auto?'} %&gt;
 </p>
@@ -1710,10 +1745,10 @@ rails
 </ul>
 </div>
 </div>
-<div id="outline-container-orge2541d6" class="outline-3">
-<h3 id="orge2541d6"><span class="section-number-3">8.2</span> check box refresh (주기적 refresh)</h3>
+<div id="outline-container-orgd7803d3" class="outline-3">
+<h3 id="orgd7803d3"><span class="section-number-3">8.2</span> check box refresh (주기적 refresh)</h3>
 <div class="outline-text-3" id="text-8-2">
-<div class="note" id="org429247b">
+<div class="note" id="orgfc7c166">
 <p>
 흔히 생각하길, js코드에서 checkbox를 보고 on이라면 setTimeout("location.reload();,10000)하고 off일경우 아무것도 안처리하는 코드를 넣으면 될 것이라고 생각한다. 그러나 제대로 동작하지 않는다. 가정을 해보자. , html코드에서 checked되어 있고, js로 아래에 if(checked) setTimeout else noting.이라고 되어 있다면, 계속 setTimeout이 실행된다.  만일 사용자가 off로 바꾸면 어떻게 되는가? off로 바꾸어도 동일하다. 왜냐면, 처리하는 eventhandler가 없기 때문이다.  그러면 eventhandler를 만들자. event handler를 어떻게 만들 것인가? eventhandler에서 무엇을 처리할 것이고 어디에 위치 시킬 것인가? 이전의 if문도 있어야 하는가? 없어야 하는가? 복잡해진다.  eventhandler만 있다고 가정하자.
 </p>
@@ -1737,20 +1772,20 @@ html에서 checkbox가 uncheck가 되어 있고, event가 발생해서 on 상태
 </div>
 </div>
 </div>
-<div id="outline-container-org50b00c0" class="outline-3">
-<h3 id="org50b00c0"><span class="section-number-3">8.3</span> Ajax를 사용한 처리</h3>
+<div id="outline-container-org3c0d068" class="outline-3">
+<h3 id="org3c0d068"><span class="section-number-3">8.3</span> Ajax를 사용한 처리</h3>
 <div class="outline-text-3" id="text-8-3">
-<div class="note" id="orgae9e8a0">
+<div class="note" id="orga742b7f">
 <p>
 ajax를 사용해야 한다고 했다. ajax는 jquery를 사용한다. js를 rails 6에서 사용하기 위해서는 webpacker에서 js를 어떻게 처리하는지 알아야 한다. js는 2가지가 있다. 외부 library package를 가져와서 사용하는 경우와 본인이 작성한 package를 사용하는 경우가 있다. 이 두 가지를 어떻게 설정하고 test하는지 먼저 알아보고, 그 다음 jquery 사용해서 ajax를 실행하는 것을 해야 한다. 
 </p>
 
 </div>
 </div>
-<div id="outline-container-org42022ea" class="outline-4">
-<h4 id="org42022ea">webpacker js처리</h4>
-<div class="outline-text-4" id="text-org42022ea">
-<div class="note" id="orga9ce8b9">
+<div id="outline-container-org900163f" class="outline-4">
+<h4 id="org900163f">webpacker js처리</h4>
+<div class="outline-text-4" id="text-org900163f">
+<div class="note" id="org9f83e3b">
 <p>
 css처리와 비슷하게 javascript도 pack을 만들어 사용한다. pack은 여러개 만들수 있다. 
 </p>
@@ -1760,19 +1795,105 @@ css처리와 비슷하게 javascript도 pack을 만들어 사용한다. pack은 
 </div>
 </div>
 </div>
-<div id="outline-container-orga7aa34f" class="outline-2">
-<h2 id="orga7aa34f"><span class="section-number-2">9</span> d3 or c3 chart or chart.js 구현하기</h2>
+<div id="outline-container-org0799683" class="outline-2">
+<h2 id="org0799683"><span class="section-number-2">9</span> table refresh switch를 session에 저장[별도]</h2>
+<div class="outline-text-2" id="text-9">
+<ul class="org-ul">
+<li><p>
+목표
+</p>
+<div class="important" id="orgcad9350">
+<p>
+pressure 화면에는 table이 있다. 이 table은 외부에서 data가 저장되고 있다. 하지만, 화면의 table은 갱신되고 있지 않다. 주기적으로 갱신하고 싶은게 목적이다. 그래서 check button을 만들었다. checkbutton이 check되어 있다면, setTimeout으로 주기적으로 data를 ajax로 얻어와서 append()로 뿌려줄 것이다. check button이 check되지 않았다면, data를 가져올 필요가 없다. 이 처리를 하는데, 난관이 하나있다. checkbutton을 check한 후, 다른 controller로 이동했다고 하자. 예를 들어, 다시 home으로 이동했다. 그리고 다시 pressure화면으로 이동했을때, checkbutton은 check된 상태일까? 이 질문은 checkbutton이 stateful한 것인가?라는 질문이다. 만일 stateful하다면 다른 page로 이동 시(rails에서는 다른 controller이동 시) 그 상태가 유지되어야 한다. 그런데 별다른 처리를 하지 않은 지금은 당연히 상태가 유지되지 않는다. 즉, stateful하지 않다. 그래서 첫번째 quest는 어떻게 stateful하게 만들것인가? 하는 것이다. 즉 check button을 pressure page에서 check한 후, home으로 이동한 후, 다시 pressure page로 이동했을때, check상태로 유지해야 한다. 또한 check button을 pressure page에서 uncheck한 후, home으로 이동한 후, 다시 pressure page로 이동 했을 때, uncheck상태로 유지 시켜야 한다. 이렇게 된다면 stateful한 것이다. 그 다음에 주기적인 작업을 할 수 있을 것이다.
+</p>
+
+</div></li>
+
+<li><b>stateful의 개요</b></li>
+</ul>
+<div class="note" id="org34a1972">
+<p>
+위에서 말한 checkbutton을 check후 다른 page로 갔다가 다시 돌아왔을 때 값을 유지하기 위해서는 저장할수 있는 무언가가 있어야 한다. 그 방식으로 2가지가 있다. session과 cache다. 
+</p>
+
+<ul class="org-ul">
+<li><b>session의 사용</b></li>
+</ul>
+<p>
+session은 stateful한 상태를 만드는 가장 쉬운 방법이다. login을 할때 만들어지는 session에 값을 저장해서 stateful하게 만들수 있다. 그런데 login을 하면 수행되는 controller에서 session에 값을 저장해야 하는데, 지금 login controller는 없다. devise gem으로 만들었기 때문이다. devise gem은 controller가 제공되지 않는다. 그래서 session을 이용하기 위해선 devise gem controller를 재정의하는 방식과 다른 controller에서 처리하는 방식이 있다.
+</p>
+
+<ul class="org-ul">
+<li><b>cache의 사용</b></li>
+</ul>
+<p>
+cache도 session과 비슷하게 server에서 다른 page에서도 특정한 값을 유지 시킬 수 있다. 마치 전역변수 같이 동작한다. Rails.cache라는 함수를 사용한다. 이 방식과 session을 사용하는 방식은 거의 동일하기 때문에, 난 이 방식은 사용하지 않을 것이다.
+</p>
+
 </div>
-<div id="outline-container-org27adf3c" class="outline-2">
-<h2 id="org27adf3c"><span class="section-number-2">10</span> sidekiq, whenever gem 사용법</h2>
+<ul class="org-ul">
+<li><p>
+<b>session 사용</b>
+</p>
+<div class="tip" id="orgc3ae7bb">
+<p>
+[1] <b>customize controller사용</b> : 
+session에 checkbutton의 상태값을 언제 저장하는가? login처리를 하는 controller에서 저장한다.. devise gem은 controller를  제공하지 않지만, 재정의가 가능하다. 재정의 하는 방법은 devise gem의 wiki에 가면 customize controller에 대해서 설명했다. 그 방식을 따르면 controller에서 session을 사용할 수 있다. session을 통해서 stateful한 기능을 구현할 수 있다. 이 방식은 login이 성공했을때, controller단에서 session설정이 가능하다는 장점이 있다. 
+</p>
+
+<p>
+[2] <b>기존 controller의 사용</b>: 
+나는 이 방식을 사용할 것이다. session[:switch_value]라는 객체에 switch라는 checkbutton의 상태 값을 유지시킬 것이다. 방법은 다음과 같다. table이 보여지는 page가 속한 controller에 처음 방문하면, session[:switch_value]는 아무런 설정이 없다.그래서 그  값은 nil일 것이다.. 여기에 초기값을 설정하고(초기값은 false다.),  초기 값에 따라 page에서 checkbutton은 check가 될 수가 있고 안될 수 있게 html에 &lt;% if session[:switch_value] %&gt;와 같은 ruby code를  embeded해서 처리할 것이다.. 초기값을 false로 했기 때문에, browser에서 처음 page를 다운받으면 checkbutton은 false로 보일 것이다. 그 다음은 checkbutton을 클릭했을 때, 그 값이 변경된다. 그런데 이런 변경은, 즉 checkbutton event처리는 javascript에서 변경이 된다. javascript에서의  변경은 server가 아닌 client단에서 이루어진다.  반면에 초기값을 session에 설정하는 작업이라던가? session의 값을 바탕으로 html에 적용하는 과정은 모두 server에 있는 session개체에서 이루어진다. client단의  javascript는 server에 있는 session개체에 접근 할 수가 없다. checkbutton을 check하고 uncheck할때 session에 값을 변경해야 하는데, 어떻게 javascript가 server의 session개체의 값(상태)를 변경할 것인가? ajax를 사용하기로 한다. ajax를 사용해서 server의 session객체의 상태값을 변경 시켜줘야 한다. 이렇게 해줘야 다음과 같은 시나리오에 문제가 없다. 어떤 시나리오냐면, table과 checkbutton이 있는 page에서 checkbutton을 check한다.그러면 화면상에 checkbutton은 check되어 보인다. 그리고 home으로 이동한다. 그리고 다시 table과 checkbutton이 있는  page로 이동한다. 그러면 checkbutton은 uncheck상태가 된다. 왜냐? server의 session객체는 초기값인 false를 가지고 있기 때문이다.  javascript에서 server의 session객체의 값을 true로 상태변경을 해주지 않았기 때문이다. 그래서 ajax로 server의 session객체에 true로 설정해줘야 한다. 이렇게 해주면, 사용자가 다른 page로 이동하고 다시 와도, 초기값으로 설정된 값으로 보이는게 아니라, javascript에서 설정된 값으로 보이게 된다. stateful해진다. 여기까지 하면 checkbutton의 상태값은 page이동후에도 유지된다. 그러나 우리가 원하는것은 checkbutton이 check되면 주기적으로 table이 갱신되는 것이다. 주기적으로 뭔가를 하려면,  setInterval함수를 사용한다. 갱신은  ajax로 table 데이터를 받아 와서 html로 뿌려줘야 한다. jquery에 append함수를 사용하면 된다. 여기서 질문. 주기적 작업은 계속 background로 도는가? setInterval로 data를 가져오는 작업은 한번 trigger되면 계속되는가? 그렇지 않다. javascript가 수행되는 환경에서만 동작한다. 즉 table과 switch checkbutton이 있는 page를 다운받을 때 js도 같이 다운받고 주기적 갱신 작업이 실행된다. 이러다가 사용자가 home화면으로 이동하면 home page를 다운받고, home의 js도 다운받아서 다른 js를 수행한다. 즉, table과 switch가 있는 page를 계속 보고 있다면, 주기적 작업이 실행되는 것이다. 다른 page로 이동하면 다른 js를 실행할 뿐이다. 그래서 switch를 check하면, 주기적 갱신을 하고, uncheck하면 멈춰야 한다. 멈추는 것은 clearInterval함수를 사용한다.
+</p>
+
+</div></li>
+
+<li>server에서 상태를 유지해야 하는 switch</li>
+</ul>
+
+<div id="org766fa32" class="figure">
+<p><img src="./img/session1.png" alt="session1.png" width="800px" />
+</p>
+<p><span class="figure-number">Figure 49: </span>session1</p>
 </div>
-<div id="outline-container-org1954ada" class="outline-2">
-<h2 id="org1954ada"><span class="section-number-2">11</span> [부록] webpacker-bootstrap settings</h2>
-<div class="outline-text-2" id="text-11">
+<ul class="org-ul">
+<li><p>
+<b>내가 원하는 것은?</b>
+</p>
+<div class="important" id="orge563162">
+<p>
+ 
+</p>
+
+</div></li>
+
+<li><p>
+<b>결론: session을 사용하자. 그리고 before_action을 사용하자.</b>
+</p>
+<div class="important" id="orgf77756f">
+<p>
+ before_action :set_switcher, only: [:show, :edit, :update :destroy]
+controller에 위와 같이 작성하면, only에 정의된 action들이 수행하기 전에 set_switcher라는 함수를 실행하라는 뜻이다. 
+</p>
+
+</div></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org6e0be04" class="outline-2">
+<h2 id="org6e0be04"><span class="section-number-2">10</span> d3 or c3 chart or chart.js 구현하기</h2>
+</div>
+<div id="outline-container-org9055b04" class="outline-2">
+<h2 id="org9055b04"><span class="section-number-2">11</span> sidekiq, whenever gem 사용법</h2>
+</div>
+<div id="outline-container-org44b9af4" class="outline-2">
+<h2 id="org44b9af4"><span class="section-number-2">12</span> [부록] webpacker-bootstrap settings</h2>
+<div class="outline-text-2" id="text-12">
 <ul class="org-ul">
 <li>개요</li>
 </ul>
-<div class="note" id="org438608a">
+<div class="note" id="orga0744d7">
 <p>
 bootstrap을 적용시키는 가장 간단한 방법은 CDN을 사용하는 것이다. 그렇지 않고 본인이 만든것을 적용 할려면 webpacker를 사용해야 한다. webpacker가 하는 일은 한곳으로 js,cs, image file을 모으고, compile해서 하나의 entry file로 만드는 것이다. 만들어진 entry file을 필요한 web page에 포함시켜 사용하면 된다. entry file은 포함될 파일 목록을 가지고 있다. 참고로 webpacker가 만드는 entry파일은 ngix란 webserver가 지정한 곳으로 서비스 된다. webpacker는 목록파일을 가져와서 compile하고 최종 파일을 특정위치에 놓는다. 그리고 nginx는 특정위치를 지정해서 서비스 한다. webpacker가 목록 파일을 가져오는 위치, compile한 후 결과 파일을 올려놓는 위치, 이 모든 것이 config/webpacker.yml파일에 기술되어 있다. 또한 Nginx는 webpacker가 최종파일로 올려놓는 위치를 알아야 한다. 이 위치는 /etc/nginx/sites-enabled에서 설정한다.
 </p>
@@ -1780,10 +1901,10 @@ bootstrap을 적용시키는 가장 간단한 방법은 CDN을 사용하는 것�
 </div>
 </div>
 
-<div id="outline-container-orga4d264d" class="outline-3">
-<h3 id="orga4d264d"><span class="section-number-3">11.1</span> css나 js, image가 저장될 폴더 정하기</h3>
-<div class="outline-text-3" id="text-11-1">
-<div class="note" id="org425528d">
+<div id="outline-container-org3bda54e" class="outline-3">
+<h3 id="org3bda54e"><span class="section-number-3">12.1</span> css나 js, image가 저장될 폴더 정하기</h3>
+<div class="outline-text-3" id="text-12-1">
+<div class="note" id="org47c39f6">
 <p>
 page를 만들기전에 제일 먼저 할 것은 bootstrap을 사용하기 위해 bootstrap.css와 bootstrap.js를 처리하는 것이다. 나는 모든 assets를 webpacker로 관리할 예정이다. 그래서 webpacker가 모든 asset을  관리한다는 뜻으로  app/javascript의 이름을 frontend로 변경하기로 한다.
 </p>
@@ -1800,25 +1921,25 @@ page를 만들기전에 제일 먼저 할 것은 bootstrap을 사용하기 위�
 
 </div>
 
-<div id="org42cf2bc" class="figure">
+<div id="org6123449" class="figure">
 <p><img src="./img/source_path.png" alt="source_path.png" width="800px" />
 </p>
-<p><span class="figure-number">Figure 46: </span>source_path</p>
+<p><span class="figure-number">Figure 50: </span>source_path</p>
 </div>
 
 
-<div id="orgeb50b90" class="figure">
+<div id="org449a6d3" class="figure">
 <p><img src="./img/frontend1.png" alt="frontend1.png" width="800px" />
 </p>
-<p><span class="figure-number">Figure 47: </span>frontend1</p>
+<p><span class="figure-number">Figure 51: </span>frontend1</p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgf922d28" class="outline-3">
-<h3 id="orgf922d28"><span class="section-number-3">11.2</span> pack 폴더에 있는 packing할 항목 설정하기 - pack설정</h3>
-<div class="outline-text-3" id="text-11-2">
-<div class="note" id="orgd55758d">
+<div id="outline-container-org5bb3bfe" class="outline-3">
+<h3 id="org5bb3bfe"><span class="section-number-3">12.2</span> pack 폴더에 있는 packing할 항목 설정하기 - pack설정</h3>
+<div class="outline-text-3" id="text-12-2">
+<div class="note" id="org5231722">
 <p>
 위에 app/frontend를 보면 packs라는 폴더가 보인다. packs 폴더안에 파일은 pack, entry point라고 부르는데, 하나의 entry point에는 포함될 js나 css를 지정하고 있다. 포함된 js나 css가 compile이란 과정을 통해서 최종적으로 entry file이 만들어 지고, 이것이 html에서 참조되는 방식이다. 이 entry point에 포함될 css나 js파일들은 npm이나 yarn으로 system에 설치된 js나 css도 포함시킬 수 있다는 게 특이하다.
 이 말은 node package를 rails에서 사용할 수 있다는 말이다. 그래서 client에서 react 사용이 가능한 것이다.
@@ -1828,18 +1949,18 @@ system에 설치된 js를 포함시키는 방법과, 우리가 만든 js를 폴�
 
 </div>
 
-<div id="orgc2387e3" class="figure">
+<div id="org5a2de24" class="figure">
 <p><img src="./img/assets2.png" alt="assets2.png" width="800px" />
 </p>
-<p><span class="figure-number">Figure 48: </span>assets2</p>
+<p><span class="figure-number">Figure 52: </span>assets2</p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org574a23a" class="outline-3">
-<h3 id="org574a23a"><span class="section-number-3">11.3</span> bootstrap을 application.js란 pack에  packing하기 [ js pack하기 ]</h3>
-<div class="outline-text-3" id="text-11-3">
-<div class="note" id="org1289acd">
+<div id="outline-container-org7a4681d" class="outline-3">
+<h3 id="org7a4681d"><span class="section-number-3">12.3</span> bootstrap을 application.js란 pack에  packing하기 [ js pack하기 ]</h3>
+<div class="outline-text-3" id="text-12-3">
+<div class="note" id="org662e0e1">
 <p>
 bootstrap을 rails에서 사용하려면, bootstrap이 system에 깔려 있던가, 아니면 down받은 bootstrap패키지를 app/frontend/js와 app/frontend/css폴더에 넣어져 있어야 한다. bootstrap은 yarn으로 system에 깔기로 한다.
 yarn add bootstrap
@@ -1848,12 +1969,12 @@ yarn add @popperjs/core@^2.9.3
 
 </div>
 
-<div id="org78c2daf" class="figure">
+<div id="orgcbfca6c" class="figure">
 <p><img src="./img/yarn.png" alt="yarn.png" width="800px" />
 </p>
-<p><span class="figure-number">Figure 49: </span>yarn</p>
+<p><span class="figure-number">Figure 53: </span>yarn</p>
 </div>
-<div class="note" id="orgb8aac9e">
+<div class="note" id="org7717158">
 <p>
 app/frontend/pack/application.js에 bootstrap을 packing하려고 한다. 이미 bootstrap은 system에  설치되어 있다. 설치되어 있거나, app/frontend/js에 있는 js파일들은 pack에서는 import구문으로 가져올 수 있다. 그런데 여기서는 좀 색다르게 한다. 위에서 적은 참고 site를 말한다. 여튼  /app/frontend/js/bootstrap_js_files.js라는 파일을 만들고, 거기에 bootstrap의 js를 import로 쭉 나열하고 필요하지 않은 것을 주석처리 한 후에 pack에서 bootstrap_js_files.js를 import하는 방식이다. 그대로 해보자. 여기서 base_component는 지워야 한다.
 </p>
@@ -1866,49 +1987,49 @@ app/frontend/pack/application.js에 bootstrap을 packing하려고 한다. 이미
 
 </div>
 
-<div id="org7a76827" class="figure">
+<div id="org27b17dd" class="figure">
 <p><img src="./img/boot1.png" alt="boot1.png" width="800px" />
 </p>
-<p><span class="figure-number">Figure 50: </span>boot</p>
+<p><span class="figure-number">Figure 54: </span>boot</p>
 </div>
 
-<div class="note" id="orgeec65c4">
+<div class="note" id="org034ddeb">
 <ol class="org-ol">
 <li>application.js pack에 해당 js를 import한다. 이렇게 하면 js에 대한 pack작업은 끝이 나게 된다.</li>
 </ol>
 
 </div>
 
-<div id="org9f0f09d" class="figure">
+<div id="orgd59fd05" class="figure">
 <p><img src="./img/boot2.png" alt="boot2.png" width="800px" />
 </p>
-<p><span class="figure-number">Figure 51: </span>boot2</p>
+<p><span class="figure-number">Figure 55: </span>boot2</p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgf6aff5c" class="outline-3">
-<h3 id="orgf6aff5c"><span class="section-number-3">11.4</span> css pack하기</h3>
-<div class="outline-text-3" id="text-11-4">
-<div class="note" id="org209ac0e">
+<div id="outline-container-org7060acc" class="outline-3">
+<h3 id="org7060acc"><span class="section-number-3">12.4</span> css pack하기</h3>
+<div class="outline-text-3" id="text-12-4">
+<div class="note" id="org9d26206">
 <ol class="org-ol">
 <li>application.scss란 pack을 만들자. 해당 pack에선 bootstrap의 source파일에 있는 bootstrap.scss를 load한다. bootstrap.scss에는 사용되는 모든 css가 import되어 있다. 마치 위에서 bootstrap 의 js파일이 목록화 되어 있던 것과 비슷한 파일이다. 이 파일을 import하면 된다.</li>
 </ol>
 
 </div>
 
-<div id="org31123f4" class="figure">
+<div id="orgd98bdde" class="figure">
 <p><img src="./img/boot3.png" alt="boot3.png" width="800px" />
 </p>
-<p><span class="figure-number">Figure 52: </span>boot3</p>
+<p><span class="figure-number">Figure 56: </span>boot3</p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org01a7423" class="outline-3">
-<h3 id="org01a7423"><span class="section-number-3">11.5</span> pack 적용하기 [ css &amp; js ]</h3>
-<div class="outline-text-3" id="text-11-5">
-<div class="note" id="orgd4c13be">
+<div id="outline-container-orgdcd8c1b" class="outline-3">
+<h3 id="orgdcd8c1b"><span class="section-number-3">12.5</span> pack 적용하기 [ css &amp; js ]</h3>
+<div class="outline-text-3" id="text-12-5">
+<div class="note" id="org8e2ae86">
 <ol class="org-ol">
 <li>pack을 만들었으면 이를 적용 하면된다. pack자체는 하나의 scss이고, js파일이다.  모든 scss를 bundling했기에  하나의 scss파일이고,  모든 js를 bundling했기에 하나의 js파일이다. 이 파일을 적용하는 것은 view에서 page에 해당하는 html.erb에 보면,
 &lt;head&gt; 태그 내부에 삽입할 수도 있고, layouts/application.html.erb안에 있는 &lt;head&gt;안에 삽입할 수도 있다. layout은 모든 page에 공통으로 적용되는 바탕이 되는 html이기 때문이다. 삽입하는 방법은 stylesheet_pack_tag, javascript_pack_tag를 넣는 방식이다.</li>
@@ -1941,18 +2062,18 @@ app/frontend/pack/application.js에 bootstrap을 packing하려고 한다. 이미
 </p>
 </blockquote>
 
-<div id="orgd11e713" class="figure">
+<div id="org8b43b60" class="figure">
 <p><img src="./img/boot4.png" alt="boot4.png" width="800px" />
 </p>
-<p><span class="figure-number">Figure 53: </span>boot4</p>
+<p><span class="figure-number">Figure 57: </span>boot4</p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org2452088" class="outline-3">
-<h3 id="org2452088"><span class="section-number-3">11.6</span> test하기</h3>
-<div class="outline-text-3" id="text-11-6">
-<div class="note" id="org7c7d228">
+<div id="outline-container-orgf252c6c" class="outline-3">
+<h3 id="orgf252c6c"><span class="section-number-3">12.6</span> test하기</h3>
+<div class="outline-text-3" id="text-12-6">
+<div class="note" id="orgd996db2">
 <ul class="org-ul">
 <li>1) rails assets:clobber</li>
 <li>2) rails webpacker:compile</li>
@@ -1961,25 +2082,25 @@ app/frontend/pack/application.js에 bootstrap을 packing하려고 한다. 이미
 
 </div>
 
-<div id="org1462e33" class="figure">
+<div id="org33b4ad3" class="figure">
 <p><img src="./img/clobber.png" alt="clobber.png" width="800px" />
 </p>
-<p><span class="figure-number">Figure 54: </span>clobber</p>
+<p><span class="figure-number">Figure 58: </span>clobber</p>
 </div>
 
 
-<div id="org67cdb79" class="figure">
+<div id="orge5c7bfc" class="figure">
 <p><img src="./img/compile1.png" alt="compile1.png" width="800px" />
 </p>
-<p><span class="figure-number">Figure 55: </span>compile</p>
+<p><span class="figure-number">Figure 59: </span>compile</p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgaef68e4" class="outline-3">
-<h3 id="orgaef68e4"><span class="section-number-3">11.7</span> server에 적용 확인</h3>
-<div class="outline-text-3" id="text-11-7">
-<div class="note" id="orgbb83011">
+<div id="outline-container-orgf5fb61b" class="outline-3">
+<h3 id="orgf5fb61b"><span class="section-number-3">12.7</span> server에 적용 확인</h3>
+<div class="outline-text-3" id="text-12-7">
+<div class="note" id="org9142e4d">
 <p>
 server에 적용되는지 확인하기 위해서 cap production deploy를 한다.
 실제 적용되지 않는다.
@@ -1992,19 +2113,19 @@ server에 접속하면 404에러가 4개가 떴다.
 
 </div>
 
-<div id="orgb1da237" class="figure">
+<div id="org6c49e7a" class="figure">
 <p><img src="./img/nginx_solved.png" alt="nginx_solved.png" width="800px" />
 </p>
-<p><span class="figure-number">Figure 56: </span>nginx_solved</p>
+<p><span class="figure-number">Figure 60: </span>nginx_solved</p>
 </div>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orga60bc4e" class="outline-2">
-<h2 id="orga60bc4e"><span class="section-number-2">12</span> [부록] turbolink와 jquery</h2>
-<div class="outline-text-2" id="text-12">
-<div class="note" id="orgc83c9ca">
+<div id="outline-container-org0591b60" class="outline-2">
+<h2 id="org0591b60"><span class="section-number-2">13</span> [부록] turbolink와 jquery</h2>
+<div class="outline-text-2" id="text-13">
+<div class="note" id="orgf549e01">
 <p>
 turbo link와 jquery는 충돌이 난다. 그래서 둘중 하나만 선택해야 한다. 난 jquery를 선택했다. 
 </p>
@@ -2013,13 +2134,13 @@ turbo link와 jquery는 충돌이 난다. 그래서 둘중 하나만 선택해�
 </div>
 </div>
 
-<div id="outline-container-orgf43ecae" class="outline-2">
-<h2 id="orgf43ecae"><span class="section-number-2">13</span> [부록] ajax 사용법 1</h2>
-<div class="outline-text-2" id="text-13">
+<div id="outline-container-org9f33c1c" class="outline-2">
+<h2 id="org9f33c1c"><span class="section-number-2">14</span> [부록] ajax 사용법 1</h2>
+<div class="outline-text-2" id="text-14">
 <ul class="org-ul">
 <li>ajax 개요</li>
 </ul>
-<div class="note" id="org5726f59">
+<div class="note" id="org0b21aeb">
 <ul class="org-ul">
 <li>ajax는 page를 다운로드 한 이후에 server에게 data를 요청하고 받을 수가 있다.</li>
 <li>page 갱신의 경우: 예를 들면 page의 table이나 graph의 data를 갱신해야 하는 경우, page를 refresh를 시키는 방법은 구식이다. 이것은 server에서 주기적으로 page를 전송하는 형태이기 때문이다. 처음에만 page를 받아오고, 그 다음 부터는 ajax를 주기적으로 실행 시켜서 server로 부터 받아온 data를 보여주는 식으로 해야 한다.</li>
@@ -2030,7 +2151,7 @@ turbo link와 jquery는 충돌이 난다. 그래서 둘중 하나만 선택해�
 <li><p>
 ajax 사용법
 </p>
-<div class="important" id="orgfb9c2fc">
+<div class="important" id="org96cc3e9">
 <p>
 ajax는 server에 data를 요청한다. data를 받고 받은 데이터를 html로 보여주어야 한다. 어떻게 할 것인가? 또한 주기적으로 보여줘야 한다. 어떻게 할것인가? 여러부분으로 나눠야 할 듯하다.
 </p>
@@ -2039,7 +2160,7 @@ ajax는 server에 data를 요청한다. data를 받고 받은 데이터를 html�
 <li><p>
 [ view 영역 처리 ] 
 </p>
-<div class="tip" id="org85a9717">
+<div class="tip" id="org93fdb3e">
 <p>
 테이블이나 graph같은 것을 주기적으로 갱신 시키는 일은 html에서 하지 않는다. html에서는 table이나 graph를 둘러싼 div에 id를 정해놔야 한다. 왜냐면 갱신 시키는 javascript에서 해당 id를 참조하기 때문이다. 왜 참조하는가? 해당 id로 정해진 div영역을 다시 html으로 만들어서 append할 것이기 때문이다. 여튼 처음 사용자로 부터 요구로 인해 받아지는 page에는 해당 그래프나 테이블을 포함하는 부모 tag만 있는다. 그래서 html만 다운 받으면 그 부분은 아무것도 표시되지 않을 것이다. html 파싱과 렌더링이 끝난후에 js가 수행되는데, js는  js.append를 사용해서 그 표시가 되지 않는 부모 tag의 자식에 html을 붙일 수 있다.
 </p>
@@ -2049,7 +2170,7 @@ ajax는 server에 data를 요청한다. data를 받고 받은 데이터를 html�
 <li><p>
 [ javascript 처리 ]
 </p>
-<div class="tip" id="org02818f2">
+<div class="tip" id="org77b4246">
 <p>
 javascript에서는 여러가지를 해야 한다.
 </p>
@@ -2077,7 +2198,7 @@ $(function() {
 </pre></li>
 <li>server단 처리</li>
 </ul>
-<div class="note" id="org06b5d26">
+<div class="note" id="org8146baf">
 <p>
 server단에서는 controller에서 ajax와 통신을 한다. db에서 받은 data를 전달하고, 그 외에 client에서 보낼 data가 있다면 전송하는 작업을 해야 한다.
 </p>
@@ -2086,18 +2207,18 @@ server단에서는 controller에서 ajax와 통신을 한다. db에서 받은 da
 </div>
 </div>
 
-<div id="outline-container-org4bef798" class="outline-2">
-<h2 id="org4bef798"><span class="section-number-2">14</span> [부록] ajax 사용법 2</h2>
-<div class="outline-text-2" id="text-14">
+<div id="outline-container-orgb245054" class="outline-2">
+<h2 id="orgb245054"><span class="section-number-2">15</span> [부록] ajax 사용법 2</h2>
+<div class="outline-text-2" id="text-15">
 </div>
-<div id="outline-container-orgc287946" class="outline-3">
-<h3 id="orgc287946"><span class="section-number-3">14.1</span> 실제 구현</h3>
-<div class="outline-text-3" id="text-14-1">
+<div id="outline-container-org4b98496" class="outline-3">
+<h3 id="org4b98496"><span class="section-number-3">15.1</span> 실제 구현</h3>
+<div class="outline-text-3" id="text-15-1">
 </div>
-<div id="outline-container-org5617297" class="outline-4">
-<h4 id="org5617297">개요</h4>
-<div class="outline-text-4" id="text-org5617297">
-<div class="note" id="org43dfd5c">
+<div id="outline-container-org69fe340" class="outline-4">
+<h4 id="org69fe340">개요</h4>
+<div class="outline-text-4" id="text-org69fe340">
+<div class="note" id="orgec290f7">
 <p>
 ajax를 사용하는 상황을 보여주려 한다. 현상황은  db가 있고, 이 db의 내용을 table로 보여준다. db의 데이터는 외부로 부터 계속 끊임없이 저장되기 때문에, 우리는 주기적으로 갱신해서 보여줄 필요가 있다. 그래서 view에는 switcher라는 check box를 달았다. switcher checked되면 자동갱신, uncheck면, 자동 갱신을 하지 않는다.또한, refresh 버튼도 만들었다. refresh button을 누르면 한차례 갱신을 한다. 이것을 어떻게 구현할 것인가?
 </p>
@@ -2114,7 +2235,7 @@ table page에서  다른 page로 이동한다. 그리곤 다시 table page로 �
 </p>
 
 </div>
-<div class="important" id="org5300aff">
+<div class="important" id="org26cc8a0">
 <ul class="org-ul">
 <li>(1) 처음 table page로 방문한다.</li>
 <li>(2) browser는 table page의 html문서를 다운받는다.</li>
@@ -2131,43 +2252,43 @@ table page에서  다른 page로 이동한다. 그리곤 다시 table page로 �
 </div>
 </div>
 </div>
-<div id="outline-container-org0303baf" class="outline-3">
-<h3 id="org0303baf"><span class="section-number-3">14.2</span> login을 고려하지 않은 방식</h3>
-<div class="outline-text-3" id="text-14-2">
+<div id="outline-container-org9b07f88" class="outline-3">
+<h3 id="org9b07f88"><span class="section-number-3">15.2</span> login을 고려하지 않은 방식</h3>
+<div class="outline-text-3" id="text-15-2">
 </div>
-<div id="outline-container-org5607648" class="outline-4">
-<h4 id="org5607648">(1) ajax를 사용하기 위해서 jquery를 설치 한 후 application.js에 import하자. 그런후, application.html.erb에 적용</h4>
-<div class="outline-text-4" id="text-org5607648">
-<div class="note" id="orgd2c22d0">
+<div id="outline-container-org6cbfadf" class="outline-4">
+<h4 id="org6cbfadf">(1) ajax를 사용하기 위해서 jquery를 설치 한 후 application.js에 import하자. 그런후, application.html.erb에 적용</h4>
+<div class="outline-text-4" id="text-org6cbfadf">
+<div class="note" id="org6213020">
 <ul class="org-ul">
 <li>yarn add jquery</li>
 </ul>
 
 </div>
 
-<div id="org0d46a95" class="figure">
+<div id="org22557e5" class="figure">
 <p><img src="./img/ajax1_1.png" alt="ajax1_1.png" width="800px" />
 </p>
-<p><span class="figure-number">Figure 57: </span>ajax1_1</p>
+<p><span class="figure-number">Figure 61: </span>ajax1_1</p>
 </div>
 
 
-<div id="org89f58ed" class="figure">
+<div id="org27fa46e" class="figure">
 <p><img src="./img/ajax1_2.png" alt="ajax1_2.png" width="800px" />
 </p>
-<p><span class="figure-number">Figure 58: </span>ajax1_2</p>
+<p><span class="figure-number">Figure 62: </span>ajax1_2</p>
 </div>
 
 <ul class="org-ul">
 <li>import 위치 확인</li>
 </ul>
 
-<div id="org80aa2be" class="figure">
+<div id="orgad33172" class="figure">
 <p><img src="./img/ajax1_3.png" alt="ajax1_3.png" width="800px" />
 </p>
-<p><span class="figure-number">Figure 59: </span>ajax1_3</p>
+<p><span class="figure-number">Figure 63: </span>ajax1_3</p>
 </div>
-<div class="note" id="orgc9fd310">
+<div class="note" id="orgcd21c8b">
 <p>
 import 'jquery/dist/jquery.js' 로 하면 된다. 이렇게 하면 안된다. import 'jquery/src/jquery.js'로 해야 에러가 나지 않는다.
 </p>
@@ -2177,29 +2298,29 @@ import 'jquery/dist/jquery.js' 로 하면 된다. 이렇게 하면 안된다. im
 <li>import</li>
 </ul>
 
-<div id="org7ad65f6" class="figure">
+<div id="org4f77a6a" class="figure">
 <p><img src="./img/ajax1_4.png" alt="ajax1_4.png" width="800px" />
 </p>
-<p><span class="figure-number">Figure 60: </span>ajax1_4</p>
+<p><span class="figure-number">Figure 64: </span>ajax1_4</p>
 </div>
-<div class="note" id="orgecf59ea">
+<div class="note" id="org78ba448">
 <p>
 전체 page에 jquery를 적용할 것이다. bootstrap보다 상위에 import한다.
 </p>
 
 </div>
 
-<div id="orgc040387" class="figure">
+<div id="org9982386" class="figure">
 <p><img src="./img/ajax1_5.png" alt="ajax1_5.png" width="800px" />
 </p>
-<p><span class="figure-number">Figure 61: </span>ajax1_5</p>
+<p><span class="figure-number">Figure 65: </span>ajax1_5</p>
 </div>
 </div>
 </div>
-<div id="outline-container-org5c618fb" class="outline-4">
-<h4 id="org5c618fb">(2) ajax를 이용하는 js pack을 만든다. (뼈대만)</h4>
-<div class="outline-text-4" id="text-org5c618fb">
-<div class="note" id="orge9578d4">
+<div id="outline-container-orgd70b544" class="outline-4">
+<h4 id="orgd70b544">(2) ajax를 이용하는 js pack을 만든다. (뼈대만)</h4>
+<div class="outline-text-4" id="text-orgd70b544">
+<div class="note" id="org1bf3d7d">
 <p>
 water_meters_index, pressure_sensors_index라는 pack을 2개 만든다. 2개의 code는 거의 동일하다. 나중에 refactoring이 필요하겠지만, 우선은 그대로 간다.
 </p>
@@ -2209,12 +2330,12 @@ water_meters_index, pressure_sensors_index라는 pack을 2개 만든다. 2개의
 <li>packs</li>
 </ul>
 
-<div id="org4220347" class="figure">
+<div id="org0d8e820" class="figure">
 <p><img src="./img/ajax1_7.png" alt="ajax1_7.png" width="800px" />
 </p>
-<p><span class="figure-number">Figure 62: </span>ajax1_7</p>
+<p><span class="figure-number">Figure 66: </span>ajax1_7</p>
 </div>
-<div class="note" id="org8a9961b">
+<div class="note" id="orgb4c5dcc">
 <p>
 이 pack에서는 2가지를 한다. 맨처음 html을 download 받을때, switcher라는 checkbox의 check여부에 따른 동작 구현, 두번째로 사용자가 이미 download되어 browser에 보여지는 checkbox에 대한 event handler를 구현인데. 하지만 미완성이다.  단지 동작된다는 것만 확인한다. 완성하려면, 전체 동작에 맞춰 server와 view단이 어떻게 동작하는 지 이해해야 하기 때문이다.
 </p>
@@ -2222,10 +2343,10 @@ water_meters_index, pressure_sensors_index라는 pack을 2개 만든다. 2개의
 </div>
 </div>
 </div>
-<div id="outline-container-orgdccce04" class="outline-4">
-<h4 id="orgdccce04">(3) 전체 동작에 대한 이해 (stateful)</h4>
-<div class="outline-text-4" id="text-orgdccce04">
-<div class="note" id="orga87816d">
+<div id="outline-container-orgfb62621" class="outline-4">
+<h4 id="orgfb62621">(3) 전체 동작에 대한 이해 (stateful)</h4>
+<div class="outline-text-4" id="text-orgfb62621">
+<div class="note" id="orgce16091">
 <p>
 
 </p>
@@ -2234,26 +2355,94 @@ water_meters_index, pressure_sensors_index라는 pack을 2개 만든다. 2개의
 </div>
 </div>
 </div>
-<div id="outline-container-org44ad1c8" class="outline-3">
-<h3 id="org44ad1c8"><span class="section-number-3">14.3</span> login을 고려한 방식</h3>
+<div id="outline-container-org9c80ba2" class="outline-3">
+<h3 id="org9c80ba2"><span class="section-number-3">15.3</span> login을 고려한 방식</h3>
 </div>
 </div>
-<div id="outline-container-org72d9ba8" class="outline-2">
-<h2 id="org72d9ba8"><span class="section-number-2">15</span> [부록] link_to helper 사용법</h2>
+<div id="outline-container-org2e44b5f" class="outline-2">
+<h2 id="org2e44b5f"><span class="section-number-2">16</span> [부록] link_to helper 사용법</h2>
 </div>
-<div id="outline-container-org86fda3a" class="outline-2">
-<h2 id="org86fda3a"><span class="section-number-2">16</span> [부록] form_for helper사용법</h2>
+<div id="outline-container-orga7645e8" class="outline-2">
+<h2 id="orga7645e8"><span class="section-number-2">17</span> [부록] form_for helper사용법</h2>
 </div>
-<div id="outline-container-org29e592a" class="outline-2">
-<h2 id="org29e592a"><span class="section-number-2">17</span> [부록] 지도 관련 사용법</h2>
+<div id="outline-container-orgedb1810" class="outline-2">
+<h2 id="orgedb1810"><span class="section-number-2">18</span> [부록] 지도 관련 사용법</h2>
 </div>
-<div id="outline-container-org35ed393" class="outline-2">
-<h2 id="org35ed393"><span class="section-number-2">18</span> [부록] I18n 사용법</h2>
+<div id="outline-container-org816584b" class="outline-2">
+<h2 id="org816584b"><span class="section-number-2">19</span> [부록] I18n 사용법</h2>
+</div>
+<div id="outline-container-org43b6b88" class="outline-2">
+<h2 id="org43b6b88"><span class="section-number-2">20</span> [부록] byebug 사용법</h2>
+<div class="outline-text-2" id="text-20">
+<div class="note" id="orgb282954">
+<p>
+gem install byebug를 Gemfiles에서 development mode에서 설치한다. 그런 다음 debug하는 곳에 byebug라는 문장을 넣는다. 그러면 해당 문장이 실행될 때 break가 걸린다.
+</p>
+
+</div>
+<div class="important" id="org1438d68">
+<p>
+ l-, list : 소스코드를 10줄 보여준다. 
+s: step by step
+n: next
+</p>
+
+</div>
+</div>
+</div>
+<div id="outline-container-orgfbeceb9" class="outline-2">
+<h2 id="orgfbeceb9"><span class="section-number-2">21</span> [부록] debugger (javascript) 사용법</h2>
+<div class="outline-text-2" id="text-21">
+<div class="note" id="org2aac430">
+<p>
+javascript debugging은 byebug로 할 수 없다. byebug로 할 수 있는 것은 controller와 html.erb다. 즉 server단에서 처리가 되는 것은 byebug로 가능하나, client로 다운 받은 후에 실행되는 js는 debugger라고 breakpoint를 걸어서 사용한다.
+</p>
+
+<p>
+chrome에서 &lt;inspect&gt;를 실행하고 &lt;source&gt;를 선택한 이후, page refresh를 하면 debugger; 에서 break가 걸린다.
+</p>
+
+</div>
+</div>
+</div>
+<div id="outline-container-org09b2d16" class="outline-2">
+<h2 id="org09b2d16"><span class="section-number-2">22</span> [Error처리] - warning처리 (The loose option must be..)</h2>
+<div class="outline-text-2" id="text-22">
+<div class="note" id="orga0d06f9">
+<p>
+cap production deploy를 하다보면 이 warning이 엄청 나온다.
+</p>
+
+</div>
+
+<div id="org6868929" class="figure">
+<p><img src="./img/warning1.png" alt="warning1.png" width="800px" />
+</p>
+<p><span class="figure-number">Figure 67: </span>warning1</p>
+</div>
+<ul class="org-ul">
+<li><p>
+<b>해결</b>
+</p>
+<div class="important" id="orgd801630">
+<p>
+아래와 같이 처리한다.
+</p>
+
+</div></li>
+</ul>
+
+<div id="org1d1c94b" class="figure">
+<p><img src="./img/warning2.png" alt="warning2.png" width="800px" />
+</p>
+<p><span class="figure-number">Figure 68: </span>warning2</p>
+</div>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Holy Frege</p>
-<p class="date">Created: 2021-09-14 Tue 02:20</p>
+<p class="date">Created: 2021-12-09 Thu 10:05</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

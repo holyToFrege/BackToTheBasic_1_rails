@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-08-24 Tue 09:55 -->
+<!-- 2021-12-01 Wed 17:44 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Rails From Scratch2</title>
@@ -232,16 +232,16 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org5dc6964">1. 개요</a></li>
-<li><a href="#org86f39b3">2. hello world</a></li>
-<li><a href="#orgcc06496">3. [error] phusion passenger</a></li>
+<li><a href="#orga470715">1. 개요</a></li>
+<li><a href="#org9bb8f0e">2. hello world</a></li>
+<li><a href="#org4515e14">3. [error] phusion passenger</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org5dc6964" class="outline-2">
-<h2 id="org5dc6964"><span class="section-number-2">1</span> 개요</h2>
+<div id="outline-container-orga470715" class="outline-2">
+<h2 id="orga470715"><span class="section-number-2">1</span> 개요</h2>
 <div class="outline-text-2" id="text-1">
-<div class="note" id="org44eb826">
+<div class="note" id="org58d874a">
 <p>
 우선 rails from scratch1을 통해서 서버의 설치와 capistrano의 개발환경이 완료되었다는 가정하에 시작한다. 설치가 다 되었다 하더라도 webpage가 화면에 보이지는 않을것이다. 흔한 controller와 view page조차 없을것이기 때문이다.
 </p>
@@ -249,24 +249,24 @@
 </div>
 </div>
 </div>
-<div id="outline-container-org86f39b3" class="outline-2">
-<h2 id="org86f39b3"><span class="section-number-2">2</span> hello world</h2>
+<div id="outline-container-org9bb8f0e" class="outline-2">
+<h2 id="org9bb8f0e"><span class="section-number-2">2</span> hello world</h2>
 <div class="outline-text-2" id="text-2">
-<div class="note" id="orga639ee9">
+<div class="note" id="org3e799fa">
 <p>
 가장 먼저 할것은 hello world의 출력이다. rails g controller나 rails g scaffold를 사용하지 않고 처음 바닐라 상태에서 hello world의 출력이다. 이것은 applicationcontroller에서 def hello안에 render plain: "hello world"를 작성하고 routes를 설정해주면 된다.
 </p>
 
 </div>
 
-<div id="org2f5249a" class="figure">
+<div id="org86a322e" class="figure">
 <p><img src="./img/hello1.png" alt="hello1.png" width="800px" />
 </p>
 <p><span class="figure-number">Figure 1: </span>hello1</p>
 </div>
 
 
-<div id="org8e95ce3" class="figure">
+<div id="orgee490ad" class="figure">
 <p><img src="./img/hello2.png" alt="hello2.png" width="800px" />
 </p>
 <p><span class="figure-number">Figure 2: </span>hello2</p>
@@ -274,10 +274,10 @@
 </div>
 </div>
 
-<div id="outline-container-orgcc06496" class="outline-2">
-<h2 id="orgcc06496"><span class="section-number-2">3</span> [error] phusion passenger</h2>
+<div id="outline-container-org4515e14" class="outline-2">
+<h2 id="org4515e14"><span class="section-number-2">3</span> [error] phusion passenger</h2>
 <div class="outline-text-2" id="text-3">
-<div class="warning" id="org6bf99c1">
+<div class="warning" id="org730c13c">
 <p>
 헉! 근데 cap production deploy하니, phusion passenger 에러가 발생했다. nginx 서버를 restart를 여러번 하니 2번째와 같이 에러 모양이 변경되었다. 어찌 되었던 phusion passenger가 동작을 안하는건 확실했다. 에러가 난곳에서 가져온 명령어도 여러번 실행했고, cap production deploy도 여러번 했다. 
 </p>
@@ -295,20 +295,20 @@
 </blockquote>
 
 
-<div id="orgd619c6b" class="figure">
+<div id="org4a20353" class="figure">
 <p><img src="./img/perror1.png" alt="perror1.png" width="800px" />
 </p>
 <p><span class="figure-number">Figure 3: </span>perror1</p>
 </div>
 
 
-<div id="orgaf122d5" class="figure">
+<div id="org8691c96" class="figure">
 <p><img src="./img/perror2.png" alt="perror2.png" width="800px" />
 </p>
 <p><span class="figure-number">Figure 4: </span>perror2</p>
 </div>
 
-<div class="note" id="orgacfef61">
+<div class="note" id="org31ed1f6">
 <p>
 그러다가 발견한 해결책&#x2026;해결책이랄껀 없고, 여튼 webpage가 보이게 할 수 있었다는&#x2026;
 방법은 nginx의 거의 유일한 설정파일인 /etc/nginx/sites-enabled/설정파일에서 잘못된 부분을 고쳤다. 첫번째로 server<sub>name으로</sub> _만 기술 되어 있었기 때문에 위에 보이는 1번째 error가 발생한듯하다. 그리고 server<sub>name에</sub> domain name을 제대로 입력해주니, 2번째 error로 바뀌었다. 2번째 에러를 고친것은 current폴더의 경로를 지정해준 것이다.
@@ -316,27 +316,27 @@
 
 </div>
 
-<div id="org32ff364" class="figure">
+<div id="orgaaccd2c" class="figure">
 <p><img src="./img/psolve1.png" alt="psolve1.png" width="800px" />
 </p>
 <p><span class="figure-number">Figure 5: </span>psolve1</p>
 </div>
 
-<div class="note" id="org2503ffd">
+<div class="note" id="org148aa67">
 <p>
 그 결과 cap production deploy를 하면 다음과 같이 passenger가 동작되었다.
 </p>
 
 </div>
 
-<div id="orgc31b454" class="figure">
+<div id="orga429049" class="figure">
 <p><img src="./img/presult1.png" alt="presult1.png" width="800px" />
 </p>
 <p><span class="figure-number">Figure 6: </span>presult</p>
 </div>
 
 
-<div id="org26b3390" class="figure">
+<div id="org3359238" class="figure">
 <p><img src="./img/presult2.png" alt="presult2.png" width="800px" />
 </p>
 <p><span class="figure-number">Figure 7: </span>presult2</p>
@@ -346,7 +346,7 @@
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Holy Frege</p>
-<p class="date">Created: 2021-08-24 Tue 09:55</p>
+<p class="date">Created: 2021-12-01 Wed 17:44</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
