@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-12-01 Wed 15:02 -->
+<!-- 2021-12-31 Fri 04:21 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>rails from scratch</title>
@@ -232,121 +232,121 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org211f90e">1. 맨 처음 해야 하는것(1. Local 개발환경 만들기)</a>
+<li><a href="#orge795317">1. 맨 처음 해야 하는것(1. Local 개발환경 만들기)</a>
 <ul>
-<li><a href="#org3844f57">1.1. local 개발환경</a>
+<li><a href="#orga1ef334">1.1. local 개발환경</a>
 <ul>
-<li><a href="#orga636631">ruby 설치(with rbenv)</a></li>
-<li><a href="#org239955f">git 설치와 설정</a></li>
-<li><a href="#orgce6e154">rails 설치</a></li>
-<li><a href="#org1b6b91e">Database 설치</a></li>
-<li><a href="#org5cb75aa">nokogiri, pg를 위한 설치</a></li>
-<li><a href="#orge7ae448">rails server</a></li>
+<li><a href="#org90e9522">ruby 설치(with rbenv)</a></li>
+<li><a href="#orga0a4c4b">git 설치와 설정</a></li>
+<li><a href="#org83ee802">rails 설치</a></li>
+<li><a href="#orga920c3d">Database 설치</a></li>
+<li><a href="#orgc162708">nokogiri, pg를 위한 설치</a></li>
+<li><a href="#org92af649">rails server</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgc29897f">2. Production Server 설치</a></li>
-<li><a href="#orga0df421">3. webapp 다시 만들기(Local server와 production을 위한 capistrano가 설치된 상황에서)</a>
+<li><a href="#orgec897c0">2. Production Server 설치</a></li>
+<li><a href="#org583fbdf">3. webapp 다시 만들기(Local server와 production을 위한 capistrano가 설치된 상황에서)</a>
 <ul>
-<li><a href="#orgb80b812">3.1. github에 project를 만든다.</a></li>
-<li><a href="#org6d01786">3.2. rails new webapp</a></li>
-<li><a href="#org959b84b">3.3. git push로 github에 반영</a></li>
-<li><a href="#org3d77af1">3.4. capistrano gem설치</a></li>
-<li><a href="#orgc27fa12">3.5. capistrano가 github과 aws와 db 접속할 수 있는지 미리 확인한다.</a>
+<li><a href="#orgfcc8b8b">3.1. github에 project를 만든다.</a></li>
+<li><a href="#orgedd7e75">3.2. rails new webapp</a></li>
+<li><a href="#org4a30aa8">3.3. git push로 github에 반영</a></li>
+<li><a href="#org928e8b0">3.4. capistrano gem설치</a></li>
+<li><a href="#org2852b2a">3.5. capistrano가 github과 aws와 db 접속할 수 있는지 미리 확인한다.</a>
 <ul>
-<li><a href="#orge82eabd">(1) github 연결가능 확인</a></li>
-<li><a href="#org28cb160">(2) config/deploy.rb 설정- github settings (capistrano는 config/deploy.rb를 참고한다.)</a></li>
-<li><a href="#orgd8233d5">(3) config/deploy/production.rb설정 -aws와 db환경 설정(config/deploy/production.rb)</a></li>
-<li><a href="#org0b87fad">(4) password check-git과 aws의 password?</a></li>
-<li><a href="#orgbd9ec59">(5) cap production deploy - cd config, cap production deploy</a></li>
-<li><a href="#org2913cd2">(6) capistrano 추가작업- capfile에 추가작업 추가</a>
+<li><a href="#orgad65cc4">(1) github 연결가능 확인</a></li>
+<li><a href="#org47b4af5">(2) config/deploy.rb 설정- github settings (capistrano는 config/deploy.rb를 참고한다.)</a></li>
+<li><a href="#org98d81a5">(3) config/deploy/production.rb설정 -aws와 db환경 설정(config/deploy/production.rb)</a></li>
+<li><a href="#org6d09bbb">(4) password check-git과 aws의 password?</a></li>
+<li><a href="#org0c824d8">(5) cap production deploy - cd config, cap production deploy</a></li>
+<li><a href="#org6d9448d">(6) capistrano 추가작업- capfile에 추가작업 추가</a>
 <ul>
-<li><a href="#org68465b2">(6-1) Capfiles에 추가 작업</a></li>
-<li><a href="#orgf7721f5">(6-2) bundle lock &#x2013;add-platform x86<sub>64</sub>-linux</a></li>
-<li><a href="#orgaa3ba64">(6-3) .rbenv-vars에 master key와 secret base설정</a></li>
+<li><a href="#org0c2a39c">(6-1) Capfiles에 추가 작업</a></li>
+<li><a href="#org9b0c2d7">(6-2) bundle lock &#x2013;add-platform x86<sub>64</sub>-linux</a></li>
+<li><a href="#orgf14e176">(6-3) .rbenv-vars에 master key와 secret base설정</a></li>
 </ul>
 </li>
-<li><a href="#org1d62708">(7) [DB] 관련 설정</a>
+<li><a href="#orgcb54114">(7) [DB] 관련 설정</a>
 <ul>
-<li><a href="#org66d7079">[1] gem mysql2를 Gemfile에 추가.</a></li>
-<li><a href="#org0ab8b49">[2] database.yml처리 (local 처리)</a></li>
-<li><a href="#orge71626e">[3] .rbenv-vars변수 처리</a></li>
+<li><a href="#orgc0d5b69">[1] gem mysql2를 Gemfile에 추가.</a></li>
+<li><a href="#orgd3c90a4">[2] database.yml처리 (local 처리)</a></li>
+<li><a href="#org53699fa">[3] .rbenv-vars변수 처리</a></li>
 </ul>
 </li>
-<li><a href="#orgdb79c0b">(8) [WEB &amp; APP] nginx서버와 passenger를 키고 새로만든 rails app을 연동시키려면?</a>
+<li><a href="#orgb1bc740">(8) [WEB &amp; APP] nginx서버와 passenger를 키고 새로만든 rails app을 연동시키려면?</a>
 <ul>
-<li><a href="#org6d3006d">(1) nginx에서 수행할 rails app지정</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#org9f82f47">4. client의 database.yml설정 (development)</a></li>
-<li><a href="#org263273b">5. 서버에 관해서 - testing</a>
-<ul>
-<li><a href="#org8d3528c">5.1. nginx 기본 및 test</a></li>
-<li><a href="#org3560873">5.2. nginx + passenger</a>
-<ul>
-<li><a href="#org3e41547">(8) web 관련 설정</a>
-<ul>
-<li><a href="#org96ea421"><i>etc/nginx/conf.d</i> - passenger설정</a></li>
-<li><a href="#orgd09a5ec">/site-enabled/config - nginx 설정</a></li>
-</ul>
-</li>
-<li><a href="#org9fce9e0">error처리 모음.</a>
-<ul>
-<li><a href="#org63de0b6">nginx가 start되지 않고, passenger관련 에러 (/var/log폴더 삭제시)</a></li>
-<li><a href="#orgaea65df">bundle에서 에러</a></li>
-<li><a href="#orge72cc18">DB관련 권한 문제</a></li>
+<li><a href="#org6bb2405">(1) nginx에서 수행할 rails app지정</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgff5079e">6. log에 관해서</a>
+<li><a href="#orgfd255d2">4. client의 database.yml설정 (development)</a></li>
+<li><a href="#orgdfbd309">5. 서버에 관해서 - testing</a>
 <ul>
-<li><a href="#orgb86700f">6.1. rails log</a></li>
-<li><a href="#orgf8c11e2">6.2. nginx &amp; passenger log</a></li>
+<li><a href="#orgedc53c0">5.1. nginx 기본 및 test</a></li>
+<li><a href="#org968be0a">5.2. nginx + passenger</a>
+<ul>
+<li><a href="#org87a2d04">(8) web 관련 설정</a>
+<ul>
+<li><a href="#org1e7e067"><i>etc/nginx/conf.d</i> - passenger설정</a></li>
+<li><a href="#orgd6ee868">/site-enabled/config - nginx 설정</a></li>
+</ul>
+</li>
+<li><a href="#org1fbd905">error처리 모음.</a>
+<ul>
+<li><a href="#org856dd2a">nginx가 start되지 않고, passenger관련 에러 (/var/log폴더 삭제시)</a></li>
+<li><a href="#orgdc17a35">bundle에서 에러</a></li>
+<li><a href="#org33cce86">DB관련 권한 문제</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org6c66386">6. log에 관해서</a>
+<ul>
+<li><a href="#org20b26e6">6.1. rails log</a></li>
+<li><a href="#org300b64c">6.2. nginx &amp; passenger log</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org211f90e" class="outline-2">
-<h2 id="org211f90e"><span class="section-number-2">1</span> 맨 처음 해야 하는것(1. Local 개발환경 만들기)</h2>
+<div id="outline-container-orge795317" class="outline-2">
+<h2 id="orge795317"><span class="section-number-2">1</span> 맨 처음 해야 하는것(1. Local 개발환경 만들기)</h2>
 <div class="outline-text-2" id="text-1">
-<div class="note" id="org17af3c2">
+<div class="note" id="org20e4e80">
 <p>
 local에서 작업할수 있는 환경을  만든다. gorails에서 지시하는대로 한다. 그 다음 capistrano를 통해 운영서버에 적용하는 환경을 만들것이다. 두 환경은 하나의 rails project에서 동시에 운영된다. 아무 문제 없다. 즉 capistrano 설정을 하면 local에서 작업하지 못하고, local에서 별도로 rails new railsproject를 사용해서 local용을 만들 필요가 없다는 것이다. 하나의 rails 프로젝트에서 test하고 rails s로 local test하고 제대로 되면 운영서버로 배포하는 형태를 가지면 된다.
 </p>
 
 </div>
 </div>
-<div id="outline-container-org3844f57" class="outline-3">
-<h3 id="org3844f57"><span class="section-number-3">1.1</span> local 개발환경</h3>
+<div id="outline-container-orga1ef334" class="outline-3">
+<h3 id="orga1ef334"><span class="section-number-3">1.1</span> local 개발환경</h3>
 <div class="outline-text-3" id="text-1-1">
 </div>
-<div id="outline-container-orga636631" class="outline-4">
-<h4 id="orga636631">ruby 설치(with rbenv)</h4>
-<div class="outline-text-4" id="text-orga636631">
-<div class="note" id="org7351a7b">
+<div id="outline-container-org90e9522" class="outline-4">
+<h4 id="org90e9522">ruby 설치(with rbenv)</h4>
+<div class="outline-text-4" id="text-org90e9522">
+<div class="note" id="orgf36bbdb">
 <p>
 rails는 ruby version을 탄다. rails와 ruby version이 궁합이 맞아야 하고, gem들도 맞아야 한다. ruby설치는 rbenv를 사용한다.
 </p>
 
 </div>
-<div class="note" id="org90c831e">
+<div class="note" id="orgd22fece">
 <p>
 rbenv는 여러버전의 ruby를 설치할 수 있는데, 이것이 가능한것은 ruby-build라는 plugin이 있기에 가능하다. rbenv install 3.14 이런식으로 ruby를 설치하는것은 rbenv-build에 있는 rbenv-install에 의해서 가능한 것이다. pyenv도 동일한 형식이다.
 </p>
 
 </div>
 
-<div class="tip" id="org681a08c">
+<div class="tip" id="orgfc21ae2">
 <p>
 brew install rbenv ruby-build
 </p>
@@ -365,16 +365,16 @@ ruby -v
 </div>
 </div>
 </div>
-<div id="outline-container-org239955f" class="outline-4">
-<h4 id="org239955f">git 설치와 설정</h4>
-<div class="outline-text-4" id="text-org239955f">
-<div class="note" id="orgc1f2298">
+<div id="outline-container-orga0a4c4b" class="outline-4">
+<h4 id="orga0a4c4b">git 설치와 설정</h4>
+<div class="outline-text-4" id="text-orga0a4c4b">
+<div class="note" id="org301a956">
 <p>
 rails는 기본적으로 git init의 과정으로 local git을 설정한다. 그래서 git이 이미 system에 설치되어 있어야 하고, git에 대한 설정을 해야 한다. 그리고 github에 저장해야 하기 때문에, ssh도 만들어야 한다.
 </p>
 
 </div>
-<div class="tip" id="org281f210">
+<div class="tip" id="org05dc17b">
 <p>
 git config &#x2013;global color.ui true
 git config &#x2013;global user.name "holy"
@@ -385,24 +385,24 @@ ssh-keygen만 해도 된다.
 </div>
 </div>
 </div>
-<div id="outline-container-orgce6e154" class="outline-4">
-<h4 id="orgce6e154">rails 설치</h4>
-<div class="outline-text-4" id="text-orgce6e154">
-<div class="note" id="orgbabc550">
+<div id="outline-container-org83ee802" class="outline-4">
+<h4 id="org83ee802">rails 설치</h4>
+<div class="outline-text-4" id="text-org83ee802">
+<div class="note" id="org382e059">
 <p>
 gem은 ruby를 설치하면 자동으로 같이 설치된다. gem을 이용해서 rails를 설치한다.
 gem install rails -v 6.1.3.2 
 </p>
 
 </div>
-<div class="note" id="org64fcca5">
+<div class="note" id="org4337231">
 <p>
 한가지 특이한건, gem으로 설치한 rails를 사용하기 위해선 rbenv에게
 rails가 설치되었다는 것을 알려줘야 한다는 것이다.
 </p>
 
 </div>
-<div class="tip" id="org39895d1">
+<div class="tip" id="org3921123">
 <p>
 rbenv rehash를 해야만 rails를 사용할 수 있다.
 </p>
@@ -410,10 +410,10 @@ rbenv rehash를 해야만 rails를 사용할 수 있다.
 </div>
 </div>
 </div>
-<div id="outline-container-org1b6b91e" class="outline-4">
-<h4 id="org1b6b91e">Database 설치</h4>
-<div class="outline-text-4" id="text-org1b6b91e">
-<div class="note" id="org22d8994">
+<div id="outline-container-orga920c3d" class="outline-4">
+<h4 id="orga920c3d">Database 설치</h4>
+<div class="outline-text-4" id="text-orga920c3d">
+<div class="note" id="orge6f3894">
 <p>
 brew install mysql
 brew services start mysql
@@ -422,10 +422,10 @@ brew services start mysql
 </div>
 </div>
 </div>
-<div id="outline-container-org5cb75aa" class="outline-4">
-<h4 id="org5cb75aa">nokogiri, pg를 위한 설치</h4>
-<div class="outline-text-4" id="text-org5cb75aa">
-<div class="note" id="org1bfb13d">
+<div id="outline-container-orgc162708" class="outline-4">
+<h4 id="orgc162708">nokogiri, pg를 위한 설치</h4>
+<div class="outline-text-4" id="text-orgc162708">
+<div class="note" id="orgefe094a">
 <p>
 원래는 다음을 실행해야 하는데, 설치가 제대로 안된다.
 -&#x2014;다음-&#x2014;
@@ -441,10 +441,10 @@ gem install nokogiri &#x2013;platform=ruby &#x2013; &#x2013;use-system-libraries
 </div>
 </div>
 </div>
-<div id="outline-container-orge7ae448" class="outline-4">
-<h4 id="orge7ae448">rails server</h4>
-<div class="outline-text-4" id="text-orge7ae448">
-<div class="note" id="org08c9fec">
+<div id="outline-container-org92af649" class="outline-4">
+<h4 id="org92af649">rails server</h4>
+<div class="outline-text-4" id="text-org92af649">
+<div class="note" id="orgdbf4b2e">
 <p>
 rails new mysite &#x2013;database=mysql
 rails db:setup
@@ -457,26 +457,26 @@ rails s
 </div>
 </div>
 </div>
-<div id="outline-container-orgc29897f" class="outline-2">
-<h2 id="orgc29897f"><span class="section-number-2">2</span> Production Server 설치</h2>
+<div id="outline-container-orgec897c0" class="outline-2">
+<h2 id="orgec897c0"><span class="section-number-2">2</span> Production Server 설치</h2>
 </div>
-<div id="outline-container-orga0df421" class="outline-2">
-<h2 id="orga0df421"><span class="section-number-2">3</span> webapp 다시 만들기(Local server와 production을 위한 capistrano가 설치된 상황에서)</h2>
+<div id="outline-container-org583fbdf" class="outline-2">
+<h2 id="org583fbdf"><span class="section-number-2">3</span> webapp 다시 만들기(Local server와 production을 위한 capistrano가 설치된 상황에서)</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orgb80b812" class="outline-3">
-<h3 id="orgb80b812"><span class="section-number-3">3.1</span> github에 project를 만든다.</h3>
+<div id="outline-container-orgfcc8b8b" class="outline-3">
+<h3 id="orgfcc8b8b"><span class="section-number-3">3.1</span> github에 project를 만든다.</h3>
 </div>
-<div id="outline-container-org6d01786" class="outline-3">
-<h3 id="org6d01786"><span class="section-number-3">3.2</span> rails new webapp</h3>
+<div id="outline-container-orgedd7e75" class="outline-3">
+<h3 id="orgedd7e75"><span class="section-number-3">3.2</span> rails new webapp</h3>
 </div>
-<div id="outline-container-org959b84b" class="outline-3">
-<h3 id="org959b84b"><span class="section-number-3">3.3</span> git push로 github에 반영</h3>
+<div id="outline-container-org4a30aa8" class="outline-3">
+<h3 id="org4a30aa8"><span class="section-number-3">3.3</span> git push로 github에 반영</h3>
 </div>
-<div id="outline-container-org3d77af1" class="outline-3">
-<h3 id="org3d77af1"><span class="section-number-3">3.4</span> capistrano gem설치</h3>
+<div id="outline-container-org928e8b0" class="outline-3">
+<h3 id="org928e8b0"><span class="section-number-3">3.4</span> capistrano gem설치</h3>
 <div class="outline-text-3" id="text-3-4">
-<div class="note" id="org0c3b5b1">
+<div class="note" id="orgbe1d31e">
 <p>
 project를 새로 만들었기 때문에 capistrano gem이 설치가 안되어 있을 것이다. capistrano를 설치해야만 deploy.rb와 deploy폴더가 만들어지고, 거기에서 github과 server에 대한 설정을 할 수 있다. capistrano는 배포 tool이다. 배포라는 것은 특정한 곳에 있는 sw를 다른 곳으로 이동하는 배치하는 작업을 뜻한다. 아래에 나오겠지만, STAGES에 배치가될 computer를 설정하게 된다. 해당 sw를 STAGES에 정의된 computer로 이동하는 것을 배포(deploy)라고 할 수 있다. 우리가 옮기게 될 source는 web app이다. rails new 해서 만드는 webapp이다. 이 source를 만든 후에 우리는 rake db:migrate라고 해서, db관련 처리를 하고, rails s를 통해서 server를 실행한다. 이 과정을 원격에 있는 server에서 할 수 있게 한다고 보면 된다. 여기서 하나 가정하고 있는 것은 source는 github에 있다고 보면 된다. 즉 정리하면, capistrano같은 배포 툴이 하는 일은, local에서  github으로 연결해서 source를 가져와서 server의 특정위치에 넣는다. 이렇게 하기 위해 알아야 하는 것은 github의 주소, branch, 인증관련처리, server주소, server의 특정위치를 미리 설정해야 하는 것이다. 그런 다음 server에 접속해서 server에서 마치 local에서 rake db:migrate하듯이 db처리를 하고, rails s로 puma라는 was를 실행하고, spring이라는 webserver를 실행 시키는 것과 비슷한 작업을 한다. 그래서 NGinx라는 web server를 실행하거나 끄고, Passenger란 WAS를 실행하거나 끌 수 있다. 이렇게 하기 위해서는 webserver주소, WAS 주소, DB주소 등을 알아야 한다. 이 모든 것을 cap에서 설정한다.
 </p>
@@ -485,7 +485,7 @@ project를 새로 만들었기 때문에 capistrano gem이 설치가 안되어 �
 <p>
 아래의 gem을 Gemfile에 설정한다.
 </p>
-<div class="tip" id="org9aee2be">
+<div class="tip" id="orge6c5705">
 <p>
 gem 'capistrano', '~&gt; 3.11'
 gem 'capistrano-rails', '~&gt; 1.4'
@@ -514,14 +514,14 @@ cap install로 만들어지는 것은 다음과 같다.
 <li>Capfiles</li>
 </ol></li>
 </ul>
-<div class="note" id="org213c6d3">
+<div class="note" id="orge004f09">
 <p>
 bundle
 cap install STAGES=production
 </p>
 
 </div>
-<div class="note" id="org2e6a1d6">
+<div class="note" id="org4d5b26d">
 <p>
 그리고 위에서 대략적으로 살펴보았지만, capistrano가 하는 일은 크게 2가지로 나눠서 볼 수도 있다. 첫번째로 github에 있는 source인 webapp을 ec2에 옮기는 일&#x2026;.여기서는 github 주소와 ec2에서 배치될 위치, github ssh인증, ec2 ssh인증&#x2026;과 같은 정보가 필요하다. 두번째로,  옮겨진 source에 대해서 db:migrate를 통해서 db처리, nginx를 다시 껏다 키고, passenger도 껏다 키는 기능으로 볼 수 있다. 여기서는 db정보, nginx서버정보, passenger서버정보가 필요하다.
 이것을 2개의 설정파일로 나눠서 처리할 수도 있다
@@ -531,14 +531,14 @@ cap install STAGES=production
 </div>
 </div>
 </div>
-<div id="outline-container-orgc27fa12" class="outline-3">
-<h3 id="orgc27fa12"><span class="section-number-3">3.5</span> capistrano가 github과 aws와 db 접속할 수 있는지 미리 확인한다.</h3>
+<div id="outline-container-org2852b2a" class="outline-3">
+<h3 id="org2852b2a"><span class="section-number-3">3.5</span> capistrano가 github과 aws와 db 접속할 수 있는지 미리 확인한다.</h3>
 <div class="outline-text-3" id="text-3-5">
 </div>
-<div id="outline-container-orge82eabd" class="outline-4">
-<h4 id="orge82eabd">(1) github 연결가능 확인</h4>
-<div class="outline-text-4" id="text-orge82eabd">
-<div class="note" id="orgb24945d">
+<div id="outline-container-orgad65cc4" class="outline-4">
+<h4 id="orgad65cc4">(1) github 연결가능 확인</h4>
+<div class="outline-text-4" id="text-orgad65cc4">
+<div class="note" id="org0a824b9">
 <ol class="org-ol">
 <li>keychain을 실행해서 github.com을 찾는다. id와 pw가 github의 id와 pw와 같은지 확인한다. 동일하지 않다면 동일하게 해준다. 2021.8월 부터 github의 password는 token값으로 변경되었다. 이것이 처리되어 있어야 한다. 아래는 ssh인증을 통해서 접근 가능여부만 테스트한다.</li>
 </ol>
@@ -550,7 +550,7 @@ ssh -T git@github.com
 </p>
 </blockquote>
 
-<div id="org7bf92c8" class="figure">
+<div id="org982dea1" class="figure">
 <p><img src="./img/githubTest.png" alt="githubTest.png" width="800px" />
 </p>
 <p><span class="figure-number">Figure 1: </span>github test</p>
@@ -558,23 +558,23 @@ ssh -T git@github.com
 </div>
 </div>
 
-<div id="outline-container-org28cb160" class="outline-4">
-<h4 id="org28cb160">(2) config/deploy.rb 설정- github settings (capistrano는 config/deploy.rb를 참고한다.)</h4>
-<div class="outline-text-4" id="text-org28cb160">
-<div class="note" id="org0a733b3">
+<div id="outline-container-org47b4af5" class="outline-4">
+<h4 id="org47b4af5">(2) config/deploy.rb 설정- github settings (capistrano는 config/deploy.rb를 참고한다.)</h4>
+<div class="outline-text-4" id="text-org47b4af5">
+<div class="note" id="org127ed4f">
 <p>
 위에서도 얘기했듯이, deploy.rb는 github의 source를 ec2의 특정위치로 복사하는 역할이다. 여기에는 github, branch 같은 정보와 ec2의 위치정보, 인증에 관한 정보가 필요하다.
 </p>
 
 </div>
 
-<div id="org7b507b4" class="figure">
+<div id="org787754e" class="figure">
 <p><img src="./img/deploy1.png" alt="deploy1.png" width="800px" />
 </p>
 <p><span class="figure-number">Figure 2: </span>deploy.rb</p>
 </div>
 
-<div class="note" id="org8acbef1">
+<div class="note" id="org169d2b8">
 <p>
 deploy.rb는 github에 있는 source를 server의 특정위치로 복사하는 역할이다. 이때 필요한것은 github의 source의 위치를 나타내는 repo<sub>url과</sub> branch이름이 필요하다. 또한 server의 주소와 저장될 위치를 기술해야 하는데, server의 위치정보는 production.rb에 기술하기 때문에, 여기서는 github의 source를 가져가서 어떤 위치에 놓을까하는 application과 deploy<sub>to만</sub> 기술하면 된다. 아래와 같은 정보가 되겠다.
 </p>
@@ -592,7 +592,7 @@ deploy<sub>to</sub> : deploy할 위치
 
 </div>
 
-<div class="note" id="orgf00042d">
+<div class="note" id="orga0a3e55">
 <p>
 set :application, "myapp"  =&gt; project app이름
 set :repo<sub>url</sub>, "git@github.com:PnC-jeju/myapp.git"  =&gt; github위치
@@ -605,10 +605,10 @@ set :keep<sub>releases</sub>, 5
 </div>
 </div>
 </div>
-<div id="outline-container-orgd8233d5" class="outline-4">
-<h4 id="orgd8233d5">(3) config/deploy/production.rb설정 -aws와 db환경 설정(config/deploy/production.rb)</h4>
-<div class="outline-text-4" id="text-orgd8233d5">
-<div class="note" id="org7c45e72">
+<div id="outline-container-org98d81a5" class="outline-4">
+<h4 id="org98d81a5">(3) config/deploy/production.rb설정 -aws와 db환경 설정(config/deploy/production.rb)</h4>
+<div class="outline-text-4" id="text-org98d81a5">
+<div class="note" id="orgfa5396f">
 <p>
 production.rb의 설정은 단순하다. production.rb는 webserver, WAS서버, DB에 관련된 task를 하기위한 변수 설정을 기술한다. 단순하게 여기에선
 아래처럼 server의 위치와 capistrano가 배포에 사용할 계정을 기술할 뿐이다. role에 관한 설명을 하자면, 우리는 STAGES에 하나의 server만 설정했다. 일반적으로 여러개의 server를 설정할 수 있다. app server, web server, db server등&#x2026;각각의 역할이 있는 server 들이다. 또한 test server, release server등 여러가지로 만들 수도 있다. 각각의 역할이 있는 server들의 경우, server에 따른 role을 정해준다. 예를 들어서 web server의 경우, capistrano에서 webserver는 web이란 role을 부여해주고, db server는 capistrano에서 db라는 role을 정해주면  그것에 맞는 task가 수행되는 것이다. 우리는 하나의 server, production이란 server를 사용하기 때문에, app,db,web의 3개의 role을 주면 된다.
@@ -620,7 +620,7 @@ production.rb의 설정은 단순하다. production.rb는 webserver, WAS서버, 
 
 </div>
 
-<div class="note" id="org4584309">
+<div class="note" id="org096cb31">
 <p>
 server "13.125.158.130", user: "deploy", roles: %w{app db web}
 </p>
@@ -628,16 +628,16 @@ server "13.125.158.130", user: "deploy", roles: %w{app db web}
 </div>
 </div>
 </div>
-<div id="outline-container-org0b87fad" class="outline-4">
-<h4 id="org0b87fad">(4) password check-git과 aws의 password?</h4>
-<div class="outline-text-4" id="text-org0b87fad">
-<div class="note" id="org392bf9d">
+<div id="outline-container-org6d09bbb" class="outline-4">
+<h4 id="org6d09bbb">(4) password check-git과 aws의 password?</h4>
+<div class="outline-text-4" id="text-org6d09bbb">
+<div class="note" id="org1be044c">
 <p>
 git과 aws에 접속하기 위해서 password가 필요하다. 이것을 하기 위해선 다음과 같은 작업이 필요하다.
 </p>
 
 </div>
-<div class="tip" id="org411bc68">
+<div class="tip" id="org3a14c3b">
 <p>
 ssh-add ~/.ssh/company-ec2-keys.pem
 ssh-add ~/.ssh/id<sub>rsa</sub>
@@ -646,10 +646,10 @@ ssh-add ~/.ssh/id<sub>rsa</sub>
 </div>
 </div>
 </div>
-<div id="outline-container-orgbd9ec59" class="outline-4">
-<h4 id="orgbd9ec59">(5) cap production deploy - cd config, cap production deploy</h4>
-<div class="outline-text-4" id="text-orgbd9ec59">
-<div class="note" id="org198b89c">
+<div id="outline-container-org0c824d8" class="outline-4">
+<h4 id="org0c824d8">(5) cap production deploy - cd config, cap production deploy</h4>
+<div class="outline-text-4" id="text-org0c824d8">
+<div class="note" id="org58c81ce">
 <p>
 이렇게 하고 cap production deploy를 해보자. 동작은 되고 아무 문제도 없지만, server가 재시작 된다거나, bundler가 실행되거나 하는 정황이 보이지 않는다. 이것은 capfile에서 config/deploy.rb, production.rb를 load하고 scm/git으로 git에 있는 source를 server에 이동만 했기 때문이다. 옮겨진 source에 bundler를 사용해서 gem을 설치하고, db migration을 하고 web server와 app server를 실행 하는것은 Capfile에 기술되어야 한다.
 </p>
@@ -657,17 +657,17 @@ ssh-add ~/.ssh/id<sub>rsa</sub>
 </div>
 </div>
 </div>
-<div id="outline-container-org2913cd2" class="outline-4">
-<h4 id="org2913cd2">(6) capistrano 추가작업- capfile에 추가작업 추가</h4>
-<div class="outline-text-4" id="text-org2913cd2">
+<div id="outline-container-org6d9448d" class="outline-4">
+<h4 id="org6d9448d">(6) capistrano 추가작업- capfile에 추가작업 추가</h4>
+<div class="outline-text-4" id="text-org6d9448d">
 </div>
-<div id="outline-container-org68465b2" class="outline-5">
-<h5 id="org68465b2">(6-1) Capfiles에 추가 작업</h5>
-<div class="outline-text-5" id="text-org68465b2">
+<div id="outline-container-org0c2a39c" class="outline-5">
+<h5 id="org0c2a39c">(6-1) Capfiles에 추가 작업</h5>
+<div class="outline-text-5" id="text-org0c2a39c">
 <p>
 Capfile끝에 아래를 추가한다.  이 작업들은 db와 web server와 관련이 있다. 그래서 바로 cap production deploy를 실행하면 에러가 발생한다. web과 db설정이 추가로 들어간다.
 </p>
-<div class="tip" id="orgea65778">
+<div class="tip" id="orgbd6c60f">
 <p>
 require 'capistrano/rails'
 require 'capistrano/passenger'
@@ -682,10 +682,10 @@ set :rbenv<sub>ruby</sub>, '3.0.1'
 </div>
 </div>
 </div>
-<div id="outline-container-orgf7721f5" class="outline-5">
-<h5 id="orgf7721f5">(6-2) bundle lock &#x2013;add-platform x86<sub>64</sub>-linux</h5>
-<div class="outline-text-5" id="text-orgf7721f5">
-<div class="note" id="org70f1674">
+<div id="outline-container-org9b0c2d7" class="outline-5">
+<h5 id="org9b0c2d7">(6-2) bundle lock &#x2013;add-platform x86<sub>64</sub>-linux</h5>
+<div class="outline-text-5" id="text-org9b0c2d7">
+<div class="note" id="orgccec983">
 <p>
 Your bundle only supports platforms ["x86<sub>64</sub>-darwin-19"] but your local platform is x86<sub>64</sub>-linux. Add the current platform to the lockfile with 'bundle lock &#x2013;add-platform x86<sub>64</sub>-linux' and try again.
 </p>
@@ -698,21 +698,21 @@ capistrano추가작업은  server에 접속해서 bundler를 실행하는데, Ge
 <p>
 이제 모든 설정이 다 끝났구나하고 cap production deploy하면 어떻게 될까? bundler를 실행중에 에러가 발생한다. 왜 발생하는지는 모르겠다. 인터넷을 찾아보니 공간 부족때문이라고 한다. gem을 설치할 공간이 없기 때문이란다. 우선 쓰잘대기 없는거 지우고 다시 cap production deploy를 해본다. hang out이 걸린다. 아무런 진전 없이 bundler:install에서 계속 멈춰 있다.  다시 ec2를 중지하고 다시 시작한후 최대한 지울꺼 지워서 용량을 확보한 후에 다시 cap production deploy하니  bundler:install 단계는 지나갔다. 대신 assets:precompile에서 secret<sub>key</sub><sub>base문제로</sub> 에러가 발생했다. 아래에 image는 추가했다. secret<sub>key문제는</sub> 아래에 해결 방법이 있다.
 </p>
-<div class="tip" id="org9db4156">
+<div class="tip" id="org3fb504d">
 <p>
 bundle lock &#x2013;add-platform x86<sub>64</sub>-linux
 </p>
 
 </div>
 
-<div id="orgf424d88" class="figure">
+<div id="org8932b62" class="figure">
 <p><img src="./img/bundlererror.png" alt="bundlererror.png" width="800px" />
 </p>
 <p><span class="figure-number">Figure 3: </span>bundler error</p>
 </div>
 
 
-<div id="org421c82e" class="figure">
+<div id="orgda0441c" class="figure">
 <p><img src="./img/deployerror2.png" alt="deployerror2.png" width="800px" />
 </p>
 <p><span class="figure-number">Figure 4: </span>bundler error2</p>
@@ -720,16 +720,16 @@ bundle lock &#x2013;add-platform x86<sub>64</sub>-linux
 </div>
 </div>
 
-<div id="outline-container-orgaa3ba64" class="outline-5">
-<h5 id="orgaa3ba64">(6-3) .rbenv-vars에 master key와 secret base설정</h5>
-<div class="outline-text-5" id="text-orgaa3ba64">
+<div id="outline-container-orgf14e176" class="outline-5">
+<h5 id="orgf14e176">(6-3) .rbenv-vars에 master key와 secret base설정</h5>
+<div class="outline-text-5" id="text-orgf14e176">
 
-<div id="org14ef672" class="figure">
+<div id="org5b18505" class="figure">
 <p><img src="./img/rbenv_settings.png" alt="rbenv_settings.png" width="800px" />
 </p>
 <p><span class="figure-number">Figure 5: </span>rbenv 설정</p>
 </div>
-<div class="note" id="orgcfbe7ec">
+<div class="note" id="orgbba2e7e">
 <ul class="org-ul">
 <li>server에 ssh연결을 한다. project폴더 아래에 .rbenv-vars라는 파일을 만든다. 위의 그림처럼 setting하면 된다.</li>
 <li>[DATABASE<sub>URL</sub>]은 위에 좀 햇갈리는데, 그냥 아래와 같은 규칙이 있다고 생각하면 편하다.
@@ -742,12 +742,12 @@ secret<sub>key</sub><sub>base를</sub> 서버의 .rbenv-vars파일에 복사한�
 
 </div>
 
-<div id="orgf6ccc7c" class="figure">
+<div id="org5e83aac" class="figure">
 <p><img src="./img/secret_key.png" alt="secret_key.png" width="800px" />
 </p>
 <p><span class="figure-number">Figure 6: </span>secret<sub>key</sub></p>
 </div>
-<div class="note" id="org833f734">
+<div class="note" id="org77dc617">
 <p>
 여기서 cap production deploy를 하면 어떻게 될까?
 아래 그림처럼 rake db:migration에서 에러가 난다.  mysql2라는 gem이 없다는 것이다. 그러면 (7)에서 처리를 해줘야 한다.
@@ -755,7 +755,7 @@ secret<sub>key</sub><sub>base를</sub> 서버의 .rbenv-vars파일에 복사한�
 
 </div>
 
-<div id="orgb05ab1c" class="figure">
+<div id="orgca928f0" class="figure">
 <p><img src="./img/dberror1.png" alt="dberror1.png" width="800px" />
 </p>
 <p><span class="figure-number">Figure 7: </span>db error</p>
@@ -764,10 +764,10 @@ secret<sub>key</sub><sub>base를</sub> 서버의 .rbenv-vars파일에 복사한�
 </div>
 </div>
 
-<div id="outline-container-org1d62708" class="outline-4">
-<h4 id="org1d62708">(7) [DB] 관련 설정</h4>
-<div class="outline-text-4" id="text-org1d62708">
-<div class="note" id="orgecd863c">
+<div id="outline-container-orgcb54114" class="outline-4">
+<h4 id="orgcb54114">(7) [DB] 관련 설정</h4>
+<div class="outline-text-4" id="text-orgcb54114">
+<div class="note" id="orga660233">
 <ul class="org-ul">
 <li>[1]Gemfiles에 mysql2 gem을 추가한다.</li>
 <li>bundler를 실행한 후에, github에 commit push한다.</li>
@@ -781,17 +781,17 @@ production환경과 development, test환경 모두 mariadb를 사용할 것이�
 
 </div>
 </div>
-<div id="outline-container-org66d7079" class="outline-5">
-<h5 id="org66d7079">[1] gem mysql2를 Gemfile에 추가.</h5>
-<div class="outline-text-5" id="text-org66d7079">
+<div id="outline-container-orgc0d5b69" class="outline-5">
+<h5 id="orgc0d5b69">[1] gem mysql2를 Gemfile에 추가.</h5>
+<div class="outline-text-5" id="text-orgc0d5b69">
 
-<div id="orgce9caa9" class="figure">
+<div id="orgeca303f" class="figure">
 <p><img src="./img/mysql2.png" alt="mysql2.png" width="800px" />
 </p>
 <p><span class="figure-number">Figure 8: </span>mysql2</p>
 </div>
 
-<div class="note" id="org80e5ee9">
+<div class="note" id="orgd9d7e2e">
 <p>
 위와 같이 version을 잘 맞추어 넣어준 후에,  bundle, bundle update를 한다. 그 이후 git에 반영을 해야 한다.
 </p>
@@ -799,10 +799,10 @@ production환경과 development, test환경 모두 mariadb를 사용할 것이�
 </div>
 </div>
 </div>
-<div id="outline-container-org0ab8b49" class="outline-5">
-<h5 id="org0ab8b49">[2] database.yml처리 (local 처리)</h5>
-<div class="outline-text-5" id="text-org0ab8b49">
-<div class="note" id="orgb7c6407">
+<div id="outline-container-orgd3c90a4" class="outline-5">
+<h5 id="orgd3c90a4">[2] database.yml처리 (local 처리)</h5>
+<div class="outline-text-5" id="text-orgd3c90a4">
+<div class="note" id="org0dfbdf6">
 <p>
 local과 server에는 이미 mariadb가 설정되었다고 가정한다.
 database를 만들고, 이에 접근할 수 있는 사용자를 만들어야 한다. 또 권한도 주고&#x2026;local과 server는 동일하게 구성한다. 다만 차이는 있다. 우선 local에서 구성한다.
@@ -820,12 +820,12 @@ ex) CREATE DATABASE IF NOT EXISTS smartwatercare;</li>
 
 </div>
 
-<div id="org13432d1" class="figure">
+<div id="orgae8a303" class="figure">
 <p><img src="./img/createdb.png" alt="createdb.png" width="400px" />
 </p>
 <p><span class="figure-number">Figure 9: </span>create db</p>
 </div>
-<div class="note" id="org4f183d1">
+<div class="note" id="org1257320">
 <ol class="org-ol">
 <li>local에서 사용자 만들기
 사용자는 deploy라는 계정을 만든다. capistrano가 db에 접근할 수 있어야 하기 때문이다. mysql이나 mariadb가 특이한게 있는데, 계정이 이름만으로 만들어지지 않는다는 것이다. email주소처럼 뒤에 host가 붙는다. 권한때문에 그렇다. 외부에서 접근하는 경우와 localhost에서 접근하는 경우 때문에 사용자 계정을 만들때 2개를 만들어야 한다. localhost와 %로 외부 host에서 접근하는 계정이다.
@@ -841,12 +841,12 @@ ex) use mysql; select host,user,password,plugin from user</li>
 
 </div>
 
-<div id="orgc3947b1" class="figure">
+<div id="orga53fec2" class="figure">
 <p><img src="./img/dbuser1.png" alt="dbuser1.png" width="800px" />
 </p>
 <p><span class="figure-number">Figure 10: </span>dbuser</p>
 </div>
-<div class="note" id="org50a47c3">
+<div class="note" id="org46ae495">
 <p>
 다행히 없다. 만일 있다면, drop user 사용자@ %로 지워야 한다. 따라서, 다음 명령어로 deploy@localhost라는 사용자를 만든다. 난 deploy는 pw를 주지 않았다.
 CREATE USER IF NOT EXISTS 'deploy'@'localhost' ;
@@ -863,13 +863,13 @@ GRANT ALL PRIVILEGES ON myapp.* TO 'deploy'@'localhost';
 
 </div>
 
-<div id="org36f2c6c" class="figure">
+<div id="orgd57321a" class="figure">
 <p><img src="./img/createuser1.png" alt="createuser1.png" width="800px" />
 </p>
 <p><span class="figure-number">Figure 11: </span>createuser</p>
 </div>
 
-<div class="note" id="org5a4ac48">
+<div class="note" id="org4be2072">
 <ol class="org-ol">
 <li>production server에서 사용자 만들기
 production server는 사용자가 2명이다. capistrano가 사용하는 deploy사용자와 외부에서 접근하는 사용자가 있다.  deploy사용자와 외부 사용자는 모두 localhost와 외부에서도 사용하게 할 예정이기 때문에 2개의 계정을 만들면 된다. deploy와 webuser01이다.  난 이미 있기 때문에 생략했다. 참고로 deploy의 pw는 설정하지 않았다.  다만 권한 설정만 다시 해준다. 이렇게 해준다음에 database.yml을 설정해주면 된다.</li>
@@ -877,13 +877,13 @@ production server는 사용자가 2명이다. capistrano가 사용하는 deploy�
 
 </div>
 
-<div id="org5f28ce7" class="figure">
+<div id="org27c371e" class="figure">
 <p><img src="./img/serveruser1.png" alt="serveruser1.png" width="800px" />
 </p>
 <p><span class="figure-number">Figure 12: </span>server user</p>
 </div>
 
-<div class="note" id="org6f1fa1c">
+<div class="note" id="orga0d5a1a">
 <ul class="org-ul">
 <li>database.yml 설정</li>
 </ul>
@@ -899,7 +899,7 @@ database의 기본 설정은 아래 그림을 참조하면 될듯 하다. 여기
 </div>
 
 
-<div id="org12e72f4" class="figure">
+<div id="orgf4568c4" class="figure">
 <p><img src="./img/database1.png" alt="database1.png" width="800px" />
 </p>
 <p><span class="figure-number">Figure 13: </span>database</p>
@@ -907,7 +907,7 @@ database의 기본 설정은 아래 그림을 참조하면 될듯 하다. 여기
 
 
 
-<div id="org987f778" class="figure">
+<div id="orgc99f87b" class="figure">
 <p><img src="./img/rbenvaras2.png" alt="rbenvaras2.png" width="800px" />
 </p>
 <p><span class="figure-number">Figure 14: </span>rbenvars2</p>
@@ -915,17 +915,17 @@ database의 기본 설정은 아래 그림을 참조하면 될듯 하다. 여기
 </div>
 </div>
 
-<div id="outline-container-orge71626e" class="outline-5">
-<h5 id="orge71626e">[3] .rbenv-vars변수 처리</h5>
-<div class="outline-text-5" id="text-orge71626e">
-<div class="note" id="orgd537ced">
+<div id="outline-container-org53699fa" class="outline-5">
+<h5 id="org53699fa">[3] .rbenv-vars변수 처리</h5>
+<div class="outline-text-5" id="text-org53699fa">
+<div class="note" id="orgb7f22ad">
 <p>
 .rbenv-vars에서 database url을 기술하는데, 여기서 db명이 database.yml과 겹친다. 그런데 실제 capistrano가 사용하는 것은 환경변수의 database명이다. 그래서 rbenv-vars에서 사용하는 db명과 database.yml에 기술되는 db명을 일치 시키는게 중요하다.
 </p>
 
 </div>
 
-<div id="orgf9f2e0a" class="figure">
+<div id="org790d5d5" class="figure">
 <p><img src="./img/rbenvars.png" alt="rbenvars.png" width="800px" />
 </p>
 <p><span class="figure-number">Figure 15: </span>mysql3</p>
@@ -935,10 +935,10 @@ database의 기본 설정은 아래 그림을 참조하면 될듯 하다. 여기
 </div>
 
 
-<div id="outline-container-orgdb79c0b" class="outline-4">
-<h4 id="orgdb79c0b">(8) [WEB &amp; APP] nginx서버와 passenger를 키고 새로만든 rails app을 연동시키려면?</h4>
-<div class="outline-text-4" id="text-orgdb79c0b">
-<div class="note" id="org481d08f">
+<div id="outline-container-orgb1bc740" class="outline-4">
+<h4 id="orgb1bc740">(8) [WEB &amp; APP] nginx서버와 passenger를 키고 새로만든 rails app을 연동시키려면?</h4>
+<div class="outline-text-4" id="text-orgb1bc740">
+<div class="note" id="org337d524">
 <p>
 새로만든 rails app은 nginx웹서버와 passenger라는 app서버는 새로만든 rails app의 존재를 알지 못한다.  nginx-&gt;passenger-&gt;rails app을 호출하는 구조이기 때문에 nginx의 sites<sub>enabled폴더에</sub> 보면 설정파일이 있을것이다. 이 파일을 보면 server<sub>name이라는</sub> 항목에 rails app이름이 기술되어 있다. 새로만든 rails app이름으로 해주어야 한다. 그런데 nginx에서 site-enabled폴더 안에 있는 설정파일을 기술하는 방식은 좀 다르다. site-avaliable폴더를 보면 site-enabled폴더안의 파일이 있는 것을 볼 수 있다. symbolic link로 연결되어 있기 때문이다. 수정은 보통 site-available에 있는 설정파일을 수정한다. 자동으로 반영된다. 근데 이렇게 고전적인 방식으로 할 필요는 없다. 그냥 sites-enabled폴더에서 수정한다.
 </p>
@@ -949,17 +949,17 @@ database의 기본 설정은 아래 그림을 참조하면 될듯 하다. 여기
 
 </div>
 </div>
-<div id="outline-container-org6d3006d" class="outline-5">
-<h5 id="org6d3006d">(1) nginx에서 수행할 rails app지정</h5>
-<div class="outline-text-5" id="text-org6d3006d">
+<div id="outline-container-org6bb2405" class="outline-5">
+<h5 id="org6bb2405">(1) nginx에서 수행할 rails app지정</h5>
+<div class="outline-text-5" id="text-org6bb2405">
 
-<div id="org3b9528f" class="figure">
+<div id="org9d8e5b1" class="figure">
 <p><img src="./img/nginxsettings.png" alt="nginxsettings.png" width="800px" />
 </p>
 <p><span class="figure-number">Figure 16: </span>nginxsettings1</p>
 </div>
 
-<div class="note" id="orgec44c29">
+<div class="note" id="orgfb27998">
 <p>
 nginx가 시작되면 nginx는 sites<sub>enabled에</sub> 기술된 파일을 실행한다.  여기에 보면 새로만든 rails app의 이름은 server<sub>name으로</sub> 설정한다. 그리고 module로 끼워넣은 passenger WAS 를 켜서, server<sub>name을</sub> 참조할 수 있게 했다. 여기까지하고 cap production deploy할때, 에러가 발생하는지, web page연결이 잘 되는지 확인해본다. 우선 에러는 없고, web page연결은 잘 안될 것이다. route 설정이 안되어 있기 때문이다. 반면에 rails s에서 local에서는 잘동작하는 것을 볼 수 있다. server에서 
 </p>
@@ -970,10 +970,10 @@ nginx가 시작되면 nginx는 sites<sub>enabled에</sub> 기술된 파일을 �
 </div>
 </div>
 </div>
-<div id="outline-container-org9f82f47" class="outline-2">
-<h2 id="org9f82f47"><span class="section-number-2">4</span> client의 database.yml설정 (development)</h2>
+<div id="outline-container-orgfd255d2" class="outline-2">
+<h2 id="orgfd255d2"><span class="section-number-2">4</span> client의 database.yml설정 (development)</h2>
 <div class="outline-text-2" id="text-4">
-<div class="note" id="org83f4f41">
+<div class="note" id="org60a5ee6">
 <p>
 capistrano를 사용해서 ci/cd로 client의 source를 server로 반영할 수 있었다. 하지만, db의 data는 동일하지 않다.
 server에서 사용하는 db를 같이 사용할 수 있게 해자.
@@ -981,7 +981,7 @@ server에서 사용하는 db를 같이 사용할 수 있게 해자.
 
 </div>
 
-<div id="org8e309f1" class="figure">
+<div id="orgdf041b2" class="figure">
 <p><img src="./img/dbsettings1.png" alt="dbsettings1.png" width="800px" />
 </p>
 <p><span class="figure-number">Figure 17: </span>db settings1</p>
@@ -989,27 +989,27 @@ server에서 사용하는 db를 같이 사용할 수 있게 해자.
 </div>
 </div>
 
-<div id="outline-container-org263273b" class="outline-2">
-<h2 id="org263273b"><span class="section-number-2">5</span> 서버에 관해서 - testing</h2>
+<div id="outline-container-orgdfbd309" class="outline-2">
+<h2 id="orgdfbd309"><span class="section-number-2">5</span> 서버에 관해서 - testing</h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-org8d3528c" class="outline-3">
-<h3 id="org8d3528c"><span class="section-number-3">5.1</span> nginx 기본 및 test</h3>
+<div id="outline-container-orgedc53c0" class="outline-3">
+<h3 id="orgedc53c0"><span class="section-number-3">5.1</span> nginx 기본 및 test</h3>
 <div class="outline-text-3" id="text-5-1">
-<div class="note" id="org48da69d">
+<div class="note" id="org4cbe2ae">
 <p>
 nginx와 관련한 설정은 크게 보면 2가지가 있다.  첫째, /etc/nginx/nginx.conf가 있다. 이것은 nginx에 대한 설정이다. 둘째, /etc/nginx/site-enabled/설정 파일. 이것은 passenger와 연결되는 rails app에 대한 정보, domain주소와 같은 설정이 담겨져 있다. 이것이 nginx에 대한 모든 것이다.  
 </p>
 
 </div>
-<div class="note" id="org78daec6">
+<div class="note" id="org534320b">
 <p>
 rails app과 별도로 nginx 서버가 제대로 동작되는지 확인할 필요가 있다. 아래 설명처럼 해보자.
 nginx가 설치 되어 있고 nginx가 구동되어 있다면? <i>etc/nginx/site-enabled</i> 에 있는 설정 파일이 실행된다. 그 설정 파일에 root를 기술하고, root아래에 index: index.html로 해주면 root폴더의  index.html이 화면에 보이게 된다. 이것을 통해서 nginx가 동작하고 있다는 것을 테스트할 수 있다.
 </p>
 
 </div>
-<div class="tip" id="orge3ca1ef">
+<div class="tip" id="org2b0ef79">
 <p>
 <i>etc/nginx/site-available</i> 에서 작성한 설정을 <i>etc/nginx/site-enabled</i> 에 link걸어서 사용한다. 아파치에서 사용하는 방식이다. 즉 server에 대한 설정을 available에서 하고, link걸어서 적용시킨다. 근데 나는 별 상관하지 않았다.
 </p>
@@ -1017,10 +1017,10 @@ nginx가 설치 되어 있고 nginx가 구동되어 있다면? <i>etc/nginx/site
 </div>
 </div>
 </div>
-<div id="outline-container-org3560873" class="outline-3">
-<h3 id="org3560873"><span class="section-number-3">5.2</span> nginx + passenger</h3>
+<div id="outline-container-org968be0a" class="outline-3">
+<h3 id="org968be0a"><span class="section-number-3">5.2</span> nginx + passenger</h3>
 <div class="outline-text-3" id="text-5-2">
-<div class="note" id="org52a35f9">
+<div class="note" id="orgfeb6121">
 <p>
 passenger는 WAS다. 즉 rails를 구동 시키는 역할을 한다. ruby를 설정하고, ruby로 rails app을 실행시킨다고 보면 된다. local에서 rails s를 하면 puma라고 하는 was가 실행되는 것과 비슷하다.
 이 passenger는 module형태로 제공이 된다. nginx를 기동하면 /etc/nginx/modules/passenger.so가 load된다. 하지만 중요한것은 passenger가 포함되던, nginx만 단독으로 하던간에 /etc/nginx/site-enabled/에 있는 설정이 실행된다는 것이다. 그 설정에서 passenger에 대한 설정을 추가할 뿐이다. 즉 ngixn +passenger가 잘 동작하는지 확인하기위해선, /etc/nginx/site-enabled/의 설정이 제대로 동작하는지 확인하면 된다. 그렇다고 해서 passenger의 설정파일이 없는 건 아니다. /etc/nginx/conf.d/mod-http-passenger.conf에서 passenger의 설정을 한다. 
@@ -1029,18 +1029,18 @@ passenger는 WAS다. 즉 rails를 구동 시키는 역할을 한다. ruby를 설
 </div>
 </div>
 
-<div id="outline-container-org3e41547" class="outline-4">
-<h4 id="org3e41547">(8) web 관련 설정</h4>
-<div class="outline-text-4" id="text-org3e41547">
+<div id="outline-container-org87a2d04" class="outline-4">
+<h4 id="org87a2d04">(8) web 관련 설정</h4>
+<div class="outline-text-4" id="text-org87a2d04">
 </div>
-<div id="outline-container-org96ea421" class="outline-5">
-<h5 id="org96ea421"><i>etc/nginx/conf.d</i> - passenger설정</h5>
+<div id="outline-container-org1e7e067" class="outline-5">
+<h5 id="org1e7e067"><i>etc/nginx/conf.d</i> - passenger설정</h5>
 </div>
 
-<div id="outline-container-orgd09a5ec" class="outline-5">
-<h5 id="orgd09a5ec">/site-enabled/config - nginx 설정</h5>
-<div class="outline-text-5" id="text-orgd09a5ec">
-<div class="note" id="org7b8e96a">
+<div id="outline-container-orgd6ee868" class="outline-5">
+<h5 id="orgd6ee868">/site-enabled/config - nginx 설정</h5>
+<div class="outline-text-5" id="text-orgd6ee868">
+<div class="note" id="org120550c">
 <p>
 
 </p>
@@ -1050,31 +1050,31 @@ passenger는 WAS다. 즉 rails를 구동 시키는 역할을 한다. ruby를 설
 </div>
 </div>
 
-<div id="outline-container-org9fce9e0" class="outline-4">
-<h4 id="org9fce9e0">error처리 모음.</h4>
-<div class="outline-text-4" id="text-org9fce9e0">
+<div id="outline-container-org1fbd905" class="outline-4">
+<h4 id="org1fbd905">error처리 모음.</h4>
+<div class="outline-text-4" id="text-org1fbd905">
 </div>
-<div id="outline-container-org63de0b6" class="outline-5">
-<h5 id="org63de0b6">nginx가 start되지 않고, passenger관련 에러 (/var/log폴더 삭제시)</h5>
-<div class="outline-text-5" id="text-org63de0b6">
-<div class="note" id="org1f281a7">
+<div id="outline-container-org856dd2a" class="outline-5">
+<h5 id="org856dd2a">nginx가 start되지 않고, passenger관련 에러 (/var/log폴더 삭제시)</h5>
+<div class="outline-text-5" id="text-org856dd2a">
+<div class="note" id="org8e3a1ed">
 <p>
 시스템을 확장한다거나, 데이터부족으로 /var/log/nginx 폴더가 삭제되었을때,  ec2를 다시 껏다 키면 아래와 같은 에러가 나타난다. nginx가 start되지도 않는다. 이런 경우에 /var/logn/nginx 폴더를 만들어 주면 된다.
 </p>
 
 </div>
 
-<div id="org3ac8964" class="figure">
+<div id="org66030ad" class="figure">
 <p><img src="./img/error1.png" alt="error1.png" width="800px" />
 </p>
 <p><span class="figure-number">Figure 18: </span>error1</p>
 </div>
 </div>
 </div>
-<div id="outline-container-orgaea65df" class="outline-5">
-<h5 id="orgaea65df">bundle에서 에러</h5>
-<div class="outline-text-5" id="text-orgaea65df">
-<div class="note" id="orgcb6799b">
+<div id="outline-container-orgdc17a35" class="outline-5">
+<h5 id="orgdc17a35">bundle에서 에러</h5>
+<div class="outline-text-5" id="text-orgdc17a35">
+<div class="note" id="orgbc17ebb">
 <p>
 bundle lock &#x2013;add-platform x86<sub>64</sub>-linux
 </p>
@@ -1082,16 +1082,16 @@ bundle lock &#x2013;add-platform x86<sub>64</sub>-linux
 </div>
 </div>
 </div>
-<div id="outline-container-orge72cc18" class="outline-5">
-<h5 id="orge72cc18">DB관련 권한 문제</h5>
-<div class="outline-text-5" id="text-orge72cc18">
-<div class="note" id="org022fd71">
+<div id="outline-container-org33cce86" class="outline-5">
+<h5 id="org33cce86">DB관련 권한 문제</h5>
+<div class="outline-text-5" id="text-org33cce86">
+<div class="note" id="org6543b65">
 <p>
 우선 사용자가 사용할 수 있는 db여야 한다. 즉 mysql -udeploy로 접속해서 show databases;를 해서 db가 있는지 확인해야 한다. 그런 다음에 해당 db의 모든 권한을 줘야 한다. 예를 들어서 deploy란 사용자가 kwaterdb라는 db가 있다면,  다음 코드를 추가한다.
 </p>
 
 </div>
-<div class="note" id="org51e1880">
+<div class="note" id="org8a565ef">
 <p>
 GRANT ALL PRIVILEGES ON kwaterdb.* TO 'deploy'@'localhost';
 GRANT ALL PRIVILEGES ON kwaterdb.* TO 'deploy'@'%';
@@ -1105,14 +1105,14 @@ FLUSH PRIVILEGES;
 </div>
 </div>
 
-<div id="outline-container-orgff5079e" class="outline-2">
-<h2 id="orgff5079e"><span class="section-number-2">6</span> log에 관해서</h2>
+<div id="outline-container-org6c66386" class="outline-2">
+<h2 id="org6c66386"><span class="section-number-2">6</span> log에 관해서</h2>
 <div class="outline-text-2" id="text-6">
 </div>
-<div id="outline-container-orgb86700f" class="outline-3">
-<h3 id="orgb86700f"><span class="section-number-3">6.1</span> rails log</h3>
+<div id="outline-container-org20b26e6" class="outline-3">
+<h3 id="org20b26e6"><span class="section-number-3">6.1</span> rails log</h3>
 <div class="outline-text-3" id="text-6-1">
-<div class="note" id="org31234a1">
+<div class="note" id="org97b9b1d">
 <p>
 less /home/deploy/smartwatercare/current/log/production.log
 </p>
@@ -1120,10 +1120,10 @@ less /home/deploy/smartwatercare/current/log/production.log
 </div>
 </div>
 </div>
-<div id="outline-container-orgf8c11e2" class="outline-3">
-<h3 id="orgf8c11e2"><span class="section-number-3">6.2</span> nginx &amp; passenger log</h3>
+<div id="outline-container-org300b64c" class="outline-3">
+<h3 id="org300b64c"><span class="section-number-3">6.2</span> nginx &amp; passenger log</h3>
 <div class="outline-text-3" id="text-6-2">
-<div class="note" id="org7444730">
+<div class="note" id="orgeafd4b0">
 <p>
 sudo less /var/log/nginx/error.log
 </p>
@@ -1135,7 +1135,7 @@ sudo less /var/log/nginx/error.log
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Holy Frege</p>
-<p class="date">Created: 2021-12-01 Wed 15:02</p>
+<p class="date">Created: 2021-12-31 Fri 04:21</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
